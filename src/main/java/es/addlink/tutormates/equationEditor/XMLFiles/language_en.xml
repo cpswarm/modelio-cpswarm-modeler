@@ -1,0 +1,132 @@
+<language lan="en" title="TutorMates Equation editor ~ www.tutormates.es">
+
+<!--
+English
+
+===========================================================
+TutorMates: Tool for Mathematics Teaching and Learning.
+===========================================================
+
+(C) Copyright 2011, by Addlink Research.
+ 
+Project Info: 	http://www.tutormates.com
+Contact: 		info@tutormates.es
+ 
+TutorMates Equation Editor is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
+ 
+TutorMates Equation Editor is distributed in the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with TutorMates Equation Editor.  
+If not, see <http://www.gnu.org/licenses/>.
+ 
+
+File: language_en.xml
+
+
+(C) Copyright 2011, by Addlink Research.
+
+Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
+Contributor(s):
+-->
+
+	<toolBars>
+		
+		<tabs>
+			<generalOperators>Operators</generalOperators>
+			<numbers>Numbers/Variables</numbers>
+		</tabs>
+		
+		
+		<buttons>
+		
+			<TMSum>Sum</TMSum>
+			<TMSubtraction>Subtraction</TMSubtraction>
+			<TMDivision>Division</TMDivision>
+			<TMMultiplication>Multiplication</TMMultiplication>
+			<multiplication>Multiplication</multiplication>
+			<division>Division</division>
+			<equality>Equality</equality>
+			<percentage>Percentage</percentage>
+			<factorial>Factorial</factorial>
+			<decimal>Decimal</decimal>
+			<pureRepeatingDecimal>Pure repeating decimal</pureRepeatingDecimal>
+			<mixedRepeatingDecimal>Mixed repeating decimal</mixedRepeatingDecimal>
+			<exponent>Exponent</exponent>
+			<squareRoot>Square root</squareRoot>
+			<nthRoot>N-th root</nthRoot>
+			<fraction>Fraction</fraction>
+			<geometricPoint>Geometric point</geometricPoint>
+			<pi>Pi</pi>
+			<infinity>Infinity</infinity>
+			<eulerNumber>Euler number</eulerNumber>
+			
+			<zero>Zero</zero>
+			<one>One</one>
+			<two>Two</two>
+			<three>Three</three>
+			<four>Four</four>
+			<five>Five</five>
+			<six>Six</six>
+			<seven>Seven</seven>
+			<eight>Eight</eight>
+			<nine>Nine</nine>
+			<a>Variable a</a>
+			<b>Variable b</b>
+			<m>Variable m</m>
+			<n>Variable n</n>
+			<x>Variable x</x>
+			<y>Variable y</y>
+			<r>Variable r</r>
+			<s>Variable s</s>
+			<z>Variable z</z>
+			<unknown>Unknown value</unknown>
+			
+		</buttons>
+		
+		
+		<actions>
+			<undo>Undo</undo>
+			<redo>Redo</redo>
+			<remove>Remove expression</remove>
+			<export>Export expression</export>
+			<import>Import expression</import>
+		</actions>
+		
+		
+		
+	</toolBars>
+	
+	<errors>
+	
+		<gui>
+			<incorrectExportExpression>
+				<title>Incorrect expression</title>
+				<message>Incorrect expression</message>
+			</incorrectExportExpression>
+			<emptyExportExpression>
+				<title>Incorrect expression</title>
+				<message>Empty expression.</message>
+			</emptyExportExpression>
+			<incorrectImportExpression>
+				<title>Import expression</title>
+				<message>No ha sido posible importar la expresión seleccionada.</message>
+			</incorrectImportExpression>
+			<emptyImportExpression>
+				<title>Import expression</title>
+				<message>Debes seleccionar una expresión para poderla importar.</message>
+			</emptyImportExpression>
+		</gui>
+		
+		<console>
+		</console>
+	
+	</errors>
+	
+</language>

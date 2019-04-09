@@ -1,0 +1,173 @@
+<language lan="es" title="Editor de expresiones de TutorMates ~ www.tutormates.es">
+
+<!--
+Español
+
+===========================================================
+TutorMates: Tool for Mathematics Teaching and Learning.
+===========================================================
+
+(C) Copyright 2011, by Addlink Research.
+ 
+Project Info: 	http://www.tutormates.com
+Contact: 		info@tutormates.es
+ 
+TutorMates Equation Editor is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
+ 
+TutorMates Equation Editor is distributed in the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with TutorMates Equation Editor.  
+If not, see <http://www.gnu.org/licenses/>.
+ 
+
+File: language_es.xml
+
+
+(C) Copyright 2011, by Addlink Research.
+
+Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
+Contributor(s): 
+ -->
+ 
+	<toolBars>
+
+		<tabs>
+			<generalOperators>Operadores</generalOperators>
+			<comparisonOperators>Ope. de comparación</comparisonOperators>
+			<numbers>Números/Variables</numbers>
+		</tabs>
+		
+		<buttons>
+		
+			<TMSum>Suma</TMSum>
+			<TMSubtraction>Resta</TMSubtraction>
+			<TMMultiplication>Multiplicación</TMMultiplication>
+			<TMDivision>División</TMDivision>
+			<multiplication>Multiplicación</multiplication>
+			<division>División</division>
+			<equality>Igualdad</equality>
+			<percentage>Porcentaje</percentage>
+			<factorial>Factorial</factorial>
+			<decimal>Punto decimal</decimal>
+			<pureRepeatingDecimal>Periódico puro</pureRepeatingDecimal>
+			<mixedRepeatingDecimal>Periódico mixto</mixedRepeatingDecimal>
+			<exponent>Exponente</exponent>
+			<squareRoot>Raíz cuadrada</squareRoot>
+			<nthRoot>Raíz enésima</nthRoot>
+			<fraction>Fracción</fraction>
+			<geometricPoint>Coordenada</geometricPoint>
+			<pi>Número pi</pi>
+			<infinity>Infinito</infinity>
+			<eulerNumber>Número de Euler</eulerNumber>
+			
+			<zero>Cero</zero>
+			<one>Uno</one>
+			<two>Dos</two>
+			<three>Tres</three>
+			<four>Cuatro</four>
+			<five>Cinco</five>
+			<six>Seis</six>
+			<seven>Siete</seven>
+			<eight>Ocho</eight>
+			<nine>Nueve</nine>
+			<a>Variable a</a>
+			<b>Variable b</b>
+			<m>Variable m</m>
+			<n>Variable n</n>
+			<x>Variable x</x>
+			<y>Variable y</y>
+			<r>Variable r</r>
+			<s>Variable s</s>
+			<z>Variable z</z>
+			<unknown>Incógnita</unknown>
+			
+		</buttons>
+
+		<actions>
+			<undo>Deshacer</undo>
+			<redo>Rehacer</redo>
+			<remove>Eliminar expresión completa o selección</remove>
+			<export>Exportar expresión</export>
+			<import>Importar expresión</import>
+		</actions>
+
+		<operators title="Operadores">
+			<TMSum>Suma</TMSum>
+			<TMSubtraction>Resta</TMSubtraction>
+			<TMMultiplication>Multiplicación</TMMultiplication>
+			<TMDivision>División</TMDivision>
+			<multiplication>Multiplicación</multiplication>
+			<division>División</division>
+			<equality>Igualdad</equality>
+			<percentage>Porcentaje</percentage>
+			<factorial>Factorial</factorial>
+			<decimal>Punto decimal</decimal>
+			<pureRepeatingDecimal>Periódico puro</pureRepeatingDecimal>
+			<mixedRepeatingDecimal>Periódico mixto</mixedRepeatingDecimal>
+			<exponent>Exponente</exponent>
+			<squareRoot>Raíz cuadrada</squareRoot>
+			<nthRoot>Raíz enésima</nthRoot>
+			<fraction>Fracción</fraction>
+			<geometricPoint>Coordenada</geometricPoint>
+			<pi>Número pi</pi>
+			<infinity>Infinito</infinity>
+			<eulerNumber>Número de Euler</eulerNumber>
+		</operators>
+		
+		<numbers title="Números/Variables">
+			<zero>Cero</zero>
+			<one>Uno</one>
+			<two>Dos</two>
+			<three>Tres</three>
+			<four>Cuatro</four>
+			<five>Cinco</five>
+			<six>Seis</six>
+			<seven>Siete</seven>
+			<eight>Ocho</eight>
+			<nine>Nueve</nine>
+			<a>Variable a</a>
+			<b>Variable b</b>
+			<m>Variable m</m>
+			<n>Variable n</n>
+			<x>Variable x</x>
+			<y>Variable y</y>
+			<r>Variable r</r>
+			<s>Variable s</s>
+			<unknown>Incógnita</unknown>
+		</numbers>
+
+	</toolBars>
+	
+	<errors>
+	
+		<gui>
+			<incorrectExportExpression>
+				<title>Sentencia errónea</title>
+				<message>La expresión es incorrecta, ¡revísala!</message>
+			</incorrectExportExpression>
+			<emptyExportExpression>
+				<title>Exportación de una sentencia</title>
+				<message>No se puede exportar una expresión vacía.</message>
+			</emptyExportExpression>
+			<incorrectImportExpression>
+				<title>Importación de una sentencia</title>
+				<message>No ha sido posible importar la expresión seleccionada.</message>
+			</incorrectImportExpression>
+			<emptyImportExpression>
+				<title>Importación de una sentencia</title>
+				<message>Debes seleccionar una expresión para poderla importar.</message>
+			</emptyImportExpression>
+		</gui>
+		
+		<console></console>
+	
+	</errors>
+	
+</language>
