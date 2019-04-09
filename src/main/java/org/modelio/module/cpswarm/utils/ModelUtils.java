@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.TagParameter;
@@ -271,7 +270,7 @@ public class ModelUtils {
                             }
         
                         }
-                        catch (ParseException e) {
+                        catch (Exception e) {
                             JOptionPane.showMessageDialog(null, "Internal ERROR :\nThe parameter number is not a number.", "-- Internal Error --", JOptionPane.ERROR_MESSAGE);
                         }
         
