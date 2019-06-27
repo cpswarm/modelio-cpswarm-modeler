@@ -26,22 +26,24 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Label;
 
 /**
  * This class defines the file chooser composite.
  * This composite is composed of
  * - a text field in order to specify the desired file
- * - a file browser button for allowing file browsing
  *
  * It is a SWT composite
  * @author ebrosse
  */
 
 public class EnumerationComposite extends Composite {
+    
+    private Label label = null;
 
-    private Text text = null;
+    private Combo combo = null;
 
     /**
      * This method sets the label of the composite
@@ -50,9 +52,15 @@ public class EnumerationComposite extends Composite {
     @objid ("30032f29-b646-4bc5-94b2-db3675da639c")
     public void setText(final String label) {
         if (label != null)
-            this.text.setText(label);
+            this.combo.setText(label);
     }
-
+    
+    public void setLabel(final String label) {
+        if (label != null)
+            this.label.setText(label);
+    }
+    
+   
     /**
      * Constructor of the FileChooserComposite.
      * It needs :
@@ -68,11 +76,11 @@ public class EnumerationComposite extends Composite {
         super(parent, style);
         setLayout(new FormLayout());
         final GridLayout gridLayout = new GridLayout();
-        gridLayout.numColumns = 1;
+        gridLayout.numColumns = 2;
         this.setLayout(gridLayout);
-        this.text = new Text(this, SWT.BORDER);
-        this.text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-        this.text.setEnabled(true);
+        this.label = new Label(this, SWT.BORDER);
+        this.label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+
     }
 
     /**
@@ -80,8 +88,8 @@ public class EnumerationComposite extends Composite {
      * @return the text of the FileDialog
      */
     @objid ("50095e7b-1f62-40b6-8fbd-b1fd6503333a")
-    public String getText() {
-        return this.text.getText();
+    public String getComboValue() {
+        return this.combo.getText();
     }
 
     /**
@@ -89,8 +97,8 @@ public class EnumerationComposite extends Composite {
      * @return the owned SWT TEXT
      */
     @objid ("006aee3c-4c2f-40ce-9c60-10df94d30594")
-    public Text getTextButton() {
-        return this.text;
+    public Combo getComboButton() {
+        return this.combo;
     }
 
 

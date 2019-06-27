@@ -24,22 +24,23 @@ package org.modelio.module.cpswarm.ui.composite;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 /**
  * This class defines the file chooser composite.
  * This composite is composed of
  * - a text field in order to specify the desired file
- * - a file browser button for allowing file browsing
  *
  * It is a SWT composite
  * @author ebrosse
  */
 
-public class NameComposite extends Composite {
+public class StringComposite extends Composite {
+    
+    private Label label = null;
 
     private Text text = null;
 
@@ -52,6 +53,12 @@ public class NameComposite extends Composite {
         if (label != null)
             this.text.setText(label);
     }
+    
+    public void setLabel(final String label) {
+        if (label != null)
+            this.label.setText(label);
+    }
+    
 
     /**
      * Constructor of the FileChooserComposite.
@@ -64,15 +71,21 @@ public class NameComposite extends Composite {
      * @param typeSelection : the SWT selection type
      */
     @objid ("46e26c47-2811-4605-a7e8-35c3f9f88468")
-    public NameComposite(final Composite parent, final int style, final int typeSelection) {
+    public StringComposite(final Composite parent, final int style, final int typeSelection) {
         super(parent, style);
+        
         setLayout(new FormLayout());
+        
         final GridLayout gridLayout = new GridLayout();
-        gridLayout.numColumns = 1;
+        gridLayout.numColumns = 2;
         this.setLayout(gridLayout);
-        this.text = new Text(this, SWT.BORDER);
-        this.text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        
+        this.label = new Label(this, SWT.BORDER);
+        
+        this.text = new Text(this, SWT.None);
+//        this.text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         this.text.setEnabled(true);
+        
     }
 
     /**

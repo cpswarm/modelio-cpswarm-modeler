@@ -42,7 +42,7 @@ import org.modelio.module.cpswarm.ui.composite.ValidationBoutonComposite;
 import org.modelio.module.cpswarm.utils.ResourcesManager;
 
 /**
- * This class provides the XMI export dialog
+ * This class provides the SCXML export dialog
  * @author ebrosse
  */
 @objid ("f91e2337-fef4-4e6e-b382-cb9fb518f9b2")

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.model.IUmlModel;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.TagParameter;
@@ -43,7 +44,94 @@ public class ModelUtils {
         }
         return null;
     }
+    
+    /**
+     * Method setTaggedValue
+     * @author ebrosse
+     * @param tvFound
+     * @param elt
+     * @param value
+     * @param related
+     * @param stereotypeLink @return
+     */
+    @objid ("7464086c-3b04-4192-b676-defd0632a1b3")
+    public static void setTaggedValue(TaggedValue tvFound, ModelElement elt, String value, ModelElement related, String modulelink, String stereotypeLink) {
+        IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
+        
+        for (Dependency existingLinks : new ArrayList<>(elt.getDependsOnDependency())) {
+            if (existingLinks.isStereotyped(modulelink,stereotypeLink)) {
+                existingLinks.delete();
+            }
+        }
+        
+        TagParameter firstElt = null;
+        List<TagParameter> actuals = tvFound.getActual();
+        if ((actuals != null) && (actuals.size() > 0)) {
+            firstElt = actuals.get(0);
+        } else {
+            firstElt = model.createTagParameter();
+            tvFound.getActual().add(firstElt);
+        }
+        
+        if (value.equals("false")) {
+            tvFound.delete();
+        } else {
+            firstElt.setValue(value);
+            try {
+                model.createDependency(elt, related,modulelink, stereotypeLink);
+            } catch (Exception e) {
+                CPSWarmModule.logService.error(e);
+            }
+        }
+    }
 
+
+    /**
+     * Method addValue
+     * @author ebrosse
+     * @param name
+     * @param value
+     * @param element
+     * @param related
+     * @param stereotypeLink @return
+     */
+    @objid ("6e44f1b3-b1cb-4ffa-8b1a-53601a8099be")
+    public static void addValue(String modulename, String name, String value, ModelElement element, ModelElement related, String modulelink, String stereotypeLink) {
+        // DON'T place Transition HERE
+        
+        boolean exist = false;
+        
+        TaggedValue tag = null;
+        List<TaggedValue> tagElements = element.getTag();
+        IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
+        
+        if (!tagElements.isEmpty()) {
+            for (TaggedValue currentTag : tagElements) {
+                TagType type = currentTag.getDefinition();
+                String tagname = type.getName();
+        
+                if (tagname.equals(name)) {
+                    exist = true;
+                    tag = currentTag;
+                    break;
+        
+                }
+            }
+        }
+        
+        if (!exist) {
+            try {
+                tag = model.createTaggedValue(modulename, name, element);
+        
+            } catch (Exception e) {
+                CPSWarmModule.logService.error(e);
+            }
+        
+        }
+        
+        setTaggedValue(tag, element, value, related,modulelink, stereotypeLink);
+    }
+    
     /**
      * This method returns the list of Classifier associated (sharing an Association) to the given Association
      * @param center : the central association
@@ -336,4 +424,80 @@ public class ModelUtils {
         return true;
     }
 
+    public static void addValue(String modulename, String name, String values, ModelElement element) {
+        // DON'T place Transition HERE
+        boolean exist = false;
+        List<TaggedValue> tagElements = element.getTag();
+        TaggedValue tvFound = null;
+        
+        // existing verification
+        if (!tagElements.isEmpty()) {
+            for (TaggedValue tag : tagElements) {
+        
+                TagType type = tag.getDefinition();
+                String tagname = type.getName();
+        
+                if (tagname.equals(name)) {
+                    exist = true;
+                    // Modelio.out.println("tvFound FOUND");
+                    tvFound = tag;
+                }
+            }
+        }
+        
+        // if the tagged value doesn't exist yet, we create this
+        if (!exist) {
+            try {
+                // Modelio.out.println("tvFound does not exist");
+                TaggedValue v = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(modulename, name, element);
+                element.getTag().add(v);
+                if (!v.getDefinition().getParamNumber().equals("0")) {
+                    setTaggedValue(name, element, values);
+                }
+            } catch (Exception e) {
+                CPSWarmModule.logService.error(e);
+            }
+        }
+        // if the tagged value already exists
+        else {
+            if ((tvFound != null ) && (tvFound.getDefinition().getParamNumber().equals("0"))) {
+                // Modelio.out.println("tvFound.getDefinition().getParamNumber().equals(0), the tv is deleted");
+                tvFound.delete();
+            } else {
+                setTaggedValue(name, element, values);
+            }
+        }
+    }
+
+    public static void setTaggedValue(String name, ModelElement elt, String value) {
+        List<TaggedValue> tagElements = elt.getTag();
+        IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
+        
+        if (!tagElements.isEmpty()) {
+        
+            for (TaggedValue tag : tagElements) {
+                String tagname = tag.getDefinition().getName();
+                if (tagname.equals(name)) {
+        
+                    TagParameter firstElt = null;
+                    List<TagParameter> actuals = tag.getActual();
+                    if ((actuals != null) && (actuals.size() > 0)) {
+                        firstElt = actuals.get(0);
+                    } else {
+                        firstElt = model.createTagParameter();
+                        tag.getActual().add(firstElt);
+                    }
+        
+                    if (((value.equals("false")) && (tag.getDefinition().getParamNumber().equals("0")))
+                            || ((value.equals("")) && (tag.getDefinition().getParamNumber().equals("1")))) {
+                        tag.delete();
+                    } else {
+                        firstElt.setValue(value);
+                    }
+                }
+            }
+        }
+    }
+
+    
 }

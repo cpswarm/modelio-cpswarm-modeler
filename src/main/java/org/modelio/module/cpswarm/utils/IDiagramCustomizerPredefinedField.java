@@ -121,6 +121,22 @@ public interface IDiagramCustomizerPredefinedField {
 
     @objid ("b77b1f7f-7745-4cb2-8d48-0c9b80be6a57")
     public static final String SmartGeneralization = "CREATE_SMARTGENERALIZATION";
+    
+    public static final String State = "CREATE_STATE";
+    
+    public static final String InternalTransition = "CREATE_INTERNALTRANSITION";
+    
+    public static final String Transition = "CREATE_TRANSITION";
+    
+    public static final String Fork = "CREATE_FORKPSEUDOSTATE";
+    
+    public static final String Choice = "CREATE_CHOICEPSEUDOSTATE";
+    
+    public static final String Initiale = "CREATE_INITIALPSEUDOSTATE";
+    
+    public static final String Join = "CREATE_JOINPSEUDOSTATE";
+    
+    public static final String Final = "CREATE_FINALSTATE";
 
     @objid ("d3c56954-f352-43af-870e-cebe3755d9ab")
     public static final String TemplateParameter = "CREATE_TEMPLATEPARAMETER";
@@ -130,6 +146,7 @@ public interface IDiagramCustomizerPredefinedField {
 
     @objid ("772b8ebb-5a6c-4a7d-90f8-d5ec373f9dd1")
     public static final String Traceability = "CREATE_TRACEABILITY";
+    
 
     @objid ("49f1f3db-6e91-452d-8b89-64332761ebd7")
     public static final String Use = "CREATE_USE";

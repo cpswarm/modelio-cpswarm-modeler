@@ -5,7 +5,7 @@ import org.modelio.api.module.propertiesPage.IModulePropertyTable;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.module.cpswarm.api.CPSWarmTagTypes;
 import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
-import org.modelio.module.sysml.utils.ModelUtils;
+import org.modelio.module.cpswarm.utils.ModelUtils;
 
 @objid ("3891a4b0-4d09-40f2-a225-ea86410af5a7")
 public class ProblemPropertyPage implements IPropertyContent {

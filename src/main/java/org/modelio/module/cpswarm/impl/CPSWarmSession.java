@@ -13,7 +13,6 @@ import org.modelio.api.module.lifecycle.DefaultModuleLifeCycleHandler;
 import org.modelio.api.module.lifecycle.IModuleLifeCycleHandler;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.module.cpswarm.api.CPSWarmParameters;
-import org.modelio.module.sysml.impl.SysMLModule;
 import org.modelio.vbasic.version.Version;
 
 /**
@@ -34,6 +33,7 @@ public class CPSWarmSession extends DefaultModuleLifeCycleHandler implements IMo
     @Override
     public boolean start() throws ModuleException {
         installRamc();
+        installStyles();
         //        initParameter();
         return super.start();
     }
@@ -45,11 +45,13 @@ public class CPSWarmSession extends DefaultModuleLifeCycleHandler implements IMo
     }
 
     @objid ("ac8a80d6-0829-4046-a977-8ea35c5443c7")
-    public static boolean install(String modelioPath, String mdaPath) throws ModuleException {
-        boolean session = DefaultModuleLifeCycleHandler.install(modelioPath, mdaPath);     
-        CPSWarmModule.getInstance().getModuleContext().getModelioServices().getDiagramService().registerStyle("CPSwarm", "default", 
-                new File(mdaPath + File.separator  + "res" + File.separator + "style" + File.separator + "CPSwarm.style"));
-        return session;
+   
+    private void installStyles() {
+        Path mdaPath = this.module.getModuleContext().getConfiguration().getModuleResourcesPath();
+        CPSWarmModule.getInstance().getModuleContext().getModelioServices().getDiagramService().registerStyle("cpswarm", "default", 
+                new File(mdaPath + File.separator  + "res" + File.separator + "style" + File.separator + "cpswarm.style"));
+        CPSWarmModule.getInstance().getModuleContext().getModelioServices().getDiagramService().registerStyle("cpswarminternal", "default", 
+                new File(mdaPath + File.separator  + "res" + File.separator + "style" + File.separator + "cpswarminternal.style"));
     }
 
     @objid ("7a857d3d-eece-450f-b793-212686521db8")
@@ -85,7 +87,7 @@ public class CPSWarmSession extends DefaultModuleLifeCycleHandler implements IMo
     private void installRamc() {
         Path mdaplugsPath = this.module.getModuleContext().getConfiguration().getModuleResourcesPath();
         
-        final IModelComponentService modelComponentService =  SysMLModule.getInstance().getModuleContext().getModelioServices().getModelComponentService();
+        final IModelComponentService modelComponentService =  CPSWarmModule.getInstance().getModuleContext().getModelioServices().getModelComponentService();
         for (IModelComponentDescriptor mc : modelComponentService.getModelComponents()) {
             if (mc.getName().equals("CPSWarmLibrary")) {
                 if (new Version(mc.getVersion()).isOlderThan(new Version("3.7.00"))) {

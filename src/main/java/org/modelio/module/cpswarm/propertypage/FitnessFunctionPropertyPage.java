@@ -5,7 +5,7 @@ import org.modelio.api.module.propertiesPage.IModulePropertyTable;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.module.cpswarm.api.CPSWarmTagTypes;
 import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
-import org.modelio.module.sysml.utils.ModelUtils;
+import org.modelio.module.cpswarm.utils.ModelUtils;
 
 @objid ("5add035c-b0ca-41b1-8401-51d5f7dc8603")
 public class FitnessFunctionPropertyPage implements IPropertyContent {
@@ -13,9 +13,9 @@ public class FitnessFunctionPropertyPage implements IPropertyContent {
     @Override
     public int changeProperty(ModelElement element, int row, String value) {
         if(row == 1){
-            ModelUtils.addValue(ICPSWarmPeerModule.MODULE_NAME,CPSWarmTagTypes.FITNESSFUNCTION_MINIMUMCANDIDATES, value, element);
+            ModelUtils.addValue(ICPSWarmPeerModule.MODULE_NAME, CPSWarmTagTypes.FITNESSFUNCTION_MINIMUMCANDIDATES, value, element);
         }else if(row == 2){
-            ModelUtils.addValue(ICPSWarmPeerModule.MODULE_NAME,CPSWarmTagTypes.FITNESSFUNCTION_MAXIMUMCANDIDATES, value, element);
+            ModelUtils.addValue(ICPSWarmPeerModule.MODULE_NAME, CPSWarmTagTypes.FITNESSFUNCTION_MAXIMUMCANDIDATES, value, element);
         }
         return 2;
     }

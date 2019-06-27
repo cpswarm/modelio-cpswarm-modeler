@@ -8,6 +8,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("7c502392-a25a-4bd0-9c8a-6287709ccbff")
 public interface CPSWarmStereotypes {
+    
+    public static final String BEHAVIOR_DEFINITION = "Behavior_Definition"; 
+    
     @objid ("1365507d-38b6-4c22-836a-87c4e0b58b72")
     public static final String ENVIRONMENT = "Environment";
 
@@ -30,7 +33,7 @@ public interface CPSWarmStereotypes {
     public static final String SWARM = "Swarm";
 
     @objid ("bef3f1b9-e32d-4a6a-9fe3-51a5a0dea5e2")
-    public static final String SWARMMEMBER_ARCHITECTURE = "SwarmMember_ARchitecture";
+    public static final String SWARMMEMBER_ARCHITECTURE = "SwarmMember_Architecture";
 
     @objid ("e7f8d9a7-b8db-41ba-98b7-b8074e85a637")
     public static final String SWARM_DEFINITION = "Swarm_Definition";
@@ -40,5 +43,6 @@ public interface CPSWarmStereotypes {
 
     @objid ("219b7047-2644-470a-9ff9-cca48b6f2c4c")
     public static final String CONTROLLER = "Controller";
+    
 
 }

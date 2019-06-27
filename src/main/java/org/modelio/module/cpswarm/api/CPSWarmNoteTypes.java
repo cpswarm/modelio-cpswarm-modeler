@@ -14,4 +14,8 @@ public interface CPSWarmNoteTypes {
     public static final String ACTION = "action";
     
     public static final String SERVICE = "service";
+    
+    public static final String JAVA = "java";
+    
+    public static final String MATH = "math";
 }

@@ -1,12 +1,9 @@
-package org.modelio.module.cpswarm.command.explorer;
+package org.modelio.module.cpswarm.command.explorer.diagram.command;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.IModelioServices;
-import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.api.modelio.diagram.dg.IDiagramDG;
 import org.modelio.api.modelio.diagram.style.IStyleHandle;
@@ -15,43 +12,33 @@ import org.modelio.api.modelio.model.ITransaction;
 import org.modelio.api.module.IModule;
 import org.modelio.api.module.command.DefaultModuleCommandHandler;
 import org.modelio.api.module.context.IModuleContext;
-import org.modelio.metamodel.diagrams.StaticDiagram;
+import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.module.cpswarm.impl.CPSWarmModule;
 import org.modelio.module.cpswarm.utils.CPSwarmFactory;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
-public class SwarmMemberCommand extends DefaultModuleCommandHandler {
+public class SwarmDefinitionDiagram extends DefaultModuleCommandHandler {
 
     @Override
     public void actionPerformed(List<MObject> selectedElements, IModule module) {
         IModuleContext moduleContext = CPSWarmModule.getInstance().getModuleContext();
         IModelingSession modelingSession = moduleContext.getModelingSession();
         
-        try (ITransaction tr = modelingSession.createTransaction("Swarm Member Diagram");){
+        try (ITransaction tr = modelingSession.createTransaction("Swarm Diagram");){
+            
             org.modelio.metamodel.uml.statik.Package owner = (org.modelio.metamodel.uml.statik.Package) selectedElements.get(0);
-            
-            org.modelio.metamodel.uml.statik.Class swarmmember = CPSwarmFactory.createSwarmMember(owner);       
-            StaticDiagram diagram = CPSwarmFactory.createSwarmMemberArchitectureDiagram(swarmmember, "Swarm Member Architecture Diagram");
-            
-            if (diagram != null) {      
-                
+        
+            AbstractDiagram diagram = CPSwarmFactory.createEnvironmentDefinitionDiagram(owner);
+            if (diagram != null) {             
                 IModelioServices modelioServices = moduleContext.getModelioServices();
                 IDiagramService ds = modelioServices.getDiagramService();
                 IDiagramHandle dh = ds.getDiagramHandle(diagram);
-                
                 IDiagramDG dg = dh.getDiagramNode();
                 for (IStyleHandle style : ds.listStyles()){
-                    if (style.getName().equals("cpswarminternal"))
+                    if (style.getName().equals("cpswarm"))
                         dg.setStyle(style);
                 }
-                
-                List<IDiagramGraphic> dgs = dh.unmask(swarmmember, 0, 0);
-                for (IDiagramGraphic dg2 : dgs) {
-                    if (dg2 instanceof IDiagramNode)
-                        ((IDiagramNode) dg2).setBounds(new Rectangle(100, 100, 600, 500));
-                }
-                
                 dh.save();
                 dh.close();
                 modelioServices.getEditionService().openEditor(diagram);

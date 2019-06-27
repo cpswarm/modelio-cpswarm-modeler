@@ -5,8 +5,12 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.model.IMetamodelExtensions;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.api.module.propertiesPage.IModulePropertyTable;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.metamodel.uml.statik.Association;
+import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.module.cpswarm.api.CPSWarmStereotypes;
@@ -21,31 +25,56 @@ public class CPSwarmPropertyManager {
         IPropertyContent propertypage = null;
         IModuleContext moduleContext = CPSWarmModule.getInstance().getModuleContext();
         IMetamodelExtensions extensions = moduleContext.getModelingSession().getMetamodelExtensions();
-        
+
         int currentRow = row;
+
+        if ((element instanceof Association) || (element instanceof AssociationEnd)) {
+            propertypage = new AssociationPropertyPage();
+            propertypage.changeProperty(element, currentRow, value);
+            propertypage = null;
+        }
         
+        if (element instanceof Transition) {
+            propertypage = new TransitionPropertyPage();
+            propertypage.changeProperty(element, currentRow, value);
+            propertypage = null;
+        }
+
+        if (element instanceof State) {
+            State state = (State) element;
+            if (state.getInternal().size() >0) {
+                propertypage = new ActionPropertyPage();
+                propertypage.changeProperty(element, currentRow, value);
+                propertypage = null;
+            }else {
+                propertypage = new SubMachinePropertyPage();
+                propertypage.changeProperty(element, currentRow, value);
+                propertypage = null;
+            }
+        }
+
         List<Stereotype> sterList = element.getExtension();
         MMetamodel metamodel = moduleContext.getModelioServices().getMetamodelService().getMetamodel();
-        
+
         for (Stereotype ster : sterList) {
-        
+
             // Problem property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.PROBLEM,
                     metamodel.getMClass(Class.class)))) {
                 propertypage = new ProblemPropertyPage();
             }
-        
+
             // FitnessFunction property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.FITNESSFUNCTION,
                     metamodel.getMClass(BindableInstance.class)))) {
                 propertypage = new FitnessFunctionPropertyPage();
             }
-        
+
             if (propertypage != null) {          
                 currentRow = currentRow - propertypage.changeProperty(element, currentRow, value);
                 propertypage = null;
             }
-        
+
         }
         return currentRow;
     }
@@ -55,26 +84,51 @@ public class CPSwarmPropertyManager {
         IPropertyContent propertypage = null;
         IModuleContext moduleContext = CPSWarmModule.getInstance().getModuleContext();
         IMetamodelExtensions extensions = moduleContext.getModelingSession().getMetamodelExtensions();
+
+
+        if ((element instanceof Association) || (element instanceof AssociationEnd)) {
+            propertypage = new AssociationPropertyPage();
+            propertypage.update(element, table);
+            propertypage = null;
+        }
         
+        if (element instanceof Transition) {
+            propertypage = new TransitionPropertyPage();
+            propertypage.update(element, table);
+            propertypage = null;
+        }
         
+        if (element instanceof State) {
+            State state = (State) element;
+            if (state.getInternal().size() >0) {
+                propertypage = new ActionPropertyPage();
+                propertypage.update(element, table);
+                propertypage = null;
+            }else {
+                propertypage = new SubMachinePropertyPage();
+                propertypage.update(element, table);
+                propertypage = null;
+            }
+        }
+
         List<Stereotype> sterList = element.getExtension();
         MMetamodel metamodel = moduleContext.getModelioServices().getMetamodelService().getMetamodel();
-        
+
         for (Stereotype ster : sterList) {
-        
+
             // Problem property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.PROBLEM,
                     metamodel.getMClass(Class.class)))) {
                 propertypage = new ProblemPropertyPage();
             }
-        
+
             // FitnessFunction property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.FITNESSFUNCTION,
                     metamodel.getMClass(BindableInstance.class)))) {
                 propertypage = new FitnessFunctionPropertyPage();
             }
-        
-        
+
+
             if (propertypage != null) {
                 propertypage.update(element, table);
                 propertypage = null;

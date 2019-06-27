@@ -11,6 +11,8 @@ import org.modelio.metamodel.uml.statik.DataType;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.metamodel.uml.statik.PortOrientation;
+import org.modelio.module.cpswarm.api.CPSWarmNoteTypes;
+import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
 
 public class FitnessFunctionGeneration extends Generator implements IGenerator {
 
@@ -59,24 +61,12 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addLine("logs = new ArrayList<NavigableMap<Integer,Double>>();");
         addEmptyLine();
         addLine("// path to log directory");
-        addLine("File logPath = null;");
-        addLine("try {");
-        increaseIndent();
-        addLine("logPath = new File(FitnessFunctionCalculator.class.getResource(\"/logs\").toURI());");
-        decreaseIndent();
-        addLine(" } catch (URISyntaxException e1) {");
-        increaseIndent();
-        addLine("// TODO Auto-generated catch block");
-        addLine("e1.printStackTrace();");
-        decreaseIndent();
-        addLine("}");
+        addLine("File logPath = new File(path);");
         addEmptyLine();
-        increaseIndent();
         addLine("// iterate through all log files");
         addLine("String[] logFiles = logPath.list(new FileLogFilter());");
         addLine("for ( int i=0; i<logFiles.length; i++ ) {");
         addEmptyLine();
-        increaseIndent();
         addLine("// container for data of one log file");
         addLine("NavigableMap<Integer,Double> log = new TreeMap<Integer, Double>();");
         addEmptyLine();
@@ -106,13 +96,11 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addLine("e.printStackTrace();");
         decreaseIndent();
         addLine("}");
-        decreaseIndent();
         addEmptyLine();
         addLine("// store contents of log file");
         addLine("logs.add(log);");
         addLine("}");
         addLine("return true;");
-        decreaseIndent();
         addLine("}");
         addEmptyLine();
     }
@@ -134,6 +122,8 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
                 }
             }
         }
+        
+        addEmptyLine();
     }
 
     private void footer() {
@@ -160,7 +150,14 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
             name += "{"; 
             addLine(name);
             increaseIndent();
-            addLine(base.getConstraintDefinition().get(0).getBody());
+            
+            String code = base.getNoteContent(ICPSWarmPeerModule.MODULE_NAME, CPSWarmNoteTypes.JAVA);  
+            if ((code == null) || (code.equals("")))
+                code = "return " + base.getNoteContent(ICPSWarmPeerModule.MODULE_NAME, CPSWarmNoteTypes.MATH);  
+            
+            addLine(code);
+            
+            
             decreaseIndent();
             addLine("}");
         }
@@ -250,7 +247,6 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addLine("import java.io.BufferedReader;");
         addLine("import java.io.File;");
         addLine("import java.io.IOException;");
-        addLine("import java.net.URISyntaxException;");
         addLine("import java.nio.file.Files;");
         addLine("import java.nio.file.Path;");
         addLine("import java.nio.file.Paths;");
