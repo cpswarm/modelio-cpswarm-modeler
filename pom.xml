@@ -64,6 +64,12 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>org.modelio</groupId>
+			<artifactId>org.eclipse.ui.forms</artifactId>
+			<version>3.7.101.v20170815-1446</version>
+		</dependency>
+
 		<!-- <dependency> -->
 		<!-- <groupId>org.dom4j</groupId> -->
 		<!-- <artifactId>dom4j</artifactId> -->
