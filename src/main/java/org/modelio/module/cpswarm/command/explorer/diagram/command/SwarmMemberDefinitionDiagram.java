@@ -1,7 +1,6 @@
 package org.modelio.module.cpswarm.command.explorer.diagram.command;
 
 import java.util.List;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramService;
@@ -68,7 +67,6 @@ public class SwarmMemberDefinitionDiagram extends DefaultModuleCommandHandler {
      * This method specifies whether or not a command must be deactivated.
      * If the command has to be displayed (which means that the accept method has returned a positive value, it is sometimes needed to desactivate the command depending on specific constraints that are specific to the module.
      */
-    @objid ("5f37df04-9fd6-49de-8f01-0d05093b24c0")
     @Override
     public boolean isActiveFor(List<MObject> selectedElements, IModule module) {
         return true;

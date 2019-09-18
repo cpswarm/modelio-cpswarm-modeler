@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -60,9 +59,6 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
         this.selectedElt = (ModelTree) selectedElements.get(0);
         this.module = module;
 
-        //        DSEWizardExport cpdtwizard = new DSEWizardExport(Display.getCurrent().getActiveShell());
-        //        cpdtwizard.setSelectedElt(;
-        //        cpdtwizard.open();
         createContents2();
 
     }
@@ -249,7 +245,6 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
 
 
 
-    @objid ("c133add4-fc1e-48d3-b796-6b20f6fd7814")
     protected void completeBox() {
         Display.getDefault().asyncExec(new Runnable() {
             @Override

@@ -1,6 +1,5 @@
 package org.modelio.module.cpswarm.scxml;
 
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InitialPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
@@ -23,7 +22,6 @@ public class SCXMLGenerationOld extends Generator implements IGenerator {
         this.statemachine = statemachine;
     }
 
-    @objid ("678f5491-5100-42e1-b979-ce56f2faf588")
     public StringBuffer generate() {
         headerXML();
         stateXML();
@@ -32,13 +30,11 @@ public class SCXMLGenerationOld extends Generator implements IGenerator {
         return this.content;
     }
 
-    @objid ("601712da-159b-435c-9163-fc33bd5ea2eb")
     private void footerXML() {
         decreaseIndent();
         addLine("</scxml>");
     }
 
-    @objid ("9df11abf-d830-42fa-8727-df00321;008f7")
     private void headerXML() {
         
         String initialname = "";

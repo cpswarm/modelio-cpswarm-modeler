@@ -6,7 +6,6 @@ import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
@@ -339,7 +338,6 @@ public class SwarmCommand_old extends DefaultModuleCommandHandler {
         });
     }
 
-    @objid ("88ede7ce-f7b7-4764-a232-d0b59ab3d304")
     void customMessageBox(int icon) {
         MessageBox messageBox = new MessageBox(Display.getCurrent().getActiveShell(), icon);
         messageBox.setMessage(this.description);
@@ -351,7 +349,6 @@ public class SwarmCommand_old extends DefaultModuleCommandHandler {
      * This methods authorizes a command to be displayed in a defined context.
      * The commands are displayed, by default, depending on the kind of metaclass on which the command has been launched.
      */
-    @objid ("2d9a751d-6151-41cd-b513-3c3995a5013e")
     @Override
     public boolean accept(List<MObject> selectedElements, IModule module) {
         if ((selectedElements != null) && (selectedElements.size() == 1 )){
@@ -366,7 +363,6 @@ public class SwarmCommand_old extends DefaultModuleCommandHandler {
      * This method specifies whether or not a command must be deactivated.
      * If the command has to be displayed (which means that the accept method has returned a positive value, it is sometimes needed to desactivate the command depending on specific constraints that are specific to the module.
      */
-    @objid ("fdeecf8c-99b2-4eaa-9ee8-ecccbdafa555")
     @Override
     public boolean isActiveFor(List<MObject> selectedElements, IModule module) {
         return true;

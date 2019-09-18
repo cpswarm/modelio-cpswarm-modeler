@@ -28,7 +28,6 @@
  **/
 package org.modelio.module.cpswarm.command.explorer.diagram.wizard;
 
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
@@ -57,9 +56,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * This class handles the creation of SysML block diagram
  * @author ebrosse
  */
-@objid ("07dfbb63-f43e-4ec1-8bbc-7c108616a28a")
+
 public class EnvironmentDefinitionDiagramWizard extends AbstractWizardContributor implements IDiagramWizardContributor {
-    @objid ("89e14ffe-ab1e-45f0-82b5-a95b64d86347")
+
     @Override
     public AbstractDiagram actionPerformed(ModelElement element, String diagramName, String description) {
         IModelingSession session = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
@@ -92,37 +91,37 @@ public class EnvironmentDefinitionDiagramWizard extends AbstractWizardContributo
         return diagram;
     }
 
-    @objid ("71edb37a-a8e1-4c77-9517-3baea6490c58")
+
     @Override
     public String getLabel() {
         return I18nMessageService.getString ("Ui.Command.BlockDiagramExplorerCommand.Label");
     }
 
-    @objid ("c1ec19f0-51b1-49eb-9b61-82c208f9bf15")
+
     @Override
     public String getDetails() {
         return I18nMessageService.getString ("Ui.Command.BlockDiagramExplorerCommand.Details");
     }
 
-    @objid ("65eeb23b-6f2b-4fa6-ae55-bd7b2c72a529")
+
     @Override
     public String getHelpUrl() {
         return null;
     }
 
-    @objid ("9af0bb0c-9d25-48eb-94ce-ea8b232fe353")
+
     @Override
     public Image getIcon() {
         return new Image(Display.getDefault(),SysMLResourcesManager.getInstance().getImage("blockdiagram.png"));
     }
 
-    @objid ("5272df8f-18ed-46bf-a713-4abb80bfe5a9")
+
     @Override
     public String getInformation() {
         return I18nMessageService.getString ("Ui.Command.BlockDiagramExplorerCommand.Information");
     }
 
-    @objid ("f688943a-d186-4775-8820-8f5677b33b7a")
+
     @Override
     public boolean accept(MObject selectedElt) {
         return ((selectedElt != null) &&
@@ -131,7 +130,7 @@ public class EnvironmentDefinitionDiagramWizard extends AbstractWizardContributo
                         && selectedElt.getStatus().isModifiable()));
     }
 
-    @objid ("421d51a0-236b-4042-91c4-f0ea4af41ecf")
+
     @Override
     public ElementDescriptor getCreatedElementType() {
         // TODO Auto-generated method stub

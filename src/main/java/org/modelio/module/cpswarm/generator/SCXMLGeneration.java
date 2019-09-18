@@ -1,6 +1,5 @@
 package org.modelio.module.cpswarm.generator;
 
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Event;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.FinalState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InitialPseudoState;
@@ -16,13 +15,11 @@ public class SCXMLGeneration extends Generator implements IGenerator {
 
     private StateMachine sm = null;
 
-    @objid ("9ba83793-0016-4f2d-b0ca-187e9703774a")
     public SCXMLGeneration(StateMachine sm) {    
         this.sm = sm;
     }
 
     @Override
-    @objid ("678f5491-5100-42e1-b979-ce56f2faf588")
     public StringBuffer generate() {
         headerSCXML();
         stateSCXML();
@@ -147,13 +144,11 @@ public class SCXMLGeneration extends Generator implements IGenerator {
             generateService(note);
     }
 
-    @objid ("601712da-159b-435c-9163-fc33bd5ea2eb")
     private void footerSCXML() {
         decreaseIndent();
         addLine("</scxml>");
     }
 
-    @objid ("9df11abf-d830-42fa-8727-df00321008f7")
     private void headerSCXML() {
 
         String initName= getInitialName();
