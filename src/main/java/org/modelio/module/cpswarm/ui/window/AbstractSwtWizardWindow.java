@@ -19,7 +19,7 @@
  */
 
 
-package org.modelio.module.cpswarm.ui;
+package org.modelio.module.cpswarm.ui.window;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;

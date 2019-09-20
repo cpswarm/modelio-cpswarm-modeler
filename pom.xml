@@ -80,19 +80,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>org.dom4j</groupId> -->
-		<!-- <artifactId>dom4j</artifactId> -->
-		<!-- <version>2.1.00</version> -->
-		<!-- <type>jar</type> -->
-		<!-- </dependency> -->
 
-		<!-- <dependency> -->
-		<!-- <groupId>nu.xom</groupId> -->
-		<!-- <artifactId>xom</artifactId> -->
-		<!-- <version>1.2.10</version> -->
-		<!-- <type>jar</type> -->
-		<!-- </dependency> -->
 
 	</dependencies>
 

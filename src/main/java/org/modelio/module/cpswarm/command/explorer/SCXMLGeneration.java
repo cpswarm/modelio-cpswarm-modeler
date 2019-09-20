@@ -6,7 +6,7 @@ import org.modelio.api.module.IModule;
 import org.modelio.api.module.command.DefaultModuleCommandHandler;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.module.cpswarm.ui.SCXMLWizardExport;
+import org.modelio.module.cpswarm.ui.window.SCXMLWizardExport;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 

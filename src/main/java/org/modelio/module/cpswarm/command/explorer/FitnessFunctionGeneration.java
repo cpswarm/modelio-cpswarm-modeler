@@ -7,7 +7,7 @@ import org.modelio.api.module.command.DefaultModuleCommandHandler;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.module.cpswarm.api.CPSWarmStereotypes;
 import org.modelio.module.cpswarm.impl.CPSWarmPeerModule;
-import org.modelio.module.cpswarm.ui.FitnessFunctionWizardExport;
+import org.modelio.module.cpswarm.ui.window.FitnessFunctionWizardExport;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 public class FitnessFunctionGeneration extends DefaultModuleCommandHandler {

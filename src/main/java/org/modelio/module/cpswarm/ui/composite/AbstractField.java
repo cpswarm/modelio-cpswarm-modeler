@@ -17,7 +17,6 @@
 
 package org.modelio.module.cpswarm.ui.composite;
 
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -41,35 +40,27 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
  * where the help text if folded/unfolded by the help button. The class is in charge of creating the different widgets and of their
  * layout. the creation of the edition control is delegated to concrete sub-classes.
  */
-@objid ("0bd1394a-8404-436b-8808-6cadc328c916")
 public abstract class AbstractField implements IField {
    
     private static final String EMPTY_STRING = "";
 
 
-    @objid ("ae2416c6-78da-4158-8602-ab9b6ba15865")
     private Label label;
 
-    @objid ("d901e4b1-a96c-4c53-8d20-aaf225a15b7a")
     private Control control;
 
 
-    @objid ("8c93964d-0776-446b-8af5-05153384c4bc")
     private Composite fieldComposite;
 
-    @objid ("17ca4f11-945f-4612-8297-6d6698128403")
     private final Composite parent;
 
     
     private final FormToolkit toolkit; 
 
-    @objid ("d5062528-177d-489b-91eb-aa0c5d36542f")
     private String value;
 
-    @objid ("17091519-a6ab-4ac0-b777-3d8fbdf4ce0b")
     public abstract Control createControl(FormToolkit toolkit, Composite p);
 
-    @objid ("77c1c8a1-7453-40e6-93b9-5606dfbcce42")
     public AbstractField(FormToolkit toolkit, Composite parent, String value) {
         this.toolkit = toolkit;
         this.parent = parent;
@@ -79,7 +70,6 @@ public abstract class AbstractField implements IField {
     /**
      * {@inheritDoc}
      */
-    @objid ("2e2919c6-c635-4893-a123-04e7e23c503a")
     @Override
     public void layout(Label lbl, Control ctrl) {
       
@@ -106,7 +96,6 @@ public abstract class AbstractField implements IField {
     /**
      * {@inheritDoc}
      */
-    @objid ("29f524d6-6ff9-4038-ad1d-e4937d692d92")
     @Override
     public final Composite getComposite() {
         // Ensure widgets exist.
@@ -120,7 +109,6 @@ public abstract class AbstractField implements IField {
     /**
      * {@inheritDoc}
      */
-    @objid ("c929183e-78d4-4e90-bccb-d2c98fd09f64")
     @Override
     public Control getControl() {
         if (this.control == null) {
@@ -133,19 +121,16 @@ public abstract class AbstractField implements IField {
     /**
      * {@inheritDoc}
      */
-    @objid ("b32df004-b93f-4823-bf56-ea25854cc7ea")
     @Override
     public String getValue() {
         return this.value;
     }
 
-    @objid ("f23e8e05-59a5-4bed-88c9-70ba914a3380")
     public final Label getLabel() {
         return this.label;
     }
 
 
-    @objid ("8925d210-0086-4f04-9ef6-657f43edac5f")
     private void buildGui() {
         // The composite field is build on a Composite using a FormLayout
         this.fieldComposite = this.toolkit.createComposite(this.parent);
@@ -176,20 +161,17 @@ public abstract class AbstractField implements IField {
     }
 
 
-    @objid ("3e47891d-fabf-4e1d-b552-3ed3116273f1")
     public AbstractField(FormToolkit toolkit, Composite parent) {
         this.toolkit = toolkit;
         this.parent = parent;
         this.value = EMPTY_STRING;
     }
 
-    @objid ("e0268ef8-2ae7-49ed-95b1-ca1181db44a2")
     @Override
     public void setValue(String value) {
         this.value = value;
     }
 
-    @objid ("b29444ff-ae58-4f49-ade8-27b441ddbf67")
     @Override
     public void setEditable(boolean onoff) {
         if (this.control != null) {

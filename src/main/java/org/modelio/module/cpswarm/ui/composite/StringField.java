@@ -17,7 +17,6 @@
 
 package org.modelio.module.cpswarm.ui.composite;
 
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
@@ -28,15 +27,12 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
-@objid ("9d468a4b-056c-44e8-a102-627d9dc0e66e")
 public class StringField extends AbstractField {
-    @objid ("5825e8ab-8756-4161-aed2-741f33531c89")
+    
     private static final String EMPTY_STRING = "";
 
-    @objid ("bb39e9bd-52eb-4bb0-b180-e25f9f8ded0c")
     private Text text;
 
-    @objid ("cffedb32-fe5a-4759-a495-657c076bad92")
     public StringField(FormToolkit toolkit, Composite parent, String value) {
         super(toolkit, parent, value);
     }
@@ -44,7 +40,6 @@ public class StringField extends AbstractField {
     /**
      * {@inheritDoc}
      */
-    @objid ("dbfe9592-eabd-4f0c-8994-11471e8a14bb")
     @Override
     public Control createControl(FormToolkit toolkit, Composite parent) {
         this.text = toolkit.createText(parent, EMPTY_STRING, SWT.NONE);
@@ -86,7 +81,6 @@ public class StringField extends AbstractField {
     /**
      * {@inheritDoc}
      */
-    @objid ("77c5a55b-5aae-4cab-870e-f13210abd356")
     @Override
     public void refresh() {
         final String value = getValue();

@@ -22,7 +22,6 @@
 package org.modelio.module.cpswarm.ui.composite;
 
 import java.io.File;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormLayout;
@@ -45,25 +44,20 @@ import org.modelio.module.cpswarm.utils.ResourcesManager;
  * It is a SWT composite
  * @author ebrosse
  */
-@objid ("1e24f10e-f51c-4ea2-982c-1e1628a06389")
 public class FileChooserComposite extends Composite {
-    @objid ("9871b0ae-d048-4de7-9bc3-abcd2c64dbeb")
+    
     private File currentFile = null;
 
-    @objid ("4491922b-98a5-42ef-a8e0-9d590d9cbbaf")
     private Text text = null;
 
-    @objid ("cb86b709-788b-4f1e-a51f-898fb7090004")
     private Button searchButton = null;
 
-    @objid ("54586a06-9870-4475-a2ac-28104e9b3de2")
     protected FileDialog dialog = null;
 
     /**
      * This method returns the chosen file
      * @return the path of the chosen file
      */
-    @objid ("4605a75d-47ce-4dd3-9e98-c8947a1015a6")
     public File getCurrentFile() {
         String nomFichier = this.text.getText();
         if ((nomFichier != null) && (nomFichier.length() != 0)) {
@@ -78,7 +72,6 @@ public class FileChooserComposite extends Composite {
      * This method allows to set the chosen file
      * @param currentFile : the chosen file
      */
-    @objid ("5d963c96-83f5-4db2-b931-e66bf48e99a7")
     public void setCurrentFile(final File currentFile) {
         this.currentFile = currentFile;
     }
@@ -87,7 +80,6 @@ public class FileChooserComposite extends Composite {
      * This method sets the label of the composite
      * @param label : the label of the composite
      */
-    @objid ("30032f29-b646-4bc5-94b2-db3675da639c")
     public void setText(final String label) {
         if (label != null)
             this.text.setText(label);
@@ -103,7 +95,6 @@ public class FileChooserComposite extends Composite {
      * @param style : the SWT style
      * @param typeSelection : the SWT selection type
      */
-    @objid ("46e26c47-2811-4605-a7e8-35c3f9f88468")
     public FileChooserComposite(final Composite parent, final int style, final int typeSelection) {
         super(parent, style);
         setLayout(new FormLayout());
@@ -124,7 +115,6 @@ public class FileChooserComposite extends Composite {
      * This method launch the folder browsing and returns the path of the chosen file
      * @return the path of the chosen file
      */
-    @objid ("19dbfc8f-30d7-4834-b884-67964dae7372")
     public String searchFile() {
         String nomFichier = this.dialog.open();
         if ((nomFichier != null) && (nomFichier.length() != 0)) {
@@ -138,7 +128,6 @@ public class FileChooserComposite extends Composite {
      * This method returns the search button of the composite
      * @return the search button
      */
-    @objid ("3b7cdbd2-f852-4225-91d4-932221779063")
     public Button getSearch() {
         return this.searchButton;
     }
@@ -147,7 +136,6 @@ public class FileChooserComposite extends Composite {
      * This methods returns the text available in the SWT FileDialog
      * @return the text of the FileDialog
      */
-    @objid ("50095e7b-1f62-40b6-8fbd-b1fd6503333a")
     public String getText() {
         return this.text.getText();
     }
@@ -156,7 +144,6 @@ public class FileChooserComposite extends Composite {
      * This method returns the SWT Text owned by the FileChooserComposite
      * @return the owned SWT TEXT
      */
-    @objid ("006aee3c-4c2f-40ce-9c60-10df94d30594")
     public Text getTextButton() {
         return this.text;
     }
@@ -165,7 +152,6 @@ public class FileChooserComposite extends Composite {
      * This method returns the SWT FileDialog created inside the FileChooserComposite
      * @return the owned FileDialog
      */
-    @objid ("59d4f7a7-847d-437a-92c7-003226fb3d64")
     public FileDialog getDialog() {
         return this.dialog;
     }

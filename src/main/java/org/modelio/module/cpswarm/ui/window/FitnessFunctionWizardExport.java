@@ -19,7 +19,7 @@
  */
 
 
-package org.modelio.module.cpswarm.ui;
+package org.modelio.module.cpswarm.ui.window;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -34,19 +34,18 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Shell;
-import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
-import org.modelio.module.cpswarm.generator.SCXMLGeneration;
+import org.modelio.metamodel.uml.statik.Class;
+import org.modelio.module.cpswarm.generator.FitnessFunctionGeneration;
 import org.modelio.module.cpswarm.impl.CPSWarmModule;
 import org.modelio.module.cpswarm.ui.composite.FileChooserComposite;
 import org.modelio.module.cpswarm.ui.composite.ValidationBoutonComposite;
 import org.modelio.module.cpswarm.utils.ResourcesManager;
-
 /**
- * This class provides the SCXML export dialog
+ * This class provides the XMI export dialog
  * @author ebrosse
  */
 @objid ("f91e2337-fef4-4e6e-b382-cb9fb518f9b2")
-public class SCXMLWizardExport extends AbstractSwtWizardWindow {
+public class FitnessFunctionWizardExport extends AbstractSwtWizardWindow {
 
     public Object open() {
         createContents();
@@ -116,7 +115,7 @@ public class SCXMLWizardExport extends AbstractSwtWizardWindow {
     }
 
 
-    public SCXMLWizardExport(Shell parent) {
+    public FitnessFunctionWizardExport(Shell parent) {
         super(parent);
 
     }
@@ -126,7 +125,7 @@ public class SCXMLWizardExport extends AbstractSwtWizardWindow {
     public void setLabels() {
         setTitle("Title");
         setDescription("Description");
-        setFrametitle("SCXML Export");
+        setFrametitle("Fitness Function Export");
         setCancelButton("Cancel");
         setValidateButton("Export");
     }
@@ -162,35 +161,33 @@ public class SCXMLWizardExport extends AbstractSwtWizardWindow {
         }
     }
     
-    @objid ("9029119f-2c5b-4472-b2ad-9ecfc3a56cbc")
     @Override
     public void validationAction(){
         
-        String pathDest = ResourcesManager.getInstance().getGeneratedPath() + File.separator + this.fileChooserComposite.getText() + ".xml";
+        String pathDest = ResourcesManager.getInstance().getGeneratedPath() + File.separator + this.fileChooserComposite.getText() + ".java";
         
-        SCXMLGeneration scxmlGen = new SCXMLGeneration((StateMachine)this.selectedElt);
-        StringBuffer content = scxmlGen.generate();        
+        FitnessFunctionGeneration fitGen = new FitnessFunctionGeneration((Class) this.selectedElt);
+        StringBuffer content = fitGen.generate();        
         write(pathDest, content);
         
         completeBox();
     }
     
-    @objid ("fdbbd9fa-c792-4c27-b1e3-f95ee6a8cd9c")
+  
     @Override
     public void setPath() {
 
         if (this.path.equals(""))
             this.path = CPSWarmModule.getInstance().getModuleContext().getProjectStructure().getPath().toString();
 
-        this.fileChooserComposite.setText(this.selectedElt.getName());
+        this.fileChooserComposite.setText(this.selectedElt.getName() + "Calculator");
     }
 
 
-    @objid ("063e9bd5-0823-4284-be39-aca4a7fb2a8c")
     @Override
     public void setDefaultDialog() {
-        this.fileChooserComposite.getDialog().setFilterNames(new String[] { "xml" });
-        this.fileChooserComposite.getDialog().setFilterExtensions(new String[] { "*.xml" });
+        this.fileChooserComposite.getDialog().setFilterNames(new String[] { "java" });
+        this.fileChooserComposite.getDialog().setFilterExtensions(new String[] { "*.java" });
         setPath();
     }
 

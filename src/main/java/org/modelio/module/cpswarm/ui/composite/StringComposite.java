@@ -21,7 +21,6 @@
 
 package org.modelio.module.cpswarm.ui.composite;
 
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -48,7 +47,6 @@ public class StringComposite extends Composite {
      * This method sets the label of the composite
      * @param label : the label of the composite
      */
-    @objid ("30032f29-b646-4bc5-94b2-db3675da639c")
     public void setText(final String label) {
         if (label != null)
             this.text.setText(label);
@@ -70,7 +68,6 @@ public class StringComposite extends Composite {
      * @param style : the SWT style
      * @param typeSelection : the SWT selection type
      */
-    @objid ("46e26c47-2811-4605-a7e8-35c3f9f88468")
     public StringComposite(final Composite parent, final int style, final int typeSelection) {
         super(parent, style);
         
@@ -92,7 +89,6 @@ public class StringComposite extends Composite {
      * This methods returns the text available in the SWT FileDialog
      * @return the text of the FileDialog
      */
-    @objid ("50095e7b-1f62-40b6-8fbd-b1fd6503333a")
     public String getText() {
         return this.text.getText();
     }
@@ -101,7 +97,6 @@ public class StringComposite extends Composite {
      * This method returns the SWT Text owned by the FileChooserComposite
      * @return the owned SWT TEXT
      */
-    @objid ("006aee3c-4c2f-40ce-9c60-10df94d30594")
     public Text getTextButton() {
         return this.text;
     }

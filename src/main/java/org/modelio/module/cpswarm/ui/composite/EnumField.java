@@ -19,7 +19,6 @@ package org.modelio.module.cpswarm.ui.composite;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -35,16 +34,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
-@objid ("83b989a7-4af1-4ca1-8493-92689e9c9aa0")
 public class EnumField extends AbstractField {
-    @objid ("bcd27c2b-7154-4fb7-a36a-fa9e95133922")
     private Combo combo;
     
 
-    @objid ("b0900e68-5fc1-4105-b1cf-47b8f9895eba")
     private ComboViewer comboViewer;
 
-    @objid ("c6e112b9-a881-4c93-b885-dccedfd228a1")
     public EnumField(FormToolkit toolkit, Composite parent, String value) {
         super(toolkit, parent, value);
     }
@@ -52,7 +47,6 @@ public class EnumField extends AbstractField {
     /**
      * {@inheritDoc}
      */
-    @objid ("80443d8e-64e5-44a2-a3a6-a146e472f496")
     @Override
     public Control createControl(FormToolkit toolkit, Composite parent) {
         this.comboViewer = new ComboViewer(parent, SWT.READ_ONLY);

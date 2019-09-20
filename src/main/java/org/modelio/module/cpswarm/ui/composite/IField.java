@@ -17,7 +17,6 @@
 
 package org.modelio.module.cpswarm.ui.composite;
 
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -30,7 +29,6 @@ import org.eclipse.swt.widgets.Label;
  * <li>a control - where edition takes place</li>
  * </ul>
  */
-@objid ("d8d8870e-fee4-4c7e-9751-3affdd89ce02")
 public interface IField {
     /**
      * Layouts the label, edition control and help button in their container ({@link IField#getComposite()})
@@ -43,37 +41,30 @@ public interface IField {
      * 
      * Note the the helpText will always be layouted so that it appears under the control (same width and X position).
      */
-    @objid ("4a481815-1aa6-4873-83bb-e4ca7baaa2d3")
     void layout(Label label, Control control);
 
     /**
      * Gets the top most container control of the field which must be a <code>Composite</code>.
      */
-    @objid ("44a81dcb-891f-43da-ac04-6fc0bb8348ed")
     Composite getComposite();
 
     /**
      * Gets the control in charge of displaying/editing the field value.
      */
-    @objid ("d39e4710-d50f-451d-a698-fc8b640a417c")
     Control getControl();
 
     /**
      * Refresh the value displayed by the field. The field will typically query its IFiledData model and refresh its contents.
      */
-    @objid ("69e8d634-07fe-4e1f-9227-3d3af8663114")
     void refresh();
 
-    @objid ("87ed2f4f-d1b7-4c8c-91f4-08afce29c8b1")
     void setEditable(boolean onoff);
 
     /**
      * Gets the IfieldData model of this field.
      */
-    @objid ("29c0cfaf-642c-4914-a511-aa2597280a6a")
     String getValue();
 
-    @objid ("70a9c4c0-736b-4aeb-8f63-439becf48f08")
     void setValue(String data);
 
 }
