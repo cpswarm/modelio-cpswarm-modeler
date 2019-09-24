@@ -29,8 +29,14 @@
 package org.modelio.module.cpswarm.utils;
 
 import java.io.File;
+import java.io.IOException;
+import org.jdom.Document;
+import org.jdom.JDOMException;
+import org.jdom.input.JDOMParseException;
+import org.jdom.input.SAXBuilder;
 import org.modelio.api.module.IModule;
 import org.modelio.module.cpswarm.impl.CPSWarmModule;
+import es.addlink.tutormates.equationEditor.Exceptions.FileEditorException;
 
 
 /**
@@ -42,95 +48,83 @@ public class ResourcesManager {
 
     private static final String generatedFolderName = "generated";
 
-	private static final String configFolderName = "configs";
+    private static final String xmlFolderName = "xml";
 
-	private static final String mdFolderName = "modeldescriptions";
+    private static ResourcesManager instance = null;
 
-	private static final String pngFolderName = "pngs";
+    private IModule _mdac;
 
-	private static final String fmuFolderName = "fmus";
+    /**
+     * Method ResourcesManager
+     * @author ebrosse
+     */
 
-	private static final String jsonSchemaName = "INTO-CPS-Traceability-Schema-V1.3.1.json";
+    private ResourcesManager() {
+    }
 
-	private static ResourcesManager instance = null;
+    /**
+     * Method getInstance
+     * @author ebrosse
+     * @return the SysMLResourcesManager instance
+     */
 
-	private IModule _mdac;
+    public static ResourcesManager getInstance() {
+        if(instance == null){
+            instance =  new ResourcesManager();
+        }
+        return instance;
+    }
 
-	/**
-	 * Method ResourcesManager
-	 * @author ebrosse
-	 */
+    /**
+     * This method sets the current module
+     * @param module : the current module
+     */
+    public void setJMDAC(IModule module) {
+        this._mdac = module;
+    }
 
-	private ResourcesManager() {
-	}
+    /**
+     * Method getImage
+     * @author ebrosse
+     * @param imageName : the name of the image file
+     * @return the complete path of the image file
+     */
+    public String getImage(String imageName) {
+        return CPSWarmModule.getInstance().getModuleContext().getConfiguration().getModuleResourcesPath() + File.separator + "res" + File.separator + "icons" + File.separator + imageName;
+    }
 
-	/**
-	 * Method getInstance
-	 * @author ebrosse
-	 * @return the SysMLResourcesManager instance
-	 */
-
-	public static ResourcesManager getInstance() {
-		if(instance == null){
-			instance =  new ResourcesManager();
-		}
-		return instance;
-	}
-
-	/**
-	 * This method sets the current module
-	 * @param module : the current module
-	 */
-	public void setJMDAC(IModule module) {
-		this._mdac = module;
-	}
-
-	/**
-	 * Method getImage
-	 * @author ebrosse
-	 * @param imageName : the name of the image file
-	 * @return the complete path of the image file
-	 */
-	public String getImage(String imageName) {
-		return CPSWarmModule.getInstance().getModuleContext().getConfiguration().getModuleResourcesPath() + File.separator + "res" + File.separator + "icons" + File.separator + imageName;
-	}
-	
-	public String getRessource(String resName) {
+    public String getRessource(String resName) {
         return CPSWarmModule.getInstance().getModuleContext().getConfiguration().getModuleResourcesPath() + File.separator + "res" + File.separator + resName;
     }
 
-
-	public String getJSONSchema() {
-		return CPSWarmModule.getInstance().getModuleContext().getConfiguration().getModuleResourcesPath() + File.separator + "res" + File.separator + "json" + File.separator + jsonSchemaName;
-	}
-
-	public String getPlugin(String pluginName) {
-		return CPSWarmModule.getInstance().getModuleContext().getConfiguration().getModuleResourcesPath() + File.separator + "res" + File.separator + "plugin" + File.separator + pluginName;
-	}
-
-	public String getProjectSimulationPath(){
-		return CPSWarmModule.getInstance().getModuleContext().getModelioContext().getProjectSpacePath().getAbsolutePath() + File.separator + "Simulation";
-	}
-
-	public String getFMUFolderPath(){
-		return this.getProjectSimulationPath() + File.separator + fmuFolderName;
-	}
-
-	public String getGeneratedPath(){
-        return CPSWarmModule.getInstance().getModuleContext().getModelioContext().getProjectSpacePath().getParentFile().getAbsolutePath() + File.separator + generatedFolderName;
+    public String getPlugin(String pluginName) {
+        return CPSWarmModule.getInstance().getModuleContext().getConfiguration().getModuleResourcesPath() + File.separator + "res" + File.separator + "plugin" + File.separator + pluginName;
     }
-	
-	public String getConfigPath(){
-		return CPSWarmModule.getInstance().getModuleContext().getModelioContext().getProjectSpacePath().getAbsolutePath() + File.separator + configFolderName;
-	}
 
-	public String getMDPath(){
-		return CPSWarmModule.getInstance().getModuleContext().getModelioContext().getProjectSpacePath().getAbsolutePath() + File.separator + mdFolderName;
-	}
 
-	public String getPNGPath(){
-		return this.getConfigPath() + File.separator + pngFolderName;
-	}
+    public String getGeneratedPath(){
+        return CPSWarmModule.getInstance().getModuleContext().getProjectStructure().getPath() + File.separator + generatedFolderName;
+    }
+
+
+
+    public Document getXMLDocument(String fileName) throws FileEditorException {
+        try {
+            SAXBuilder builder = new SAXBuilder();
+            File xmlFile = new File(CPSWarmModule.getInstance().getModuleContext().getConfiguration().getModuleResourcesPath() + File.separator + "res" + File.separator + xmlFolderName + File.separator + fileName);
+            Document doc = builder.build(xmlFile);
+            return doc;
+
+        } catch(JDOMParseException e){
+            throw new FileEditorException("Existen errores de sintaxis xml en el fichero '" + fileName +"'.",e);
+        }catch (JDOMException e) {
+            throw new FileEditorException("Se ha producido un error al cargar el fichero '" + fileName +"'.",e);
+        }catch (IOException e) {
+            throw new FileEditorException("Se ha producido un error al cargar el fichero '" + fileName +"'.",e);
+        }catch (Exception e) {
+            throw new FileEditorException("Es posible que el nombre del fichero xml '" + fileName + "' no sea el correcto.",e);
+        }
+    }
 
 
 }

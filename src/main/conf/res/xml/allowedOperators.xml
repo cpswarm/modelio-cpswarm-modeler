@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	<!--
+		* AllowOtherOperator especifica si se puede introducir otro operador a continuación.
+			Ej: En caso del "=", sí se puede:   "y=-5"
+				En caso del "!", sí se puede:	"5!+"
+				En caso del "+", no se puede.
+		
+		* IsText indica si el operador utiliza el valor symbol para exportar o importar.
+			Ej: En caso del paréntesis, es isText=false, porque se exporta mediante <mfenced>contenido</mfenced>
+				En caso de la suma, es isText=true, porque se exporta mediante el caracter que aparece en el atributo symbol.	
+		
+		* Label: etiqueta que se utiliza para mathml.
+	-->
+
+	<operators>
+		<operator id="1" type="binary" priority="2" name="multiplication" isText="true" symbolEditor="·" symbolMathML="&#xb7;"><mathml label="mo"></mathml></operator>
+		<operator id="2" type="binary" priority="2" name="multiplication" isText="true" symbolEditor="*" symbolMathML="&#xb7;"><mathml label="mo"></mathml></operator>
+		<operator id="3" type="binary" priority="2" name="invisibleMultiplication" isText="true" symbolEditor="&#xb7;" symbolMathML="&#xb7;"><mathml label="mo"></mathml></operator>
+		<operator id="5" type="binary" priority="2" name="division" isText="true" symbolEditor=":" symbolMathML=":"><mathml label="mo"></mathml></operator>
+		<operator id="6" type="binary" priority="3" name="sum" isText="true" symbolEditor="+" symbolMathML="+"><mathml label="mo"></mathml></operator>
+		<operator id="7" type="binary" priority="3" name="subtraction" isText="true" symbolEditor="-" symbolMathML="-"><mathml label="mo"></mathml></operator>
+		<operator id="8" type="binary" priority="3" name="equality" isText="true" symbolEditor="=" symbolMathML="="><mathml label="mo"></mathml></operator>	
+		<operator id="9" type="binary" priority="3" name="menor" isText="true" symbolEditor="&#60;" symbolMathML="&#60;"><mathml label="mo"></mathml></operator>
+		<operator id="10" type="binary" priority="3" name="mayor" isText="true" symbolEditor="&#62;" symbolMathML="&#62;"><mathml label="mo"></mathml></operator>
+		<operator id="11" type="binary" priority="3" name="menorIgual" isText="true" symbolEditor="&#x02264;" symbolMathML="&#x02264;"><mathml label="mo"></mathml></operator>
+		<operator id="12" type="binary" priority="3" name="mayorIgual" isText="true" symbolEditor="&#x02265;" symbolMathML="&#x02265;"><mathml label="mo"></mathml></operator>
+		<operator id="13" type="binary" priority="3" name="masmenos" isText="true" symbolEditor="±" symbolMathML="&#177;"><mathml label="mo"></mathml></operator>
+		
+		<operator id="30" type="unary" priority="-1" name="factorial" isText="true" symbolEditor="!" symbolMathML="!"><mathml label="mo"></mathml></operator>
+		<operator id="31" type="unary" priority="-1" name="percentage" isText="true" symbolEditor="%" symbolMathML="%"><mathml label="mo"></mathml></operator>
+		<operator id="40" type="unary" priority="-1" name="prime" isText="true" symbolEditor="'" symbolMathML="&#39;"><mathml label="mo"></mathml></operator>
+		<operator id="32" type="unary" priority="-1" name="negative" isText="true" symbolEditor="neg" symbolMathML="neg"><mathml label="mo"></mathml></operator>
+		
+		<operator id="33" type="unary" priority="-1" name="openGroup" isText="false" symbolEditor="("  symbolMathML="">
+			<mathml label="mfenced">
+				<attributes>
+					<open>(</open>
+					<close>)</close>
+					<separators> </separators>
+				</attributes>
+			</mathml>
+		</operator>
+		<operator id="34" type="unary" priority="-1" name="closeGroup" isText="true" symbolEditor=")"  symbolMathML=""><mathml label="mfenced"></mathml></operator>
+
+		<operator id="35" type="unary" priority="-1" name="openGroup" isText="false" symbolEditor="["  symbolMathML="">
+			<mathml label="mfenced">
+				<attributes>
+					<open>[</open>
+					<close>]</close>
+					<separators> </separators>
+				</attributes>
+			</mathml>
+		</operator>
+		<operator id="36" type="unary" priority="-1" name="closeGroup" isText="true" symbolEditor="]"  symbolMathML=""><mathml label="mfenced"></mathml></operator>
+
+		
+		
+		<operator id="37" type="unary" priority="-1" name="openGroup" isText="false" symbolEditor="{"  symbolMathML="">
+			<mathml label="mfenced">
+				<attributes>
+					<open>{</open>
+					<close>}</close>
+					<separators> </separators>
+				</attributes>
+			</mathml>
+		</operator>
+		<operator id="38" type="unary" priority="-1" name="closeGroup" isText="true" symbolEditor="}"  symbolMathML=""><mathml label="mfenced"></mathml></operator>
+
+		<operator id="39" type="n" priority="-1" name="sequenceList" isText="false" symbolEditor=""  symbolMathML="">
+			<mathml label="mfenced">
+				<attributes>
+					<open></open>
+					<close></close>
+					<separators>,</separators>
+				</attributes>
+			</mathml>
+		</operator>
+
+		<operator id="50" type="unary" priority="-1" name="squareRoot" isText="false" symbolEditor="msqrt" symbolMathML=""><mathml label="msqrt"></mathml></operator>
+		<operator id="51" type="binary" priority="-1" name="fraction" isText="false" symbolEditor="mfrac" symbolMathML=""><mathml label="mfrac"></mathml></operator>
+		<operator id="57" type="binary" priority="-1" name="nthRoot" isText="false" symbolEditor="mroot" symbolMathML=""><mathml label="mroot"></mathml></operator>
+		<operator id="52" type="binary" priority="-1" name="exponent" isText="false" symbolEditor="msup" symbolMathML=""><mathml label="msup"></mathml></operator>
+		<operator id="53"  type="binary" priority="-1" name="repeatingDecimal" isText="false" symbolEditor="per" symbolMathML=""><mathml label="mn"></mathml></operator>
+		
+		<operator id="54" type="binary" priority="1" isSpecial="true" name="exponent" isText="false" symbolEditor="^" symbolMathML=""><mathml label="msup"></mathml></operator>
+		<operator id="55" type="binary" priority="2" isSpecial="true" name="fraction" isText="false" symbolEditor="/" symbolMathML=""><mathml label="mfrac"></mathml></operator>
+		
+		<operator id="56" type="binary" priority="-1" name="geometricPoint" isText="false" symbolEditor="geometricPoint" symbolMathML="">	
+			<mathml label="mfenced">
+				<attributes>
+					<open>(</open>
+					<close>)</close>
+					<separators>;</separators>
+				</attributes>
+			</mathml>
+		</operator>
+		
+	</operators>
+	
+	<others>
+		<numbers>
+			<operator id="120" type="number" priority="-1" name="intNumber" isText="true" symbolEditor="" symbolMathML=""><mathml label="mn"></mathml></operator>
+			<operator id="121" type="number" priority="-1" name="realNumber" mathml="mn" isText="true" symbolEditor="" symbolMathML=""><mathml label="mn"></mathml></operator>
+		</numbers>
+		
+		<variables>
+			<operator id="150" type="variable" priority="-1" name="a" isText="true" symbolEditor="a" symbolMathML="a"><mathml label="mi"></mathml></operator>
+			<operator id="151" type="variable" priority="-1" name="A" isText="true" symbolEditor="A" symbolMathML="a"><mathml label="mi"></mathml></operator>
+			<operator id="152" type="variable" priority="-1" name="b" isText="true" symbolEditor="b" symbolMathML="b"><mathml label="mi"></mathml></operator>
+			<operator id="153" type="variable" priority="-1" name="B" isText="true" symbolEditor="B" symbolMathML="b"><mathml label="mi"></mathml></operator>
+			<operator id="154" type="variable" priority="-1" name="m" isText="true" symbolEditor="m" symbolMathML="m"><mathml label="mi"></mathml></operator>
+			<operator id="155" type="variable" priority="-1" name="M" isText="true" symbolEditor="M" symbolMathML="m"><mathml label="mi"></mathml></operator>
+			<operator id="156" type="variable" priority="-1" name="n" isText="true" symbolEditor="n" symbolMathML="n"><mathml label="mi"></mathml></operator>
+			<operator id="157" type="variable" priority="-1" name="N" isText="true" symbolEditor="N" symbolMathML="n"><mathml label="mi"></mathml></operator>
+			<operator id="158" type="variable" priority="-1" name="x" isText="true" symbolEditor="x" symbolMathML="x"><mathml label="mi"></mathml></operator>
+			<operator id="159" type="variable" priority="-1" name="X" isText="true" symbolEditor="X" symbolMathML="x"><mathml label="mi"></mathml></operator>
+			<operator id="160" type="variable" priority="-1" name="y" isText="true" symbolEditor="y" symbolMathML="y"><mathml label="mi"></mathml></operator>
+			<operator id="161" type="variable" priority="-1" name="Y" isText="true" symbolEditor="Y" symbolMathML="y"><mathml label="mi"></mathml></operator>
+			<operator id="162" type="variable" priority="-1" name="r" isText="true" symbolEditor="r" symbolMathML="r"><mathml label="mi"></mathml></operator>
+			<operator id="163" type="variable" priority="-1" name="R" isText="true" symbolEditor="R" symbolMathML="r"><mathml label="mi"></mathml></operator>
+			<operator id="164" type="variable" priority="-1" name="s" isText="true" symbolEditor="s" symbolMathML="s"><mathml label="mi"></mathml></operator>
+			<operator id="165" type="variable" priority="-1" name="S" isText="true" symbolEditor="S" symbolMathML="s"><mathml label="mi"></mathml></operator>
+			<operator id="164" type="variable" priority="-1" name="z" isText="true" symbolEditor="z" symbolMathML="z"><mathml label="mi"></mathml></operator>
+			<operator id="165" type="variable" priority="-1" name="Z" isText="true" symbolEditor="Z" symbolMathML="z"><mathml label="mi"></mathml></operator>
+			<operator id="166" type="variable" priority="-1" name="?" isText="true" symbolEditor="?" symbolMathML="?"><mathml label="mi"></mathml></operator>
+			<operator id="167" type="variable" priority="-1" name="pi" isText="false" symbolEditor="" symbolMathML="&#960;"><mathml label="mi"></mathml></operator>
+			<operator id="168" type="variable" priority="-1" name="eulerNumber" isText="false" symbolEditor="" symbolMathML="&#1077;"><mathml label="mi"></mathml></operator>
+			<operator id="169" type="variable" priority="-1" name="infinity" isText="false" symbolEditor="" symbolMathML="&#8734;"><mathml label="mi"></mathml></operator>
+		</variables>
+	</others>
+	
+	<functions>
+		<function name="sqrt" entries="1" idOperator="50"><mathml label="msqrt" withinLabel="true" functionType="false" /></function>
+		<function name="mroot" entries="2" idOperator=""><mathml label="mroot" withinLabel="true" functionType="false" /></function>		
+		<function name="gamma" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="abs" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="sgn" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="exp" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="log" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="ln" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="ld" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="lg" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="cos" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="sin" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="tan" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="acos" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arcos" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arccos" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="asin" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arcsin" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="atan" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arctan" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="cosh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="sinh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="tanh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="acosh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arcosh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arccosh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="asinh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arcsinh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="atanh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arctanh" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="floor" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="ceil" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="round" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="random" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="conjugate" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="arg" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="sec" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="csc" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="cosec" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="cot" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="sech" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="csch" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="coth" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="f" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="p" entries="1" idOperator=""><mathml label="mi" withinLabel="false" functionType="true" /></function>
+		<function name="sub" entries="2" idOperator=""><mathml label="msub" withinLabel="true" functionType="false" /></function>
+	</functions>
+	
+</configuration>

@@ -35,17 +35,15 @@ package es.addlink.tutormates.equationEditor.Manager;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
 import org.eclipse.swt.graphics.Image;
 import org.jdom.Document;
 import org.jdom.Element;
-
+import org.modelio.module.cpswarm.utils.ResourcesManager;
 import es.addlink.tutormates.equationEditor.Display.GUIEditor;
 import es.addlink.tutormates.equationEditor.Exceptions.FileEditorException;
 import es.addlink.tutormates.equationEditor.Role.ItemToolBar;
 import es.addlink.tutormates.equationEditor.Role.TabToolBar;
 import es.addlink.tutormates.equationEditor.Utils.SWTResourceManager;
-import es.addlink.tutormates.equationEditor.XMLFiles.LoadXML;
 
 /**
  * Obtiene y guarda todos los botones de la toolbar que pueden ser cargados en el editor.
@@ -60,8 +58,8 @@ public class MainToolBarBaseManager {
 	private Document docToolBarBase;
 	
 	public MainToolBarBaseManager(){
-		this.tabToolBarList = new Vector<TabToolBar>();
-		this.itemToolBarList = new Vector<ItemToolBar>();
+		this.tabToolBarList = new Vector<>();
+		this.itemToolBarList = new Vector<>();
 		
 		buildXMLFiles();
 		buildToolBarBase();
@@ -71,7 +69,7 @@ public class MainToolBarBaseManager {
 	
 	private void buildXMLFiles(){
 		try {
-			this.docToolBarBase = LoadXML.getDocument(PathManager.getToolBarFileName(),PathManager.getToolbarClass());
+			this.docToolBarBase = ResourcesManager.getInstance().getXMLDocument(PathManager.getToolBarFileName());
 		}
 		catch (FileEditorException e) {
 			// TODO Auto-generated catch block

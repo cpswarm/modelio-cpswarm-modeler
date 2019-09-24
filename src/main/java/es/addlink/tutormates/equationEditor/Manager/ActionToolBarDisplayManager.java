@@ -45,11 +45,10 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.jdom.Document;
 import org.jdom.Element;
-
+import org.modelio.module.cpswarm.utils.ResourcesManager;
 import es.addlink.tutormates.equationEditor.Display.GUIEditor;
 import es.addlink.tutormates.equationEditor.Exceptions.ManagerEditorException;
 import es.addlink.tutormates.equationEditor.Utils.SWTResourceManager;
-import es.addlink.tutormates.equationEditor.XMLFiles.LoadXML;
 
 /**
  * Crea el ToolBar de acciones con sus ToolItems (deshacer,rehacer,eliminar,exportar,importar).
@@ -120,7 +119,7 @@ public class ActionToolBarDisplayManager {
 			
 				
 			/* Load file: toolBar.xml */
-				Document toolbarDoc = LoadXML.getDocument(PathManager.getToolBarFileName(),PathManager.getToolbarClass());
+				Document toolbarDoc = ResourcesManager.getInstance().getXMLDocument(PathManager.getToolBarFileName());
 				Element toolbarRoot = toolbarDoc.getRootElement();
 		
 			/* Get language */

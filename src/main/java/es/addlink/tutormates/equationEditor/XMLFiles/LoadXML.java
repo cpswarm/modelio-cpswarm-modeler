@@ -32,16 +32,6 @@
 
 package es.addlink.tutormates.equationEditor.XMLFiles;
 
-import java.io.IOException;
-import java.net.URL;
-
-import org.jdom.Document;
-import org.jdom.JDOMException;
-import org.jdom.input.JDOMParseException;
-import org.jdom.input.SAXBuilder;
-
-import es.addlink.tutormates.equationEditor.Exceptions.FileEditorException;
-
 /**
  * Utilidad para cargar ficheros.
  * @author Ignacio Celaya Sesma
@@ -77,23 +67,26 @@ public class LoadXML {
 	 * @param fileName Ejemplo: "../Translation/MathML.xml"
 	 * @return Devuelve el Document del XML.
 	 */
-	@SuppressWarnings("unchecked")
-	public static Document getDocument(String fileName,Class clas)throws FileEditorException{
-		try {
-			SAXBuilder builder=new SAXBuilder();
-			URL url = null;
-			url = LoadXML.class.getResource(fileName);
-			Document doc = builder.build(url);
-			return doc;
-			
-		} catch(JDOMParseException e){
-			throw new FileEditorException("Existen errores de sintaxis xml en el fichero '" + fileName +"'.",e);
-		}catch (JDOMException e) {
-			throw new FileEditorException("Se ha producido un error al cargar el fichero '" + fileName +"'.",e);
-		}catch (IOException e) {
-			throw new FileEditorException("Se ha producido un error al cargar el fichero '" + fileName +"'.",e);
-		}catch (Exception e) {
-			throw new FileEditorException("Es posible que el nombre del fichero xml '" + fileName + "' no sea el correcto.",e);
-		}
-	}
+//	@SuppressWarnings("unchecked")
+//	public static Document getDocument(String fileName,Class clas)throws FileEditorException{
+//		try {
+//			SAXBuilder builder = new SAXBuilder();
+//			URL url = null;
+//			String path = "/es/addlink/tutormates/equationEditor/";
+//			url = LoadXML.class.getClass().getResource(fileName);
+//			url = LoadXML.class.getClassLoader().getSystemResource(fileName);
+//			url = LoadXML.class.getClassLoader().getResource(fileName);
+//			Document doc = builder.build(url);
+//			return doc;
+//			
+//		} catch(JDOMParseException e){
+//			throw new FileEditorException("Existen errores de sintaxis xml en el fichero '" + fileName +"'.",e);
+//		}catch (JDOMException e) {
+//			throw new FileEditorException("Se ha producido un error al cargar el fichero '" + fileName +"'.",e);
+//		}catch (IOException e) {
+//			throw new FileEditorException("Se ha producido un error al cargar el fichero '" + fileName +"'.",e);
+//		}catch (Exception e) {
+//			throw new FileEditorException("Es posible que el nombre del fichero xml '" + fileName + "' no sea el correcto.",e);
+//		}
+//	}
 }

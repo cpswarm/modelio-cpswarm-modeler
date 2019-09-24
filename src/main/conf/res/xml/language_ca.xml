@@ -1,0 +1,126 @@
+<language lan="ca" title="Editor d'Expressions TutorMates ~ www.tutormates.es">
+
+<!-- 
+Català
+
+===========================================================
+TutorMates: Tool for Mathematics Teaching and Learning.
+===========================================================
+
+(C) Copyright 2011, by Addlink Research.
+ 
+Project Info: 	http://www.tutormates.com
+Contact: 		info@tutormates.es
+ 
+TutorMates Equation Editor is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
+ 
+TutorMates Equation Editor is distributed in the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with TutorMates Equation Editor.  
+If not, see <http://www.gnu.org/licenses/>.
+ 
+
+File: language_ca.xml
+
+
+(C) Copyright 2011, by Addlink Research.
+
+Original Author:  Manel Fortià - mfortia@addlink.es (Addlink Research)
+Contributor(s):
+-->
+
+	<toolBars>
+		
+		<actions>
+			<undo>Desfés</undo>
+			<redo>Refés</redo>
+			<remove>Esborra expressió sencera o selecció</remove>
+			<export>Exporta expressió</export>
+			<import>Importa expressió</import>
+		</actions>
+		
+		<tabs>
+			<generalOperators>Operadors</generalOperators>
+			<numbers>Nombres/Variables</numbers>
+		</tabs>
+		
+		<buttons>
+			<TMSum>Suma</TMSum>
+			<TMSubtraction>Resta</TMSubtraction>
+			<TMMultiplication>Multiplicació</TMMultiplication>
+			<TMDivision>Divisió</TMDivision>
+			<multiplication>Multiplicació</multiplication>
+			<division>Divisió</division>
+			<equality>Igualtat</equality>
+			<ce>Esborrar tot</ce>
+			<percentage>Percentatge</percentage>
+			<factorial>Factorial</factorial>
+			<decimal>Punt decimal</decimal>
+			<pureRepeatingDecimal>Periòdic pur</pureRepeatingDecimal>
+			<mixedRepeatingDecimal>Periòdic mixte</mixedRepeatingDecimal>
+			<exponent>Exponent</exponent>
+			<squareRoot>Arrel quadrada</squareRoot>
+			<fraction>Fracció</fraction>
+			<geometricPoint>Coordenada</geometricPoint>
+			<nthRoot> Arrel enèsima</nthRoot>
+			<pi>Nombre pi</pi>
+			<infinity>Infinit</infinity>
+			<eulerNumber>Nombre d'Euler</eulerNumber>
+			<zero>Zero</zero>
+			<one>Un</one>
+			<two>Dos</two>
+			<three>Tres</three>
+			<four>Quatre</four>
+			<five>Cinc</five>
+			<six>Sis</six>
+			<seven>Set</seven>
+			<eight>Vuit</eight>
+			<nine>Nou</nine>
+			<a>Variable a</a>
+			<b>Variable b</b>
+			<m>Variable m</m>
+			<n>Variable n</n>
+			<x>Variable x</x>
+			<y>Variable y</y>
+			<r>Variable r</r>
+			<s>Variable s</s>
+			<z>Variable z</z>
+			<unknown>Incógnita</unknown>
+		</buttons>
+		
+	</toolBars>
+	
+	<errors>
+	
+		<gui>
+			<incorrectExportExpression>
+				<title>Expressió errònea</title>
+				<message>La expressió és incorrecta. Revisa-la!</message>
+			</incorrectExportExpression>
+			<emptyExportExpression>
+				<title>Exportació d’una expressió</title>
+				<message>No es pot exportar una expressió buida.</message>
+			</emptyExportExpression>
+			<incorrectImportExpression>
+				<title>Importació d’una expressió</title>
+				<message>No ha estat possible importar l’expressió seleccionada.</message>
+			</incorrectImportExpression>
+			<emptyImportExpression>
+				<title>Importació d’una expressió</title>
+				<message>Has de seleccionar una expressió per a poder-la importar.</message>
+			</emptyImportExpression>
+		</gui>
+		
+		<console>
+		</console>
+	
+	</errors>
+	
+</language>

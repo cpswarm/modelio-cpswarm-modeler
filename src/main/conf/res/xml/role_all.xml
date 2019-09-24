@@ -1,0 +1,204 @@
+<rol profile="alumno" course="1eso" unit="ent_n1">
+
+<!--
+===========================================================
+TutorMates: Tool for Mathematics Teaching and Learning.
+===========================================================
+
+(C) Copyright 2011, by Addlink Research.
+ 
+Project Info: 	http://www.tutormates.com
+Contact: 		info@tutormates.es
+ 
+TutorMates Equation Editor is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
+ 
+TutorMates Equation Editor is distributed in the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with TutorMates Equation Editor.  
+If not, see <http://www.gnu.org/licenses/>.
+ 
+
+File: role_all.xml
+
+
+(C) Copyright 2011, by Addlink Research.
+
+Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
+Contributor(s): 
+ -->
+
+	<toolBar>
+		<tab name="generalOperators" columns="12" visible="true" enabled="true">
+			<button visible="true" enabled="true">TMSum</button>
+			<button visible="true" enabled="true">TMSubtraction</button>
+			<button visible="true" enabled="true">percentage</button>
+			<button visible="true" enabled="true">factorial</button>
+			<button visible="true" enabled="true">equality</button>
+			<button visible="true" enabled="true">menor</button>
+			<button visible="true" enabled="true">menorIgual</button>
+			
+			<button visible="true" enabled="true">separator</button>
+			<button visible="true" enabled="true">decimal</button>
+			<button visible="true" enabled="true">pureRepeatingDecimal</button>
+			<button visible="true" enabled="true">mixedRepeatingDecimal</button>
+			<button visible="true" enabled="true">geometricPoint</button>
+			
+			
+			<button visible="true" enabled="true">TMMultiplication</button>
+			<button visible="true" enabled="true">TMDivision</button>
+			<button visible="true" enabled="true">multiplication</button>
+			<button visible="true" enabled="true">division</button>
+			<button visible="true" enabled="true">masmenos</button>
+			<button visible="true" enabled="true">mayor</button>
+			<button visible="true" enabled="true">mayorIgual</button>
+			<button visible="true" enabled="true">separator</button>
+			<button visible="true" enabled="true">exponent</button>
+			<button visible="true" enabled="true">squareRoot</button>
+			<button visible="true" enabled="true">nthRoot</button>
+			<button visible="true" enabled="true">fraction</button>
+						
+		</tab>
+		
+		<tab name="numbers" columns="13" visible="true" enabled="true">
+			<button visible="true" enabled="true">zero</button>
+			<button visible="true" enabled="true">one</button>
+			<button visible="true" enabled="true">two</button>
+			<button visible="true" enabled="true">three</button>
+			<button visible="true" enabled="true">four</button>
+			<button visible="true" enabled="true">five</button>
+			<button visible="true" enabled="true">six</button>
+			<button visible="true" enabled="true">seven</button>
+			<button visible="true" enabled="true">eight</button>
+			<button visible="true" enabled="true">nine</button>
+			<button visible="true" enabled="true">separator</button>
+			<button visible="true" enabled="true">eulerNumber</button>
+			<button visible="true" enabled="true">pi</button>
+			
+			<button visible="true" enabled="true">a</button>
+			<button visible="true" enabled="true">b</button>
+			<button visible="true" enabled="true">m</button>
+			<button visible="true" enabled="true">n</button>
+			<button visible="true" enabled="true">x</button>
+			<button visible="true" enabled="true">y</button>
+			<button visible="true" enabled="true">r</button>
+			<button visible="true" enabled="true">s</button>
+			<button visible="true" enabled="true">z</button>
+			<button visible="true" enabled="true">separator</button>
+			<button visible="true" enabled="true">separator</button>
+			<button visible="true" enabled="true">infinity</button>
+			<button visible="true" enabled="true">unknown</button>
+		</tab>
+	</toolBar>
+	
+	<operators>
+		<operator>1</operator>
+		<operator>2</operator>
+		<operator>3</operator>
+		<operator>4</operator>
+		<operator>5</operator>
+		<operator>6</operator>
+		<operator>7</operator>
+		<operator>8</operator>
+		<operator>9</operator>
+		<operator>10</operator>
+		<operator>11</operator>
+		<operator>12</operator>
+		<operator>13</operator>
+		<operator>30</operator>
+		<operator>31</operator>
+		<operator>32</operator>
+		<operator>33</operator>
+		<operator>34</operator>
+		<operator>35</operator>
+		<operator>36</operator>
+		<operator>37</operator>
+		<operator>38</operator>
+		<operator>39</operator>
+		<operator>40</operator>
+		<operator>50</operator>
+		<operator>51</operator>
+		<operator>52</operator>
+		<operator>53</operator>
+		<operator>54</operator>
+		<operator>55</operator>
+		<operator>56</operator>
+		<operator>57</operator>		
+	</operators>
+	
+	<functions>
+		<function>sqrt</function>
+		<function>mroot</function>
+		<function>sub</function>
+		<function>gamma</function>
+		<function>abs</function>
+		<function>sgn</function>
+		<function>exp</function>
+		<function>log</function>
+		<function>ln</function>
+		<function>ld</function>
+		<function>lg</function>
+		<function>cos</function>
+		<function>sin</function>
+		<function>tan</function>
+		<function>acos</function>
+		<function>arcos</function>
+		<function>arccos</function>
+		<function>asin</function>
+		<function>arcsin</function>
+		<function>atan</function>
+		<function>arctan</function>
+		<function>cosh</function>
+		<function>sinh</function>
+		<function>tanh</function>
+		<function>acosh</function>
+		<function>arcosh</function>
+		<function>arccosh</function>
+		<function>asinh</function>
+		<function>arcsinh</function>
+		<function>atanh</function>
+		<function>arctanh</function>
+		<function>floor</function>
+		<function>ceil</function>
+		<function>round</function>
+		<function>random</function>
+		<function>conjugate</function>
+		<function>arg</function>
+		<function>sec</function>
+		<function>csc</function>
+		<function>cosec</function>
+		<function>cot</function>
+		<function>sech</function>
+		<function>csch</function>
+		<function>coth</function>
+		<function>f</function>
+		<function>p</function>
+	</functions>
+	
+	<numbers>
+		<number>intNumber</number>
+		<number>realNumber</number>
+	</numbers>
+	
+	<variables>
+		<variable>a</variable>
+		<variable>b</variable>
+		<variable>m</variable>
+		<variable>n</variable>
+		<variable>x</variable>
+		<variable>y</variable>
+		<variable>r</variable>
+		<variable>s</variable>
+		<variable>z</variable>
+		<variable>?</variable>
+		<variable>pi</variable>
+		<variable>eulerNumber</variable>
+		<variable>infinity</variable>
+	</variables>
+</rol>

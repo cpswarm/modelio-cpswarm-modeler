@@ -34,9 +34,8 @@ package es.addlink.tutormates.equationEditor.Manager;
 
 import org.jdom.Document;
 import org.jdom.Element;
-
+import org.modelio.module.cpswarm.utils.ResourcesManager;
 import es.addlink.tutormates.equationEditor.Exceptions.FileEditorException;
-import es.addlink.tutormates.equationEditor.XMLFiles.LoadXML;
 
 /**
  * Guarda y carga los ficheros necesarios para el idioma.
@@ -78,7 +77,8 @@ public class LanguageManager {
 	}
 	
 	private void setDocument()throws FileEditorException{
-		this.doc = LoadXML.getDocument(this.fileName,null);
+		this.doc = ResourcesManager.getInstance().getXMLDocument(this.fileName);
+		
 	}
 	
 	private void buildDefaultLanguage()throws FileEditorException{

@@ -1,0 +1,107 @@
+<toolBars>
+
+<!--
+===========================================================
+TutorMates: Tool for Mathematics Teaching and Learning.
+===========================================================
+
+(C) Copyright 2011, by Addlink Research.
+ 
+Project Info: 	http://www.tutormates.com
+Contact: 		info@tutormates.es
+ 
+TutorMates Equation Editor is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
+ 
+TutorMates Equation Editor is distributed in the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with TutorMates Equation Editor.  
+If not, see <http://www.gnu.org/licenses/>.
+ 
+
+File: toolBarBase.xml
+
+
+(C) Copyright 2011, by Addlink Research.
+
+Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
+Contributor(s): 
+ -->
+
+	<lateralPalette>
+		<undo icon="images/actionUndo.png" />
+		<redo icon="images/actionRedo.png" />
+		<remove icon="images/actionDelete.png" />
+		<export icon="images/actionExport.png" />
+		<import icon="images/actionImport.png" />		
+	</lateralPalette>
+	
+	<mainPalette>
+		<tabs>
+			<tab icon="images/icons/iconOperators.png">generalOperators</tab>
+			<tab icon="images/icons/iconNumbers.png">numbers</tab>
+			<tab icon="images/icons/iconNumbers.png">comparisonOperators</tab>
+		</tabs>
+		
+		<buttons>
+			<button icon="" isText="" operator="" shortcut="" enabled="" show="">separator</button>
+		
+			<button icon="images/TMSum.png" isText="true" operator="+" shortcut="">TMSum</button>
+			<button icon="images/masMenos.png" isText="true" operator="&#177;" shortcut="">masmenos</button>
+			<button icon="images/TMSubtraction.png" isText="true" operator="-" shortcut="">TMSubtraction</button>
+			<button icon="images/percentage.png" isText="true" operator="%" shortcut="">percentage</button>
+			<button icon="images/factorial.png" isText="true" operator="!" shortcut="">factorial</button>
+			<button icon="images/equality.png" isText="true" operator="=" shortcut="">equality</button>
+			<button icon="images/decimal.png" isText="true" operator="." shortcut="">decimal</button>
+			<button icon="images/rdecimal.png" isText="false" operator="pureRepeatingDecimal" shortcut="">pureRepeatingDecimal</button>
+			<button icon="images/rdecimalMixed.png" isText="false" operator="mixedRepeatingDecimal" shortcut="P">mixedRepeatingDecimal</button>
+			<button icon="images/coordinate.png" isText="false" operator="geometricPoint" shortcut="G">geometricPoint</button>
+			<button icon="images/pi.png" isText="false" operator="pi" shortcut="">pi</button>
+			<button icon="images/infinity.png" isText="false" operator="infinity" shortcut="">infinity</button>
+			
+			<button icon="images/TMMultiplication.png" isText="true" operator="·" shortcut="">TMMultiplication</button>
+			<button icon="images/TMDivision.png" isText="true" operator=":" shortcut="">TMDivision</button>
+			<button icon="images/multiplication.png" isText="true" operator="·" shortcut="">multiplication</button>
+			<button icon="images/division.png" isText="false" operator=":" shortcut="">division</button>
+			<button icon="images/exponent.png" isText="false" operator="exponent" shortcut="Q">exponent</button>
+			<button icon="images/squareRoot.png" isText="false" operator="squareRoot" shortcut="R">squareRoot</button>
+			<button icon="images/nthRoot.png" isText="false" operator="nthRoot" shortcut="">nthRoot</button>
+			<button icon="images/fraction.png" isText="false" operator="fraction" shortcut="F">fraction</button>
+			<button icon="images/eulerNumber.png" isText="false" operator="eulerNumber" shortcut="">eulerNumber</button>
+			
+			<button icon="images/menor.png" isText="true" operator="&#60;" shortcut="">menor</button>
+			<button icon="images/mayor.png" isText="true" operator="&#62;" shortcut="">mayor</button>
+			<button icon="images/menorIgual.png" isText="true" operator="&#x02264;" shortcut="">menorIgual</button>
+			<button icon="images/mayorIgual.png" isText="true" operator="&#x02265;" shortcut="">mayorIgual</button>
+			
+			<button icon="images/0.png" isText="true" operator="0" shortcut="">zero</button>
+			<button icon="images/1.png" isText="true" operator="1" shortcut="">one</button>
+			<button icon="images/2.png" isText="true" operator="2" shortcut="">two</button>
+			<button icon="images/3.png" isText="true" operator="3" shortcut="">three</button>
+			<button icon="images/4.png" isText="true" operator="4" shortcut="">four</button>
+			<button icon="images/5.png" isText="true" operator="5" shortcut="">five</button>
+			<button icon="images/6.png" isText="true" operator="6" shortcut="">six</button>
+			<button icon="images/7.png" isText="true" operator="7" shortcut="">seven</button>
+			<button icon="images/8.png" isText="true" operator="8" shortcut="">eight</button>
+			<button icon="images/9.png" isText="true" operator="9" shortcut="">nine</button>
+			<button icon="images/var_a.png" isText="true" operator="a" shortcut="">a</button>
+			<button icon="images/var_b.png" isText="true" operator="b" shortcut="">b</button>
+			<button icon="images/var_m.png" isText="true" operator="m" shortcut="">m</button>
+			<button icon="images/var_n.png" isText="true" operator="n" shortcut="">n</button>
+			<button icon="images/var_x.png" isText="true" operator="x" shortcut="">x</button>
+			<button icon="images/var_y.png" isText="true" operator="y" shortcut="">y</button>
+			<button icon="images/var_r.png" isText="true" operator="r" shortcut="">r</button>
+			<button icon="images/var_s.png" isText="true" operator="s" shortcut="">s</button>
+			<button icon="images/var_z.png" isText="true" operator="z" shortcut="">z</button>
+			<button icon="images/var_unknown.png" isText="true" operator="?" shortcut="">unknown</button>
+			
+		</buttons>
+	</mainPalette>
+	
+</toolBars>

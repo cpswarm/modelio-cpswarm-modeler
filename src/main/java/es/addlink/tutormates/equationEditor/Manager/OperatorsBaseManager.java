@@ -35,16 +35,14 @@ package es.addlink.tutormates.equationEditor.Manager;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
 import org.jdom.Document;
 import org.jdom.Element;
-
+import org.modelio.module.cpswarm.utils.ResourcesManager;
 import es.addlink.tutormates.equationEditor.Exceptions.FileEditorException;
 import es.addlink.tutormates.equationEditor.Formats.MathML.MathML;
 import es.addlink.tutormates.equationEditor.Formats.MathML.MathMLAttribute;
 import es.addlink.tutormates.equationEditor.Role.BaseFunction;
 import es.addlink.tutormates.equationEditor.Role.BaseOperator;
-import es.addlink.tutormates.equationEditor.XMLFiles.LoadXML;
 
 /**
  * Obtiene y guarda todos los operadores que pueden ser cargados en el editor.
@@ -60,11 +58,11 @@ public class OperatorsBaseManager {
 	
 	public OperatorsBaseManager(){
 		try {
-			this.operatorsList = new Vector<BaseOperator>();
-			this.functionsList = new Vector<BaseFunction>();
-			this.numbersVariablesList = new Vector<BaseOperator>();
+			this.operatorsList = new Vector<>();
+			this.functionsList = new Vector<>();
+			this.numbersVariablesList = new Vector<>();
 			
-			this.doc = LoadXML.getDocument("allowedOperators.xml",LoadXML.class);
+			this.doc = ResourcesManager.getInstance().getXMLDocument("allowedOperators.xml");
 			buildOperators();
 			buildFunctions();
 			buildNumbersVariables("numbers");

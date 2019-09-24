@@ -35,17 +35,15 @@ package es.addlink.tutormates.equationEditor.Manager;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
 import org.jdom.Document;
 import org.jdom.Element;
-
+import org.modelio.module.cpswarm.utils.ResourcesManager;
 import es.addlink.tutormates.equationEditor.Exceptions.FileEditorException;
 import es.addlink.tutormates.equationEditor.Role.BaseFunction;
 import es.addlink.tutormates.equationEditor.Role.BaseOperator;
 import es.addlink.tutormates.equationEditor.Role.ItemToolBar;
 import es.addlink.tutormates.equationEditor.Role.Role;
 import es.addlink.tutormates.equationEditor.Role.TabToolBar;
-import es.addlink.tutormates.equationEditor.XMLFiles.LoadXML;
 
 /**
  * Obtiene y guarda todos los botones de la toolbar que pueden ser cargados en el editor.
@@ -90,9 +88,9 @@ public class RoleManager {
 	
 	private List<BaseOperator> getOperatorsList(){
 		try {
-			List<BaseOperator> result = new Vector<BaseOperator>();
+			List<BaseOperator> result = new Vector<>();
 			
-			Document doc = LoadXML.getDocument(this.fileName,Role.class);
+			Document doc = ResourcesManager.getInstance().getXMLDocument(this.fileName);
 			Element root = doc.getRootElement();
 			Element operators = root.getChild("operators");
 			
@@ -119,9 +117,9 @@ public class RoleManager {
 	
 	private List<BaseFunction> getFunctionsList(){
 		try {
-			List<BaseFunction> result = new Vector<BaseFunction>();
+			List<BaseFunction> result = new Vector<>();
 			
-			Document doc = LoadXML.getDocument(this.fileName,Role.class);
+			Document doc = ResourcesManager.getInstance().getXMLDocument(this.fileName);
 			Element root = doc.getRootElement();
 			Element operators = root.getChild("functions");
 			
@@ -150,7 +148,7 @@ public class RoleManager {
 		try {
 			List<BaseOperator> result = new Vector<BaseOperator>();
 			
-			Document doc = LoadXML.getDocument("role_all.xml",Role.class);
+			Document doc = ResourcesManager.getInstance().getXMLDocument("role_all.xml");
 			Element root = doc.getRootElement();
 			Element operators = root.getChild("variables");
 			
@@ -191,7 +189,7 @@ public class RoleManager {
 	private void loadToolBarXML(){
 		try {
 			
-			this.docXMLRole = LoadXML.getDocument(this.fileName, Role.class);
+			this.docXMLRole = ResourcesManager.getInstance().getXMLDocument(this.fileName);
 			
 			if(this.profile.equalsIgnoreCase(""))
 				System.out.print("# Editor: Loading profile. ");
