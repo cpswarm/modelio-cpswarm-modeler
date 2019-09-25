@@ -142,9 +142,7 @@ public class SCXMLWizardExport extends AbstractSwtWizardWindow {
              * BufferedWriter class.
              */
         
-            BufferedWriter bwr;
-        
-            bwr = new BufferedWriter(new FileWriter(file));
+            BufferedWriter bwr = new BufferedWriter(new FileWriter(file));
         
         
             //write contents of StringBuffer to a file
