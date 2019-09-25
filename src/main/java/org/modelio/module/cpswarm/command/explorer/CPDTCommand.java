@@ -35,29 +35,29 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 
 public class CPDTCommand extends DefaultModuleCommandHandler {
     
-    protected Shell shell;
+    protected Shell _shell;
 
-    protected String title = "Complete";
+    protected String _title = "Complete";
 
-    protected ModelTree selectedElt;
+    protected ModelTree _selectedElt;
 
-    protected String spiderinoPath = "";
+    protected String _spiderinoPath = "";
 
-    protected IModule module;
+    protected IModule _module;
 
-    protected String descriptionGeneration = "Generation Complete";
+    protected String _descriptionGeneration = "Generation Complete";
 
-    protected Text nameText;
+    protected Text _nameText;
 
-    protected Text descriptionText;
+    protected Text _descriptionText;
 
 
-    protected  List<org.modelio.metamodel.uml.statik.Class> behaviours;
+    protected  List<org.modelio.metamodel.uml.statik.Class> _behaviours;
 
     @Override
     public void actionPerformed(List<MObject> selectedElements, IModule module) {
-        this.selectedElt = (ModelTree) selectedElements.get(0);
-        this.module = module;
+        this._selectedElt = (ModelTree) selectedElements.get(0);
+        this._module = module;
 
         createContents2();
 
@@ -66,10 +66,10 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
     public void createInitiaSpiderinolModel(ModelTree root, IModule module, String name, String description, String behaviourName) {
 
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("Spiderino", this.selectedElt);
+        parameters.put("Spiderino", this._selectedElt);
         parameters.put("$(Name)", name);
 
-        for (org.modelio.metamodel.uml.statik.Class behaviour : behaviours){
+        for (org.modelio.metamodel.uml.statik.Class behaviour : this._behaviours){
             if (behaviour.getName().equals(behaviourName))
                 parameters.put("Behaviour", behaviour);
         }
@@ -81,7 +81,7 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
         try(ITransaction transaction = session.createTransaction ("Spiderino")){
             module.getModuleContext().getModelioServices().getPatternService().applyPattern(Paths.get(templatePath), parameters);
 
-            for(ModelTree owned : this.selectedElt.getOwnedElement()){
+            for(ModelTree owned : this._selectedElt.getOwnedElement()){
                 if (owned.isStereotyped(CPSWarmPeerModule.MODULE_NAME, "Swarm_Member")){
                     owned.setName(name);
                     session.getModel().createNote("ModelerModule", "description", owned, description);
@@ -102,10 +102,10 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
     public void createDroneModel(ModelTree root, IModule module, String name, String description, String behaviourName) {
 
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("DroneG", this.selectedElt);
+        parameters.put("DroneG", this._selectedElt);
         parameters.put("$(Name)", name);
 
-        for (org.modelio.metamodel.uml.statik.Class behaviour : behaviours){
+        for (org.modelio.metamodel.uml.statik.Class behaviour : _behaviours){
             if (behaviour.getName().equals(behaviourName))
                 parameters.put("Behaviour", behaviour);
         }
@@ -117,7 +117,7 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
         try(ITransaction transaction = session.createTransaction ("Drone")){
             module.getModuleContext().getModelioServices().getPatternService().applyPattern(Paths.get(templatePath), parameters);
 
-            for(ModelTree owned : this.selectedElt.getOwnedElement()){
+            for(ModelTree owned : this._selectedElt.getOwnedElement()){
                 if (owned.isStereotyped(CPSWarmPeerModule.MODULE_NAME, "Swarm_Member")){
                     owned.setName(name);
                     session.getModel().createNote("ModelerModule", "description", owned, description);
@@ -138,40 +138,40 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
     private void createContents2(){
         //Shell Creation
         Display display = Display.getCurrent();
-        this.shell = new Shell(display);
-        this.shell.setText("CPS Template Creation");
+        this._shell = new Shell(display);
+        this._shell.setText("CPS Template Creation");
         GridLayout gridLayout = new GridLayout();
         gridLayout.numColumns = 3;
-        this.shell.setLayout(gridLayout);
+        this._shell.setLayout(gridLayout);
 
 
         //Name Creation
-        new Label(shell, SWT.NONE).setText("Name:");
-        this.nameText = new Text(shell, SWT.SINGLE | SWT.BORDER);
+        new Label(_shell, SWT.NONE).setText("Name:");
+        this._nameText = new Text(_shell, SWT.SINGLE | SWT.BORDER);
         GridData gridDataName = new GridData(GridData.FILL, GridData.CENTER, true, false);
         gridDataName.horizontalSpan = 2;
-        this.nameText.setLayoutData(gridDataName);
+        this._nameText.setLayoutData(gridDataName);
 
         //Description Creation
-        new Label(shell, SWT.NONE).setText("Description:");
-        this.descriptionText = new Text(shell, SWT.MULTI | SWT.BORDER | SWT.V_SCROLL );
+        new Label(_shell, SWT.NONE).setText("Description:");
+        this._descriptionText = new Text(_shell, SWT.MULTI | SWT.BORDER | SWT.V_SCROLL );
         GridData gridDataDescription = new GridData(GridData.FILL, GridData.CENTER, true, false);
         gridDataDescription.horizontalSpan = 2;
-        this.descriptionText.setLayoutData(gridDataDescription);
+        this._descriptionText.setLayoutData(gridDataDescription);
 
 
         //Behaviour Creation
-        new Label(this.shell, SWT.NONE).setText("Behaviour :");
-        Combo cpsBehaviour = new Combo(this.shell, SWT.NONE);
+        new Label(this._shell, SWT.NONE).setText("Behaviour :");
+        Combo cpsBehaviour = new Combo(this._shell, SWT.NONE);
 
-        Collection<org.modelio.metamodel.uml.statik.Class> classes = this.module.getModuleContext().getModelingSession().findByClass(org.modelio.metamodel.uml.statik.Class.class);
-        this.behaviours = new ArrayList<org.modelio.metamodel.uml.statik.Class>();
+        Collection<org.modelio.metamodel.uml.statik.Class> classes = this._module.getModuleContext().getModelingSession().findByClass(org.modelio.metamodel.uml.statik.Class.class);
+        this._behaviours = new ArrayList<org.modelio.metamodel.uml.statik.Class>();
         for (org.modelio.metamodel.uml.statik.Class classe : classes){
             if (classe.isStereotyped(CPSWarmPeerModule.MODULE_NAME, "Controller"))
-                this.behaviours.add(classe);
+                this._behaviours.add(classe);
         }
 
-        for (org.modelio.metamodel.uml.statik.Class behaviour: behaviours){
+        for (org.modelio.metamodel.uml.statik.Class behaviour: _behaviours){
             cpsBehaviour.add(behaviour.getName());
         }
 
@@ -180,15 +180,15 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
         cpsBehaviour.setLayoutData(gridDataBehaviour);
 
         //Hardware Creation
-        new Label(this.shell, SWT.NONE).setText("Hardware:");
-        Combo cpsHardware = new Combo(shell, SWT.NONE);
+        new Label(this._shell, SWT.NONE).setText("Hardware:");
+        Combo cpsHardware = new Combo(_shell, SWT.NONE);
         cpsHardware.setItems(new String[] { "Spiderino", "Drone"});
         GridData gridDataHardware = new GridData(GridData.FILL, GridData.CENTER, true, false);
         gridDataHardware.horizontalSpan = 2;
         cpsHardware.setLayoutData(gridDataHardware);
 
         //Enter button
-        Button enter = new Button(this.shell, SWT.PUSH);
+        Button enter = new Button(this._shell, SWT.PUSH);
         enter.setText("Create");
         GridData gridDataButton = new GridData(GridData.END, GridData.CENTER, false, false);
         gridDataButton.horizontalSpan = 3;
@@ -196,18 +196,18 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
         enter.addSelectionListener(new SelectionAdapter() {
             public void widgetSelected(SelectionEvent event) {
                 if (cpsHardware.getText().equals("SPiderino"))
-                    createInitiaSpiderinolModel(selectedElt, module, nameText.getText(), descriptionText.getText(), cpsBehaviour.getText());
+                    createInitiaSpiderinolModel(_selectedElt, _module, _nameText.getText(), _descriptionText.getText(), cpsBehaviour.getText());
                 else
-                    createDroneModel(selectedElt, module, nameText.getText(), descriptionText.getText(), cpsBehaviour.getText());
+                    createDroneModel(_selectedElt, _module, _nameText.getText(), _descriptionText.getText(), cpsBehaviour.getText());
                 
                 completeBox();
             }
         });
 
-        this.shell.pack();
-        this.shell.open();
+        this._shell.pack();
+        this._shell.open();
 
-        while (!this.shell.isDisposed()) {
+        while (!this._shell.isDisposed()) {
             if (!display.readAndDispatch()) {
                 display.sleep();
             }
@@ -250,7 +250,7 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
             @Override
             public void run() {
                 customMessageBox(SWT.ICON_INFORMATION);
-                CPDTCommand.this.shell.dispose();
+                CPDTCommand.this._shell.dispose();
             }
         });
     }
@@ -258,8 +258,8 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
 
     void customMessageBox(int icon) {
         MessageBox messageBox = new MessageBox(Display.getCurrent().getActiveShell(), icon);
-        messageBox.setMessage(this.descriptionGeneration);
-        messageBox.setText(this.title);
+        messageBox.setMessage(this._descriptionGeneration);
+        messageBox.setText(this._title);
         messageBox.open();
     }
 
