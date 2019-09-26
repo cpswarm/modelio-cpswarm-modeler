@@ -131,8 +131,10 @@ public class SCXMLWizardExport extends AbstractSwtWizardWindow {
         setValidateButton("Export");
     }
 
-    private void write(String path, StringBuffer sbf) {
-        File file = new File(path);
+    private void write(final String filePath, StringBuffer sbf) {
+        
+        File file = new File(filePath);
+        
         file.getParentFile().mkdirs();
         
         try {
