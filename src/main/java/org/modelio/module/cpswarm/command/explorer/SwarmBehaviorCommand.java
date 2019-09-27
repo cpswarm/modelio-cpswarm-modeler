@@ -33,22 +33,23 @@ public class SwarmBehaviorCommand extends DefaultModuleCommandHandler {
                 diagram = CPSwarmFactory.createBehavior((Operation) owner);
             else 
                 diagram = CPSwarmFactory.createBehavior((org.modelio.metamodel.uml.statik.Class) owner);
-            
+
             if (diagram != null) {      
 
                 IModelioServices modelioServices = moduleContext.getModelioServices();
                 IDiagramService ds = modelioServices.getDiagramService();
-                IDiagramHandle dh = ds.getDiagramHandle(diagram);
+                try(IDiagramHandle dh = ds.getDiagramHandle(diagram);){
 
-                IDiagramDG dg = dh.getDiagramNode();
-                for (IStyleHandle style : ds.listStyles()){
-                    if (style.getName().equals("cpswarm"))
-                        dg.setStyle(style);
+                    IDiagramDG dg = dh.getDiagramNode();
+                    for (IStyleHandle style : ds.listStyles()){
+                        if (style.getName().equals("cpswarm"))
+                            dg.setStyle(style);
+                    }
+
+
+                    dh.save();
+                    dh.close();
                 }
-
-
-                dh.save();
-                dh.close();
                 modelioServices.getEditionService().openEditor(diagram);
             }
 

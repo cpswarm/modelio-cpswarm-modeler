@@ -26,36 +26,37 @@ public class SwarmMemberCommand extends DefaultModuleCommandHandler {
     public void actionPerformed(List<MObject> selectedElements, IModule module) {
         IModuleContext moduleContext = CPSWarmModule.getInstance().getModuleContext();
         IModelingSession modelingSession = moduleContext.getModelingSession();
-        
+
         try (ITransaction tr = modelingSession.createTransaction("Swarm Member Diagram");){
             org.modelio.metamodel.uml.statik.Package owner = (org.modelio.metamodel.uml.statik.Package) selectedElements.get(0);
-            
+
             org.modelio.metamodel.uml.statik.Class swarmmember = CPSwarmFactory.createSwarmMember(owner);       
             StaticDiagram diagram = CPSwarmFactory.createSwarmMemberArchitectureDiagram(swarmmember, "Swarm Member Architecture Diagram");
-            
+
             if (diagram != null) {      
-                
+
                 IModelioServices modelioServices = moduleContext.getModelioServices();
                 IDiagramService ds = modelioServices.getDiagramService();
-                IDiagramHandle dh = ds.getDiagramHandle(diagram);
-                
-                IDiagramDG dg = dh.getDiagramNode();
-                for (IStyleHandle style : ds.listStyles()){
-                    if (style.getName().equals("cpswarminternal"))
-                        dg.setStyle(style);
+                try(IDiagramHandle dh = ds.getDiagramHandle(diagram);){
+
+                    IDiagramDG dg = dh.getDiagramNode();
+                    for (IStyleHandle style : ds.listStyles()){
+                        if (style.getName().equals("cpswarminternal"))
+                            dg.setStyle(style);
+                    }
+
+                    List<IDiagramGraphic> dgs = dh.unmask(swarmmember, 0, 0);
+                    for (IDiagramGraphic dg2 : dgs) {
+                        if (dg2 instanceof IDiagramNode)
+                            ((IDiagramNode) dg2).setBounds(new Rectangle(100, 100, 600, 500));
+                    }
+
+                    dh.save();
+                    dh.close();
                 }
-                
-                List<IDiagramGraphic> dgs = dh.unmask(swarmmember, 0, 0);
-                for (IDiagramGraphic dg2 : dgs) {
-                    if (dg2 instanceof IDiagramNode)
-                        ((IDiagramNode) dg2).setBounds(new Rectangle(100, 100, 600, 500));
-                }
-                
-                dh.save();
-                dh.close();
                 modelioServices.getEditionService().openEditor(diagram);
             }
-           
+
             tr.commit();
         }
     }
@@ -71,7 +72,7 @@ public class SwarmMemberCommand extends DefaultModuleCommandHandler {
             MObject selected = selectedElements.get(0);
             return  ((selected instanceof org.modelio.metamodel.uml.statik.Package) 
                     && !(selected instanceof Profile));
-        
+
         }
         return false;
     }
