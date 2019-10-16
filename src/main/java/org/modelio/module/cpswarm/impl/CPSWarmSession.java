@@ -90,7 +90,7 @@ public class CPSWarmSession extends DefaultModuleLifeCycleHandler implements IMo
         final IModelComponentService modelComponentService =  CPSWarmModule.getInstance().getModuleContext().getModelioServices().getModelComponentService();
         for (IModelComponentDescriptor mc : modelComponentService.getModelComponents()) {
             if (mc.getName().equals("CPSWarmLibrary")) {
-                if (new Version(mc.getVersion()).isOlderThan(new Version("3.7.00"))) {
+                if (new Version(mc.getVersion()).isOlderThan(new Version("3.8.03"))) {
                     modelComponentService.deployModelComponent(new File(mdaplugsPath.resolve("res" + File.separator + "ramc" + File.separator + "CPSWarmLibrary.ramc").toString()), new NullProgressMonitor());
                 } else {
                     // Ramc already deployed...

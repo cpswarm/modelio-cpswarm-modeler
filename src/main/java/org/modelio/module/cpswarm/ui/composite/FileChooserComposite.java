@@ -23,13 +23,11 @@ package org.modelio.module.cpswarm.ui.composite;
 
 import java.io.File;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -108,7 +106,7 @@ public class FileChooserComposite extends Composite {
         this.text.setEnabled(true);
         this.searchButton = new Button(this, SWT.NONE);
         File file = new File(ResourcesManager.getInstance().getImage("directory.png"));      
-        this.searchButton.setImage(new Image(Display.getDefault(), file.getAbsolutePath()));
+//        this.searchButton.setImage(new Image(Display.getDefault(), file.getAbsolutePath()));
     }
 
     /**

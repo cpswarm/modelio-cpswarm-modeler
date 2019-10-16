@@ -10,7 +10,7 @@ import org.modelio.module.cpswarm.impl.CPSWarmPeerModule;
 import org.modelio.module.cpswarm.ui.window.FitnessFunctionWizardExport;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
-public class FitnessFunctionGeneration extends DefaultModuleCommandHandler {
+public class FitnessFunctionGeneration_old extends DefaultModuleCommandHandler {
     @Override
     public void actionPerformed(List<MObject> selectedElements, IModule module) {
         FitnessFunctionWizardExport export = new FitnessFunctionWizardExport(Display.getCurrent().getActiveShell());

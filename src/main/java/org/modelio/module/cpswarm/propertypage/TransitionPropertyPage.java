@@ -53,7 +53,7 @@ public class TransitionPropertyPage implements IPropertyContent {
     private static Signal _sigModel = null;
 
     /**
-     * Constructor CommonPropertyPage
+     * Constructor TransitionPropertyPage
      * @author ebrosse
      */
     public TransitionPropertyPage() {

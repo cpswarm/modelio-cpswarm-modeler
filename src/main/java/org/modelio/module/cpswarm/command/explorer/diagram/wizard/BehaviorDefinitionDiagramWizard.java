@@ -64,7 +64,7 @@ public class BehaviorDefinitionDiagramWizard extends AbstractWizardContributor i
     public AbstractDiagram actionPerformed(ModelElement element, String diagramName, String description) {
         IModelingSession session = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
         AbstractDiagram diagram = null;
-        try( ITransaction transaction = session.createTransaction (I18nMessageService.getString ("Info.Session.Create", "Environment Definition"))){
+        try( ITransaction transaction = session.createTransaction (I18nMessageService.getString ("Info.Session.Create", "behavior Definition"))){
 
 
             diagram = CPSwarmFactory.createEnvironmentDefinitionDiagram(element, diagramName, description);

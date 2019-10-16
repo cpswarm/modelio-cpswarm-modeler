@@ -25,7 +25,7 @@ public class BehaviorDefinitionDiagram extends DefaultModuleCommandHandler {
         
         try (ITransaction tr = modelingSession.createTransaction("Behavior Diagram");){
             
-            org.modelio.metamodel.uml.statik.Class owner = (org.modelio.metamodel.uml.statik.Class) selectedElements.get(0);
+            org.modelio.metamodel.uml.statik.NameSpace owner = (org.modelio.metamodel.uml.statik.NameSpace) selectedElements.get(0);
         
             AbstractDiagram diagram = CPSwarmFactory.createBehavior(owner);
             if (diagram != null) {             
@@ -55,8 +55,8 @@ public class BehaviorDefinitionDiagram extends DefaultModuleCommandHandler {
     public boolean accept(List<MObject> selectedElements, IModule module) {
         if ((selectedElements != null) && (selectedElements.size() == 1 )){
             MObject selected = selectedElements.get(0);
-            return  (selected instanceof org.modelio.metamodel.uml.statik.Class);
-        
+            return  (selected instanceof org.modelio.metamodel.uml.statik.NameSpace);
+         
         }
         return false;
     }

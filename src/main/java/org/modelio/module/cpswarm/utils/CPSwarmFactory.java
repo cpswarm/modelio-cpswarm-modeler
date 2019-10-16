@@ -16,6 +16,7 @@ import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.statik.Class;
+import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.module.cpswarm.api.CPSWarmStereotypes;
@@ -168,13 +169,12 @@ public class CPSwarmFactory {
     }
 
 
-    public static StateMachineDiagram createBehavior(Class owner) {
+    public static StateMachineDiagram createBehavior(NameSpace owner) {
        
         try{
             StateMachine sm = _model.createStateMachine();
             _session.getModel().getDefaultNameService().setDefaultName(sm, "Behavior");
             sm.setOwner(owner);
-            
             return createBehaviorDefinitionDiagram(sm);
         }catch(Exception e){
             return null;
