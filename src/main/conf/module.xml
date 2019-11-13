@@ -2,7 +2,6 @@
 <Module id="${project.name}" class="org.modelio.module.cpswarm.impl.CPSWarmModule" binaryversion="3.8.0" version="${project.version}" schema-level="2" uid="b914be5e-e9d5-4c22-84be-9edec27e429c" author="" image="" url="">
     <ClassPath>
         <PathEntry path="lib/${project.artifactId}-${project.version}.jar"/>
-        <PathEntry path="lib/jdom-1.1.3.jar"/>
         <PathEntry path="lib/jaxen-1.1.jar"/>
         <PathEntry path="lib/dom4j-1.6.1.jar"/>
         <PathEntry path="lib/jdom-1.0.jar"/>
@@ -11,6 +10,7 @@
         <PathEntry path="lib/xmlParserAPIs-2.6.2.jar"/>
         <PathEntry path="lib/xalan-2.6.0.jar"/>
         <PathEntry path="lib/icu4j-2.6.1.jar"/>
+        <PathEntry path="lib/jdom-1.1.3.jar"/>
         <PathEntry path="lib/jackson-core-2.8.7.jar"/>
         <PathEntry path="lib/jackson-databind-2.8.7.jar"/>
         <PathEntry path="lib/jackson-annotations-2.8.7.jar"/>
@@ -48,6 +48,22 @@
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
+            <Stereotype name="Controller" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Controller.label" uid="ba5073cb-49b9-4e5b-84ff-252f8bc1efe9" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="Virtual" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Virtual.label" uid="bd764e2a-af34-4cf3-a783-cb467d8753e7" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="Sensor" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Sensor.label" uid="0cc49982-e520-401e-91b9-49354b24e208" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="Actuator" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Actuator.label" uid="431b7386-fd22-474a-a1f0-262e6cb763df" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
         </Profile>
         <Profile uid="8e8834de-b0af-4b68-8350-7eca4cf46118" id="CPSWarm.diagram">
             <Stereotype name="Environment_Defintion" metaclass="Standard.StaticDiagram" owner-stereotype="" is-hidden="true" label="%stereotype.Environment_Defintion.label" uid="ce8245e0-8e1c-4933-bfea-65fd07125278" is-abstract="false">
@@ -70,7 +86,23 @@
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype name="Behavior_Definition" metaclass="Standard.StaticDiagram" owner-stereotype="" is-hidden="true" label="%stereotype.Swarm_Definition.label" uid="d4b7fabd-3e9e-4c47-98c5-30c3c7e555d0" is-abstract="false">
+            <Stereotype name="Behavior" metaclass="Standard.StateMachine" owner-stereotype="" is-hidden="false" label="%stereotype.Behavior.label" uid="a993fdfc-bb89-477d-99fe-2a4b3bc43f27" is-abstract="true">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="Virtual" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Virtual.label" uid="deae2aa5-76e9-4928-8aab-823e79452e4f" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="Controller" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Controller.label" uid="ac561067-1929-465a-8402-d6f5d5175d62" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="Sensor" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Sensor.label" uid="c40755d1-21f8-4111-bee6-d9f2140891fe" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="Actuator" metaclass="Standard.Class" owner-stereotype="" is-hidden="false" label="%stereotype.Actuator.label" uid="44dd8f28-3be4-4c0a-9454-dbede0366d32" is-abstract="false">
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
@@ -78,7 +110,7 @@
     </Profiles>
     <Gui>
         <Commands>
-            <Command id="SCXMLGeneration" label="%command.SCXMLGeneration.label" tooltip="%command.SCXMLGeneration.tooltip" image="" modify-model="true">
+            <Command id="SCXML Generation" label="%command.SCXMLGeneration.label" tooltip="%command.SCXMLGeneration.tooltip" image="" modify-model="true">
                 <Scope metaclass="Standard.StateMachine" stereotype=""/>
                 <Handler class="org.modelio.module.cpswarm.command.explorer.SCXMLGeneration"/>
             </Command>
@@ -88,26 +120,27 @@
                     <HParameter name="name" value=""/>
                 </Handler>
             </Command>
-            <Command id="BehaviorDiagramCommand" label="Create Behavior" tooltip="" image="" modify-model="true">
-                <Scope metaclass="Standard.Package" stereotype=""/>
-                <Scope metaclass="Standard.Class" stereotype=""/>
+            <Command id="BehaviorDiagram" label="%command.BehaviorDiagram.label" tooltip="%command.BehaviorDiagram.tooltip" image="" modify-model="false">
+                <Scope metaclass="Standard.NameSpace" stereotype=""/>
                 <Handler class="org.modelio.module.cpswarm.command.explorer.diagram.command.BehaviorDefinitionDiagram"/>
             </Command>
-            <Command id="AlgorithmImport" label="Algorithm Import" tooltip="" image="" modify-model="true">
+            <Command id="AlgorithmImport" label="%command.AlgorithmImport.label" tooltip="%command.AlgorithmImport.tooltip" image="" modify-model="false">
                 <Scope metaclass="Standard.NameSpace" stereotype=""/>
-                <Handler class="org.modelio.module.cpswarm.command.explorer.AlgorithmImport"/>
+                <Handler class="org.modelio.module.cpswarm.command.explorer.AlgorithmImport">
+                    <HParameter name="name" value=""/>
+                </Handler>
             </Command>
-            <Command id="AbstractionImport" label="Abstraction Import" tooltip="" image="" modify-model="true">
+            <Command id="AbstractionImport" label="%command.AbstractionImport.label" tooltip="%command.AbstractionImport.tooltip" image="" modify-model="false">
                 <Scope metaclass="Standard.NameSpace" stereotype=""/>
-                <Handler class="org.modelio.module.cpswarm.command.explorer.AbstractionImport"/>
+                <Handler class="org.modelio.module.cpswarm.command.explorer.AbstractionImport">
+                    <HParameter name="name" value=""/>
+                </Handler>
             </Command>
         </Commands>
         <ContextualMenu>
-            <CommandRef refid="SCXMLGeneration" group="" group-image=""/>
+            <CommandRef refid="SCXML Generation" group="" group-image=""/>
             <CommandRef refid="CPDT" group="" group-image=""/>
-            <CommandRef refid="BehaviorDiagramCommand" group="" group-image=""/>
-            <CommandRef refid="AlgorithmImport" group="" group-image=""/>
-            <CommandRef refid="AbstractionImport" group="" group-image=""/>
+            <CommandRef refid="BehaviorDiagram" group="" group-image=""/>
         </ContextualMenu>
         <Diagrams>
             <DiagramType base-diagram="Standard.StaticDiagram" stereotype="CPSWarm#Problem_Statement">
