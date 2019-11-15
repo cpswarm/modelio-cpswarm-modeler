@@ -2,6 +2,7 @@ package org.modelio.module.cpswarm.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.IPeerModule;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 
 /**
  * @see com.modeliosoft.modelio.api.module.IPeerModule
@@ -11,7 +12,10 @@ public interface ICPSWarmPeerModule extends IPeerModule {
     @objid ("7b21190a-b942-4670-9cff-635576f44f75")
     public static final String MODULE_NAME = "CPSWarm";
 
-    @objid ("ec82135a-4224-40b4-b136-d55d2048ea1e")
-    void generateFrevoProject(org.modelio.metamodel.uml.statik.Class selectedElt);
+    // Old Generation
+//    @objid ("ec82135a-4224-40b4-b136-d55d2048ea1e")
+//    void generateFrevoProject(org.modelio.metamodel.uml.statik.Class selectedElt);
+    
+    void generateSCXML(StateMachine stateMachine);
 
 }

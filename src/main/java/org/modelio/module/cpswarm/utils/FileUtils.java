@@ -1,9 +1,11 @@
 package org.modelio.module.cpswarm.utils;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -23,7 +25,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class FileUtils {
 
     /**
-     * Unzip it
+     * Unzip given file to the outpur folder 
      * @param zipFile input zip file
      * @param output zip file output folder
      */
@@ -79,6 +81,48 @@ public class FileUtils {
             CPSWarmModule.logService.error(e);
         }
     }
+
+
+    /**
+     * Write the stringBuffer to the file specified by the filePath
+     * @param sbf input StringBuffer
+     * @param filePath  output File
+     */
+    public static void write(final File file, StringBuffer sbf) {
+
+        BufferedWriter bwr = null;
+
+        try {
+            
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+            
+            try {
+                /*
+                 * To write contents of StringBuffer to a file
+                 */
+                bwr = new BufferedWriter(new FileWriter(file));
+
+                //write contents of StringBuffer to a file
+                bwr.write(sbf.toString());
+
+                //flush the stream
+                bwr.flush();
+                
+            
+
+            } finally {
+                
+                //close the stream
+                bwr.close();
+                
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            CPSWarmModule.logService.error(e);
+        }
+    }
+
 
     public static void delete(File f) throws IOException {
         if (f.isDirectory()) {

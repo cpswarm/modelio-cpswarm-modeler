@@ -1,11 +1,13 @@
 package org.modelio.module.cpswarm.impl;
 
+import java.io.File;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.context.configuration.IModuleAPIConfiguration;
-import org.modelio.api.module.context.configuration.IModuleUserConfiguration;
-import org.modelio.module.cpswarm.api.CPSWarmParameters;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
-import org.modelio.module.cpswarm.generator.ProjectGeneration;
+import org.modelio.module.cpswarm.generator.SCXMLGeneration;
+import org.modelio.module.cpswarm.utils.FileUtils;
+import org.modelio.module.cpswarm.utils.ResourcesManager;
 import org.modelio.vbasic.version.Version;
 
 /**
@@ -69,19 +71,32 @@ public class CPSWarmPeerModule implements ICPSWarmPeerModule {
         return this.module.getVersion();
     }
 
-    @objid ("781e6890-9282-462f-b3ea-830c0a2dbbbf")
     @Override
-    public void generateFrevoProject(org.modelio.metamodel.uml.statik.Class selectedElt) {
-        IModuleUserConfiguration configuration = this.module.getModuleContext().getConfiguration();
+    public void generateSCXML(StateMachine stateMachine) {
         
-        String rosWs = configuration.getParameterValue(CPSWarmParameters.WORKSPACEPATH);
-             
-        String rosPath = configuration.getParameterValue(CPSWarmParameters.ROSPATH);
+        String pathDest = ResourcesManager.getInstance().getGeneratedPath() + File.separator + stateMachine.getName() + ".xml";
+        File file = new File(pathDest);
         
-        String frevoPath = configuration.getParameterValue(CPSWarmParameters.FREVOPATH);
-        
-        ProjectGeneration generation = new ProjectGeneration(selectedElt);   
-        generation.generate(rosWs, rosPath, frevoPath);
+        SCXMLGeneration scxmlGen = new SCXMLGeneration(stateMachine);
+        StringBuffer content = scxmlGen.generate();        
+        FileUtils.write(file, content);
     }
 
+//    @objid ("781e6890-9282-462f-b3ea-830c0a2dbbbf")
+//    @Override
+//    public void generateFrevoProject(org.modelio.metamodel.uml.statik.Class selectedElt) {
+//        IModuleUserConfiguration configuration = this.module.getModuleContext().getConfiguration();
+//        
+//        String rosWs = configuration.getParameterValue(CPSWarmParameters.WORKSPACEPATH);
+//             
+//        String rosPath = configuration.getParameterValue(CPSWarmParameters.ROSPATH);
+//        
+//        String frevoPath = configuration.getParameterValue(CPSWarmParameters.FREVOPATH);
+//        
+//        ProjectGeneration generation = new ProjectGeneration(selectedElt);   
+//        generation.generate(rosWs, rosPath, frevoPath);
+//    }
+
+
+    
 }

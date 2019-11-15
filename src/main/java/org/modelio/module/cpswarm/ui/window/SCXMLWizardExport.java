@@ -21,10 +21,7 @@
 
 package org.modelio.module.cpswarm.ui.window;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -39,6 +36,7 @@ import org.modelio.module.cpswarm.generator.SCXMLGeneration;
 import org.modelio.module.cpswarm.impl.CPSWarmModule;
 import org.modelio.module.cpswarm.ui.composite.FileChooserComposite;
 import org.modelio.module.cpswarm.ui.composite.ValidationBoutonComposite;
+import org.modelio.module.cpswarm.utils.FileUtils;
 import org.modelio.module.cpswarm.utils.ResourcesManager;
 
 /**
@@ -131,46 +129,18 @@ public class SCXMLWizardExport extends AbstractSwtWizardWindow {
         setValidateButton("Export");
     }
 
-    private void write(final String filePath, StringBuffer sbf) {
-        
-        File file = new File(filePath);
-        
-        file.getParentFile().mkdirs();
-        
-        try {
-            file.createNewFile();
-            /*
-             * To write contents of StringBuffer to a file, use
-             * BufferedWriter class.
-             */
-        
-            BufferedWriter bwr = new BufferedWriter(new FileWriter(file));
-        
-        
-            //write contents of StringBuffer to a file
-            bwr.write(sbf.toString());
-        
-        
-            //flush the stream
-            bwr.flush();
-        
-            //close the stream
-            bwr.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+
     
     @objid ("9029119f-2c5b-4472-b2ad-9ecfc3a56cbc")
     @Override
     public void validationAction(){
         
         String pathDest = ResourcesManager.getInstance().getGeneratedPath() + File.separator + this.fileChooserComposite.getText() + ".xml";
+        File file = new File(pathDest);
         
-        SCXMLGeneration scxmlGen = new SCXMLGeneration((StateMachine)this.selectedElt);
-        StringBuffer content = scxmlGen.generate();        
-        write(pathDest, content);
+        SCXMLGeneration scxmlGen = new SCXMLGeneration((StateMachine) this.selectedElt);
+        StringBuffer content = scxmlGen.generate();    
+        FileUtils.write(file, content);
         
         completeBox();
     }

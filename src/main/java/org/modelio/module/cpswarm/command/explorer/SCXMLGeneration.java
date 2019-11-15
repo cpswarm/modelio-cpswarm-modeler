@@ -25,8 +25,7 @@ public class SCXMLGeneration extends DefaultModuleCommandHandler {
      */
 
     @Override
-    public boolean accept(List<MObject> selectedElements, IModule module) {
-        
+    public boolean accept(List<MObject> selectedElements, IModule module) {       
         return (selectedElements.get(0) instanceof StateMachine);
     }
 
