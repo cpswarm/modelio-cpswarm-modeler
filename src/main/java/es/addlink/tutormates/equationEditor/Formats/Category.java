@@ -1,52 +1,42 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: Category.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.Formats;
+
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Categorías de los operadores.
  * 
  * @author Ignacio Celaya Sesma
  */
+@objid ("48e056bd-2324-4e0d-a812-27f7ee26ce74")
 public class Category {
-	public final static String SimpleOperatorsGroup = "simpleOperators";
-	public final static String ComplexOperatorsGroup = "complexOperators";
-	public final static String TextOperatorsGroup = "textOperators";
-	public final static String VariablesGroup = "variables";
-	
-	public final static String WithoutEntriesType = "numWithoutEntries";
-	public final static String TextType = "texto";
-	public final static String UnaryType = "unary";
-	public final static String UnaryComplexType = "unaryComplex";
-	public final static String BinaryType = "binary";
-	public final static String TernaryType = "ternary";
+    @objid ("2e600723-26a6-434e-8bae-f95fb025025f")
+    public static final String SimpleOperatorsGroup = "simpleOperators";
+
+    @objid ("dac8e8a2-b911-4076-92f8-c8373d8fa939")
+    public static final String ComplexOperatorsGroup = "complexOperators";
+
+    @objid ("0ebe35b4-6354-4637-a7f4-f2adf35122a0")
+    public static final String TextOperatorsGroup = "textOperators";
+
+    @objid ("81ce3094-7ae8-4d59-a535-9c02bbe4bd12")
+    public static final String VariablesGroup = "variables";
+
+    @objid ("08a38232-4f48-4d19-9ba8-300a55d83f8c")
+    public static final String WithoutEntriesType = "numWithoutEntries";
+
+    @objid ("91eb24f6-bd8c-46b6-aac9-aada0efec341")
+    public static final String TextType = "texto";
+
+    @objid ("51e505ee-c2c0-421e-a335-84fee536fadd")
+    public static final String UnaryType = "unary";
+
+    @objid ("bf896cfb-81d2-4f88-8fb6-29a5171ec902")
+    public static final String UnaryComplexType = "unaryComplex";
+
+    @objid ("b1e19338-440e-4a9a-8c6c-b150bfbbc790")
+    public static final String BinaryType = "binary";
+
+    @objid ("2c384d1a-42bb-4d30-83ff-d03e04f8d007")
+    public static final String TernaryType = "ternary";
+
 }

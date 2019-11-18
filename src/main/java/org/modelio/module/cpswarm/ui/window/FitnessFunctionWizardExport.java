@@ -1,24 +1,3 @@
-/*
- * Copyright 2013 Modeliosoft
- *
- * This file is part of Modelio.
- *
- * Modelio is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Modelio is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
-
-
 package org.modelio.module.cpswarm.ui.window;
 
 import java.io.BufferedWriter;
@@ -40,36 +19,38 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
 import org.modelio.module.cpswarm.ui.composite.FileChooserComposite;
 import org.modelio.module.cpswarm.ui.composite.ValidationBoutonComposite;
 import org.modelio.module.cpswarm.utils.ResourcesManager;
+
 /**
  * This class provides the XMI export dialog
  * @author ebrosse
  */
-@objid ("f91e2337-fef4-4e6e-b382-cb9fb518f9b2")
+@objid ("8577dddb-6cd2-40ac-b12b-2a60057001a4")
 public class FitnessFunctionWizardExport extends AbstractSwtWizardWindow {
-
+    @objid ("a512222f-c2d3-41b8-b090-baebd032ef0a")
     public Object open() {
         createContents();
         return super.open();
     }
 
+    @objid ("e87eda3c-bfcf-4a38-a846-4e23707401bb")
     private void createContents() {
         setLabels();
-
+        
         this.shell = new Shell(getParent(), 67696 | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.TITLE);
         this.shell.setLayout( new FormLayout());
         this.shell.setText(this.frametitle);
-
+        
         // File chooser composite
         this.fileChooserComposite = new FileChooserComposite(this.shell, SWT.NONE, SWT.OPEN);
-
-
+        
+        
         // Validation Composite
         this.validateComposite = new ValidationBoutonComposite(this.shell, SWT.NONE, this.cancelButton, this.validateButton);
-
+        
         this.validateComposite.getValidationButton().addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-
+        
                 if (getFileChooserComposite().getCurrentFile() != null) {
                     validationAction();
                 } else {
@@ -77,7 +58,7 @@ public class FitnessFunctionWizardExport extends AbstractSwtWizardWindow {
                 }
             }
         });
-
+        
         this.validateComposite.getCancelButton().addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -85,42 +66,41 @@ public class FitnessFunctionWizardExport extends AbstractSwtWizardWindow {
                 cancelAction();
             }
         });
-
+        
         final FormData fd_fileChooserComposite = new FormData();
         fd_fileChooserComposite.right = new FormAttachment(100, 0);
         fd_fileChooserComposite.bottom = new FormAttachment(0, 50);
         fd_fileChooserComposite.top = new FormAttachment(0, 0);
         fd_fileChooserComposite.left = new FormAttachment(0, 0);
         this.fileChooserComposite.setLayoutData(fd_fileChooserComposite);
-
+        
         final FormData fd_validateComposite = new FormData();
         fd_validateComposite.top = new FormAttachment(this.fileChooserComposite, 5);
         fd_validateComposite.bottom = new FormAttachment(100, -5);
         fd_validateComposite.left = new FormAttachment(this.fileChooserComposite, 0, SWT.LEFT);
         fd_validateComposite.right = new FormAttachment(this.fileChooserComposite, 0, SWT.RIGHT);
         this.validateComposite.setLayoutData(fd_validateComposite);
-
+        
         this.fileChooserComposite.getSearch().addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 fileChooserComposite.searchFile();
             }
         });
-
+        
         setDefaultDialog();
         this.shell.pack();
         this.shell.setMinimumSize(new Point(this.shell.getBounds().width, this.shell.getBounds().height));
-
+        
         this.validateComposite.getValidationButton().setFocus();
     }
 
-
+    @objid ("d3ddbc0c-7293-41e8-8d33-8e7898caa17e")
     public FitnessFunctionWizardExport(Shell parent) {
         super(parent);
-
     }
 
-    @objid ("4e2d6edc-3ccc-4cba-ad1f-15d93e376374")
+    @objid ("84e81fe4-f6ba-4e0a-9547-20887cfa0aa5")
     @Override
     public void setLabels() {
         setTitle("Title");
@@ -130,6 +110,7 @@ public class FitnessFunctionWizardExport extends AbstractSwtWizardWindow {
         setValidateButton("Export");
     }
 
+    @objid ("677335e3-4764-4171-94c1-bcdeca5c2f95")
     private void write(String path, StringBuffer sbf) {
         File file = new File(path);
         file.getParentFile().mkdirs();
@@ -160,10 +141,10 @@ public class FitnessFunctionWizardExport extends AbstractSwtWizardWindow {
             e.printStackTrace();
         }
     }
-    
+
+    @objid ("1576e2a6-156c-4114-ad0c-9e5378549cfd")
     @Override
-    public void validationAction(){
-        
+    public void validationAction() {
         String pathDest = ResourcesManager.getInstance().getGeneratedPath() + File.separator + this.fileChooserComposite.getText() + ".java";
         
         FitnessFunctionGeneration fitGen = new FitnessFunctionGeneration((Class) this.selectedElt);
@@ -172,24 +153,22 @@ public class FitnessFunctionWizardExport extends AbstractSwtWizardWindow {
         
         completeBox();
     }
-    
-  
+
+    @objid ("cef601d4-453c-453f-a984-4de1e3ac177c")
     @Override
     public void setPath() {
-
         if (this.path.equals(""))
             this.path = CPSWarmModule.getInstance().getModuleContext().getProjectStructure().getPath().toString();
-
+        
         this.fileChooserComposite.setText(this.selectedElt.getName() + "Calculator");
     }
 
-
+    @objid ("07076ff8-d0cf-48ea-b6de-6fec96fe1327")
     @Override
     public void setDefaultDialog() {
         this.fileChooserComposite.getDialog().setFilterNames(new String[] { "java" });
         this.fileChooserComposite.getDialog().setFilterExtensions(new String[] { "*.java" });
         setPath();
     }
-
 
 }

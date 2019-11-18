@@ -71,9 +71,9 @@ public class CPSWarmPeerModule implements ICPSWarmPeerModule {
         return this.module.getVersion();
     }
 
+    @objid ("2f11a190-bf31-4681-ae7d-214b512277f2")
     @Override
     public void generateSCXML(StateMachine stateMachine) {
-        
         String pathDest = ResourcesManager.getInstance().getGeneratedPath() + File.separator + stateMachine.getName() + ".xml";
         File file = new File(pathDest);
         
@@ -82,21 +82,19 @@ public class CPSWarmPeerModule implements ICPSWarmPeerModule {
         FileUtils.write(file, content);
     }
 
+
 //    @objid ("781e6890-9282-462f-b3ea-830c0a2dbbbf")
 //    @Override
 //    public void generateFrevoProject(org.modelio.metamodel.uml.statik.Class selectedElt) {
 //        IModuleUserConfiguration configuration = this.module.getModuleContext().getConfiguration();
-//        
+//
 //        String rosWs = configuration.getParameterValue(CPSWarmParameters.WORKSPACEPATH);
-//             
+//
 //        String rosPath = configuration.getParameterValue(CPSWarmParameters.ROSPATH);
-//        
+//
 //        String frevoPath = configuration.getParameterValue(CPSWarmParameters.FREVOPATH);
-//        
-//        ProjectGeneration generation = new ProjectGeneration(selectedElt);   
+//
+//        ProjectGeneration generation = new ProjectGeneration(selectedElt);
 //        generation.generate(rosWs, rosPath, frevoPath);
 //    }
-
-
-    
 }

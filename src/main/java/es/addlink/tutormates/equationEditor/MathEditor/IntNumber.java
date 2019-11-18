@@ -1,38 +1,7 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: IntNumber.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.MathEditor;
 
 import java.math.BigInteger;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Clase que representa a un número entero.
@@ -40,51 +9,53 @@ import java.math.BigInteger;
  * @author Nuria García
  * @author Ignacio Celaya Sesma
  */
+@objid ("f64698cf-22c8-472c-8657-98df97dfd2af")
 public class IntNumber extends MathEditor {
+    /**
+     * Número entero.
+     */
+    @objid ("da05b0a0-9915-4fd1-806a-6a1262e4945e")
+    private BigInteger number;
 
-	/**
-	 * Número entero.
-	 */
-	private BigInteger number;
+    /**
+     * Constructor
+     * @param number Número entero.
+     * @param parent Padre del objeto MathEditor.
+     */
+    @objid ("1fb0c214-de51-4c87-bec1-7eec0ada520b")
+    public IntNumber(BigInteger number, MathEditor parent) {
+        super("numero", "entero", -1, parent);
+        this.number = number;
+    }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param number Número entero.
-	 * @param parent Padre del objeto MathEditor.
-	 */
-	public IntNumber(BigInteger number, MathEditor parent) {
-		super("numero", "entero", -1, parent);
-		this.number = number;
-	}
+    /**
+     * Devuelve el número entero.
+     * @return El número entero.
+     */
+    @objid ("d50ce7b1-5937-46c9-bda5-b87e7974094b")
+    public BigInteger getNumber() {
+        return number;
+    }
 
-	/**
-	 * Devuelve el número entero.
-	 * 
-	 * @return El número entero.
-	 */
-	public BigInteger getNumber() {
-		return number;
-	}
+    /**
+     * Establece el número entero.
+     * @param newNumber Número entero.
+     */
+    @objid ("feef4f4e-ff02-43e6-ab42-8c80d0b2b86d")
+    public void setNumber(BigInteger newNumber) {
+        number = newNumber;
+    }
 
-	/**
-	 * Establece el número entero.
-	 * 
-	 * @param newNumber Número entero.
-	 */
-	public void setNumber(BigInteger newNumber) {
-		number = newNumber;
-	}
-
-	/* (non-Javadoc)
-	 * @see Tipos.MathEditor#toString()
-	 */
-	@Override
-	public String toString() {
-		String cad = "<intNumber>";
-		cad += this.number;
-		cad += "</intNumber>";
-		return cad;
-	}
+/* (non-Javadoc)
+     * @see Tipos.MathEditor#toString()
+     */
+    @objid ("4a7bb266-0847-4fd7-8fca-61a31eff85c9")
+    @Override
+    public String toString() {
+        String cad = "<intNumber>";
+        cad += this.number;
+        cad += "</intNumber>";
+        return cad;
+    }
 
 }

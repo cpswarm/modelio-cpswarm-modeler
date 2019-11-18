@@ -1,65 +1,38 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: Text.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.MathEditor;
+
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Esta clase es la encargada de representar texto. Utilizada para expresiones matemáticas incorrectas.
  * 
  * @author Ignacio Celaya Sesma
  */
+@objid ("b94eece1-a60e-4736-b6a9-8594adcf26e2")
 public class Text extends MathEditor {
+    @objid ("c22d39e1-d720-4dc4-be00-47a2a354a8a3")
+    private String text;
 
-	private String text;
-	
-	public String getText() {
-		return text;
-	}
+    @objid ("e8f68dc6-c7c0-43b8-9561-13185bb9f5d9")
+    public String getText() {
+        return text;
+    }
 
-	public void setText(String text) {
-		this.text = text;
-	}
+    @objid ("c0e4eb59-002c-40e2-94db-5b09b8306428")
+    public void setText(String text) {
+        this.text = text;
+    }
 
-	public Text(MathEditor parent) {
-		super("Text", "Text", -1, parent);
-		// TODO Auto-generated constructor stub
-		
-		
-	}
+    @objid ("a2cf9eb8-9e24-469e-8a8a-44d45269bd83")
+    public Text(MathEditor parent) {
+        super("Text", "Text", -1, parent);
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "<texto>"+this.text+"</texto>";
-	}
+    @objid ("029eefbb-5460-4855-9dfb-f70b65ffa5be")
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "<texto>"+this.text+"</texto>";
+    }
 
 }

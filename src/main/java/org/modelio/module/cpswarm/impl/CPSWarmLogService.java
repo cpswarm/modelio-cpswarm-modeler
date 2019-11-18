@@ -7,9 +7,9 @@ import org.modelio.module.sysml.impl.SysMLModule;
 /**
  * Proxy for the Modelio {@link ILogService}, configuring the ModelingWizardMdac.
  */
-@objid ("8879a912-9dc4-463a-a375-ebbf09857a74")
+@objid ("ff732306-4a07-4d4c-98f9-63f5a5bb8a32")
 public class CPSWarmLogService {
-    @objid ("35980154-9b17-4de6-8470-360fa34873e8")
+    @objid ("48ef9af7-22cc-4817-b4ce-143e7df26b40")
     private ILogService logService;
 
     /**
@@ -17,7 +17,7 @@ public class CPSWarmLogService {
      * @param logService the Modelio log service.
      * @param module the current instance of {@link SysMLModule}.
      */
-    @objid ("964c8572-3e63-48d7-a5c9-5da52239c293")
+    @objid ("09988294-26b8-4ece-add0-6bbb15d3c026")
     public CPSWarmLogService(ILogService logService, CPSWarmModule module) {
         this.logService = logService;
     }
@@ -29,7 +29,7 @@ public class CPSWarmLogService {
      * displayed in the Modelio console before the message.
      * @param msg a message to be displayed as a log.
      */
-    @objid ("e4f6b78a-0e20-414e-beb7-562b54d1ef87")
+    @objid ("e5e3bd39-cd65-49f3-9eb1-4f54d8862de6")
     public void info(final String msg) {
         this.logService.warning(msg);
     }
@@ -41,7 +41,7 @@ public class CPSWarmLogService {
      * displayed in the Modelio console before the message.
      * @param msg a message to be displayed as a log.
      */
-    @objid ("4f454bf5-0443-45e5-9d91-42f7ae452981")
+    @objid ("65900bd6-5806-4be3-9294-065a4e3513bf")
     public void warning(final String msg) {
         this.logService.warning(msg);
     }
@@ -53,7 +53,7 @@ public class CPSWarmLogService {
      * displayed in the Modelio console before the message.
      * @param msg a message to be displayed as a log.
      */
-    @objid ("e6c32c7e-b836-4167-a21b-b0cb3809ffa4")
+    @objid ("3ac46554-7efa-4861-b518-0a3568e4d742")
     public void error(final String msg) {
         this.logService.error(msg);
     }
@@ -65,7 +65,7 @@ public class CPSWarmLogService {
      * displayed in the Modelio console before the message.
      * @param t an exception to be displayed as a log.
      */
-    @objid ("c55445ac-255b-431d-a41a-af5a49ece977")
+    @objid ("90daa0c9-1cd1-41a6-b93d-2ff554da6505")
     public void info(final Throwable e) {
         this.logService.info( e);
     }
@@ -77,7 +77,7 @@ public class CPSWarmLogService {
      * displayed in the Modelio console before the message.
      * @param t an exception to be displayed as a log.
      */
-    @objid ("1cabbb32-d481-41c1-8cfa-8145c6fcb22e")
+    @objid ("8d55c19f-5b33-4d66-9b02-22b2e783e930")
     public void warning(final Throwable e) {
         this.logService.warning(e);
     }
@@ -89,7 +89,7 @@ public class CPSWarmLogService {
      * displayed in the Modelio console before the message.
      * @param t an exception to be displayed as a log.
      */
-    @objid ("80ef866a-fa62-47a0-a6f4-1661ce732c61")
+    @objid ("344f759c-e2ad-4d79-b6ac-12d9f5327ff3")
     public void error(final Throwable e) {
         this.logService.error(e);
     }

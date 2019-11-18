@@ -21,16 +21,17 @@ import org.modelio.module.cpswarm.i18n.I18nMessageService;
  */
 @objid ("fd6fe968-c247-4132-bd8a-651dae66dc05")
 public class CPSWarmModule extends AbstractJavaModule {
-    @objid ("9e102e96-6755-4f39-bac0-194a364c6cb9")
-    private CPSWarmPeerModule peerModule = null;
-    
-    public static CPSWarmLogService logService;
-
-    @objid ("c368b95e-5f79-416e-be55-61f42c469e52")
-    private CPSWarmSession session = null;
-
     @objid ("f21764ca-178c-4fc3-9f84-b0c2539a3f0f")
     private static CPSWarmModule instance = null;
+
+    @objid ("834d42fa-31ab-4edf-aaad-97ca6fb31a5b")
+    public static CPSWarmLogService logService;
+
+    @objid ("27e682b8-0b77-43f5-ba59-cb19be37fe7d")
+    private CPSWarmPeerModule peerModule = null;
+
+    @objid ("24a2bac3-d598-4542-b762-05c8657080f6")
+    private CPSWarmSession session = null;
 
     @objid ("722b1be0-353b-4647-af44-d5174d11e7f3")
     public static CPSWarmModule getInstance() {
@@ -149,11 +150,11 @@ public class CPSWarmModule extends AbstractJavaModule {
     public String getModuleImagePath() {
         return "/res/icons/cpswarm.png";
     }
-    
+
+    @objid ("990b0c8c-1250-483a-a162-bdeb9533b6f5")
     @Override
     public IModelComponentContributor getModelComponentContributor(IModelComponent mc) {
         return new CPSWarmModelComponentContributor(this);
     }
-
 
 }

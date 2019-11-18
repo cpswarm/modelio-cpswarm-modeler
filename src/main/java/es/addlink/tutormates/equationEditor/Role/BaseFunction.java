@@ -1,71 +1,56 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: BaseFunction.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.Role;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import es.addlink.tutormates.equationEditor.Formats.MathML.MathML;
 
+@objid ("7a1e2609-d2d7-45bc-a3c5-4bc46049fd92")
 public class BaseFunction {
+    @objid ("6bcd2144-fd85-483e-af4b-bef2902312e2")
+    private String name;
 
-	private String name;
-	private int entries;
-	private BaseOperator allowedOperator;
-	private MathML mathML;
-	
-	public BaseFunction(String name, int entries, BaseOperator allowedOperator, MathML mathML) {
-		super();
-		this.name = name;
-		this.entries = entries;
-		this.allowedOperator = allowedOperator;
-		this.mathML = mathML;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public int getEntries() {
-		return entries;
-	}
-	public BaseOperator getAllowedOperator() {
-		return allowedOperator;
-	}
-	public MathML getMathML() {
-		return mathML;
-	}
-	
-	public String toString(){
-		String output;
-		output = name + "|" + entries + "|" + mathML + "|" + allowedOperator + "|";
-		return output;
-	}
-	
+    @objid ("e95ca9a8-42e8-4ba8-8e5f-209cfccc780d")
+    private int entries;
+
+    @objid ("9f7fd27f-1897-4731-b727-d5c09a1c1cfc")
+    private BaseOperator allowedOperator;
+
+    @objid ("ed3619b6-91c1-4380-ac39-d6fb617f7f5b")
+    private MathML mathML;
+
+    @objid ("758163cd-4fe4-4611-8298-323ddab46a71")
+    public BaseFunction(String name, int entries, BaseOperator allowedOperator, MathML mathML) {
+        super();
+        this.name = name;
+        this.entries = entries;
+        this.allowedOperator = allowedOperator;
+        this.mathML = mathML;
+    }
+
+    @objid ("ce34e0fc-7731-465f-a5b8-0de8ddd05373")
+    public String getName() {
+        return name;
+    }
+
+    @objid ("2c76b58b-82c5-4fd9-98a8-11e5695ceffe")
+    public int getEntries() {
+        return entries;
+    }
+
+    @objid ("ae5d743a-e933-410a-981a-7c2aebdb312c")
+    public BaseOperator getAllowedOperator() {
+        return allowedOperator;
+    }
+
+    @objid ("d2a78321-a77b-4d42-b6af-fda13108de42")
+    public MathML getMathML() {
+        return mathML;
+    }
+
+    @objid ("ccd47f14-dff9-4ce9-99ec-f50f429b1f77")
+    public String toString() {
+        String output;
+        output = name + "|" + entries + "|" + mathML + "|" + allowedOperator + "|";
+        return output;
+    }
+
 }

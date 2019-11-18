@@ -1,22 +1,6 @@
-/* 
- * Copyright 2013-2018 Modeliosoft
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * 
- */
-
 package org.modelio.module.cpswarm.ui.composite;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -29,6 +13,7 @@ import org.eclipse.swt.widgets.Label;
  * <li>a control - where edition takes place</li>
  * </ul>
  */
+@objid ("21d99f61-21d8-4f92-9451-920ccf08bce9")
 public interface IField {
     /**
      * Layouts the label, edition control and help button in their container ({@link IField#getComposite()})
@@ -41,30 +26,37 @@ public interface IField {
      * 
      * Note the the helpText will always be layouted so that it appears under the control (same width and X position).
      */
+    @objid ("37529bf9-74b9-4378-bfe6-8806781fe099")
     void layout(Label label, Control control);
 
     /**
      * Gets the top most container control of the field which must be a <code>Composite</code>.
      */
+    @objid ("65ef0db2-f952-48d5-b40b-88278c161750")
     Composite getComposite();
 
     /**
      * Gets the control in charge of displaying/editing the field value.
      */
+    @objid ("7feec682-ba73-45be-baac-5a26b0864c08")
     Control getControl();
 
     /**
      * Refresh the value displayed by the field. The field will typically query its IFiledData model and refresh its contents.
      */
+    @objid ("d915f43e-b46c-4c81-8c93-2429f161d599")
     void refresh();
 
+    @objid ("cf983ae2-fb03-487e-baff-2a2cf77d624f")
     void setEditable(boolean onoff);
 
     /**
      * Gets the IfieldData model of this field.
      */
+    @objid ("1d5ccd94-97df-4b3b-bd41-259aa4c8172a")
     String getValue();
 
+    @objid ("e31e8b2c-601b-4ed1-b853-12059487170d")
     void setValue(String data);
 
 }

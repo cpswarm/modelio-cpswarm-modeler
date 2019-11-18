@@ -1,36 +1,6 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: RepeatingDecimal.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.MathEditor;
+
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Clase capaz de representar números decimales, periódicos puros o periódicos mixtos.
@@ -38,115 +8,120 @@ package es.addlink.tutormates.equationEditor.MathEditor;
  * @author Nuria García
  * @author Ignacio Celaya Sesma
  */
+@objid ("87518b24-85f9-4cdb-bc18-ae2bf05d1cc6")
 public class RepeatingDecimal extends MathEditor {
+    /**
+     * Parte decimal.
+     */
+    @objid ("45ba806a-0b5e-4d63-b796-3788576ae07f")
+    private StringNumber secondChild = null;
 
-	/**
-	 * Parte entera.
-	 */
-	private MathEditor firstChild = null;
+    /**
+     * Parte periódica.
+     */
+    @objid ("d156f9c0-f509-4ab8-9f03-b4343ac55eec")
+    private StringNumber thirdChild = null;
 
-	/**
-	 * Parte decimal.
-	 */
-	private StringNumber secondChild = null;
+    /**
+     * Parte entera.
+     */
+    @objid ("d4a0d7b8-2187-41aa-8733-ffb1a8f51277")
+    private MathEditor firstChild = null;
 
-	/**
-	 * Parte periódica.
-	 */
-	private StringNumber thirdChild = null;
+    /**
+     * Constructor
+     * @param name Nombre del componente.
+     * @param id Identificador del componente.
+     * @param parent Padre del objeto MathEditor.
+     */
+    @objid ("3dcfd557-5f56-4481-a8f9-f0be42806248")
+    public RepeatingDecimal(String name, int id, MathEditor parent) {
+        super("especial", name, id, parent);
+    }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param name Nombre del componente.
-	 * @param id Identificador del componente.
-	 * @param parent Padre del objeto MathEditor.
-	 */
-	public RepeatingDecimal(String name, int id, MathEditor parent) {
-		super("especial", name, id, parent);
-	}
+    /**
+     * Devuelve la parte entera.
+     * @return Parte entera.
+     */
+    @objid ("0682ccac-c55c-4e2c-84f5-a67bd641c7ca")
+    public MathEditor getFirstChild() {
+        return firstChild;
+    }
 
-	/**
-	 * Devuelve la parte entera.
-	 * 
-	 * @return Parte entera.
-	 */
-	public MathEditor getFirstChild() {
-		return firstChild;
-	}
+    /**
+     * Devuelve la parte decimal.
+     * @return Parte decimal.
+     */
+    @objid ("25b26bf4-44ab-48e0-8f67-2ecf69434bcc")
+    public MathEditor getSecondChild() {
+        return secondChild;
+    }
 
-	/**
-	 * Devuelve la parte decimal.
-	 * 
-	 * @return Parte decimal.
-	 */
-	public MathEditor getSecondChild() {
-		return secondChild;
-	}
+    /**
+     * Devuelve la parte periódica.
+     * @return La parte periódica.
+     */
+    @objid ("b531636d-15f5-43bb-a3d8-95024820597a")
+    public MathEditor getThirdChild() {
+        return thirdChild;
+    }
 
-	/**
-	 * Devuelve la parte periódica.
-	 * 
-	 * @return La parte periódica.
-	 */
-	public MathEditor getThirdChild() {
-		return thirdChild;
-	}
+    /**
+     * Establece la parte entera.
+     * @param newFirst Parte entera.
+     */
+    @objid ("48e106d4-10fa-4f0e-a0af-9e2712ffc207")
+    public void setFirstChild(MathEditor newFirst) {
+        firstChild = newFirst;
+    }
 
-	/**
-	 * Establece la parte entera.
-	 * 
-	 * @param newFirst Parte entera.
-	 */
-	public void setFirstChild(MathEditor newFirst) {
-		firstChild = newFirst;
-	}
+    /**
+     * Establece la parte decimal.
+     * @param newSecond Parte decimal.
+     */
+    @objid ("c6652a04-19dd-4778-97af-3050cb371a48")
+    public void setSecondChild(StringNumber newSecond) {
+        secondChild = newSecond;
+    }
 
-	/**
-	 * Establece la parte decimal.
-	 * 
-	 * @param newSecond Parte decimal.
-	 */
-	public void setSecondChild(StringNumber newSecond) {
-		secondChild = newSecond;
-	}
+    /**
+     * Establece la parte periódica.
+     * @param newThird Parte periódica.
+     */
+    @objid ("d112055c-c6e8-4d57-baa7-b3a1cf6852ce")
+    public void setThirdChild(StringNumber newThird) {
+        thirdChild = newThird;
+    }
 
-	/**
-	 * Establece la parte periódica.
-	 * 
-	 * @param newThird Parte periódica.
-	 */
-	public void setThirdChild(StringNumber newThird) {
-		thirdChild = newThird;
-	}
+/*
+     * (non-Javadoc)
+     * @see Tipos.MathEditor#toString()
+     */
+    @objid ("39603164-e057-4458-b9e0-41af19874c4a")
+    @Override
+    public String toString() {
+        String cad = "<periodico name=" + super.getName() + " id=" + super.getID() + ">\n";
+        
+        cad += "<firstChild>\n";
+        if (this.firstChild != null) {
+            cad += this.firstChild.toString();
+        }
+        cad += "</firstChild>\n";
+        
+        cad += "<secondChild>\n";
+        if (this.secondChild != null) {
+            cad += this.secondChild.toString();
+        }
+        cad += "</secondChild>\n";
+        
+        cad += "<thirdChild>\n";
+        if (this.thirdChild != null) {
+            cad += this.thirdChild.toString();
+        }
+        cad += "</thirdChild>\n";
+        
+        cad += "</periodico>";
+        return cad;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * @see Tipos.MathEditor#toString()
-	 */
-	@Override
-	public String toString() {
-		String cad = "<periodico name=" + super.getName() + " id=" + super.getID() + ">\n";
-
-		cad += "<firstChild>\n";
-		if (this.firstChild != null) {
-			cad += this.firstChild.toString();
-		}
-		cad += "</firstChild>\n";
-
-		cad += "<secondChild>\n";
-		if (this.secondChild != null) {
-			cad += this.secondChild.toString();
-		}
-		cad += "</secondChild>\n";
-
-		cad += "<thirdChild>\n";
-		if (this.thirdChild != null) {
-			cad += this.thirdChild.toString();
-		}
-		cad += "</thirdChild>\n";
-
-		cad += "</periodico>";
-		return cad;
-	}
 }

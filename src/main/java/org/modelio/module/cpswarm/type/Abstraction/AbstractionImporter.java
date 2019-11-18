@@ -33,6 +33,7 @@ import java.io.IOException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.modelio.model.IUmlModel;
 import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
@@ -45,51 +46,51 @@ import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.uml.statik.PassingMode;
 import org.modelio.module.cpswarm.impl.CPSWarmModule;
 
-
 /**
  * This class handles ModelDescription import
  * @author ebrosse
- *
  */
+@objid ("bbfb20d2-9c95-4824-81b3-9e507b786a29")
 public class AbstractionImporter {
-
+    @objid ("d2e6467b-fb09-4bfd-99fb-72315b06ea4c")
     private IModelingSession modelingSession = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
 
+    @objid ("8424f979-1984-415c-9e2b-2b83dcc21507")
     private IUmlModel factory = this.modelingSession.getModel();
 
-
+    @objid ("6bc799e9-820f-4cc6-bd9b-ea55c35ce6c2")
     private Class fmi = null;
 
+    @objid ("75dc291e-bf14-41ea-9bf3-d306af3694c4")
     private Interface inputInt = null;
 
+    @objid ("8a97ade9-aa9b-44df-8a97-224e9fd91111")
     private Interface outputInt = null;
-
 
     /**
      * Method ModelDescription
      * @author ebrosse
      */
-
+    @objid ("0bbbcf09-f90b-48a2-9a59-817bee540b80")
     public AbstractionImporter() {
     }
 
-
-    public void importing(NameSpace owner, File file){
-
+    @objid ("f9629bda-c60c-4611-ae6e-f8c82a3582f3")
+    public void importing(NameSpace owner, File file) {
         Abstraction md = null;
-
+        
         try {
             md = loadAbstractionDescription(file);
-
+        
             try{
-
+        
                 importAbstractionDescription(owner, md);
-
-
+        
+        
             } catch (ExtensionNotFoundException e) {
                 CPSWarmModule.logService.error(e);
             }
-
+        
             //            ModelStructure ms = md.getModelStructure();
             //            if (ms != null){
             //                Fmi2VariableDependency vd = ms.getOutputs();
@@ -116,13 +117,13 @@ public class AbstractionImporter {
         } catch (Exception e) {
             CPSWarmModule.logService.error(e);
         }
-
     }
 
+    @objid ("1f9dc848-aa9f-4086-b7c3-19c89c9e5bb2")
     private Abstraction loadAbstractionDescription(File file) {
         Abstraction md = null;
         ObjectMapper mapper = new ObjectMapper();
-
+        
         //JSON file to Java object
         try {
             md = mapper.readValue(file, Abstraction.class);
@@ -142,42 +143,37 @@ public class AbstractionImporter {
         return md;
     }
 
-    private void importAbstractionDescription(NameSpace owner, Abstraction md)
-            throws ExtensionNotFoundException {
-
+    @objid ("3dfc241c-e1ef-4906-b370-9a12c76ef750")
+    private void importAbstractionDescription(NameSpace owner, Abstraction md) throws ExtensionNotFoundException {
         Class sensor = this.factory.createClass(md.getSensorsActuators().get(0).getName(), owner);
-
+        
         for (Function function : md.getFunctions()) {
             Operation op = this.factory.createOperation(function.getName(), sensor);
-
-
+        
+        
             for (Input input : function.getApi().getInputs()) {
                 Parameter param = this.factory.createParameter();
                 param.setComposed(op);
                 param.setParameterPassing(PassingMode.IN);
-
+        
                 DataType type = this.factory.createDataType(input.getMsgDef().getClass_(), (NameSpace) sensor.getOwner());
                 param.setType(type);
-
+        
             }
-
-
+        
+        
             for (Output output : function.getApi().getOutputs()) {
                 Parameter param = this.factory.createParameter();
                 param.setComposed(op);
                 param.setParameterPassing(PassingMode.OUT);
-
+        
                 DataType type = this.factory.createDataType(output.getMsgDef().getClass_(), (NameSpace) sensor.getOwner());
                 param.setType(type);
-
+        
             }
-
-
+        
+        
         }
-
-
     }
-
-
 
 }

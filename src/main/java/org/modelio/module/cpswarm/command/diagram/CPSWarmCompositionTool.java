@@ -29,10 +29,11 @@
 package org.modelio.module.cpswarm.command.diagram;
 
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
+import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.ILinkPath;
 import org.modelio.api.modelio.diagram.InvalidDestinationPointException;
 import org.modelio.api.modelio.diagram.InvalidPointsPathException;
@@ -55,8 +56,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  * The diagram command which handles the creation of an UML/SysML Composition
  * @author ebrosse
  */
+@objid ("2904cf0a-13a8-4174-bb68-a98e426006b0")
 public class CPSWarmCompositionTool extends DefaultLinkTool {
-
+    @objid ("06d672f8-6c3a-4d11-8d4c-c3a9fba3f074")
     @Override
     public boolean acceptFirstElement(IDiagramHandle arg0, IDiagramGraphic arg1) {
         if ((arg1 != null) && (arg1.getElement() != null)){
@@ -68,6 +70,7 @@ public class CPSWarmCompositionTool extends DefaultLinkTool {
         return false;
     }
 
+    @objid ("274d15eb-b8ab-48b9-aad5-943ecdab42cb")
     @Override
     public boolean acceptSecondElement(IDiagramHandle arg0, IDiagramGraphic arg1, IDiagramGraphic arg2) {
         if ((arg2 != null) && (arg2.getElement() != null)){
@@ -78,6 +81,7 @@ public class CPSWarmCompositionTool extends DefaultLinkTool {
         return false;
     }
 
+    @objid ("5f66848b-f9b6-41c5-b24d-e6429b64414c")
     @Override
     public void actionPerformed(IDiagramHandle representation, IDiagramGraphic source, IDiagramGraphic destination, LinkRouterKind kind, ILinkPath path) {
         IModelingSession session = CPSWarmModule.getInstance().getModuleContext().getModelingSession();

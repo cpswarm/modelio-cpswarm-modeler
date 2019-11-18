@@ -8,9 +8,15 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("7c502392-a25a-4bd0-9c8a-6287709ccbff")
 public interface CPSWarmStereotypes {
-    
-    public static final String BEHAVIOR_DEFINITION = "Behavior_Definition"; 
-    
+    @objid ("cf3b8159-98af-4e64-a4a8-e17a6fbd958b")
+    public static final String ACTUATOR = "Actuator";
+
+    @objid ("f5721320-50f5-49d8-b402-1f3d63f3a547")
+    public static final String BEHAVIOR_DEFINITION = "Behavior_Definition";
+
+    @objid ("219b7047-2644-470a-9ff9-cca48b6f2c4c")
+    public static final String CONTROLLER = "Controller";
+
     @objid ("1365507d-38b6-4c22-836a-87c4e0b58b72")
     public static final String ENVIRONMENT = "Environment";
 
@@ -29,6 +35,9 @@ public interface CPSWarmStereotypes {
     @objid ("3c952632-ceaa-4959-a448-614713665674")
     public static final String PROBLEM_STATEMENT = "Problem_Statement";
 
+    @objid ("34b6dd76-f545-40db-8612-48110058c95a")
+    public static final String SENSOR = "Sensor";
+
     @objid ("385bab0a-421c-4c29-b509-066bbd028a78")
     public static final String SWARM = "Swarm";
 
@@ -41,8 +50,7 @@ public interface CPSWarmStereotypes {
     @objid ("d5bfc91b-4fea-4434-bb2e-d47ff00407b4")
     public static final String SWARM_MEMBER = "Swarm_Member";
 
-    @objid ("219b7047-2644-470a-9ff9-cca48b6f2c4c")
-    public static final String CONTROLLER = "Controller";
-    
+    @objid ("611e1b1f-1080-4b17-8fdb-b879c2c2b879")
+    public static final String VIRTUAL = "Virtual";
 
 }

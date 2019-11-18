@@ -1,83 +1,59 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: Function.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.MathEditor;
 
 import java.util.List;
 import java.util.Vector;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
+@objid ("742ddc76-7c72-47cf-a807-983c6a53189f")
 public class Function extends MathEditor {
-	
-	private List<MathEditor> childList = null;
-	
-	public Function(String name, int id, MathEditor parent) {
-		super("functions", name, id, parent);
-		this.childList = new Vector<MathEditor>();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public int numChilds(){
-		return this.childList.size();
-	}
-	
-	public MathEditor getChild(int n){
-		try{
-			return this.childList.get(n);
-		}catch(Exception e){
-			return null;
-		}
-	}
-	
-	public List<MathEditor> getChildList(){
-		return this.childList;
-	}
-	
-	public void addChild(MathEditor me){
-		this.childList.add(me);
-	}
+    @objid ("d245967c-2810-4f89-8f84-95b9d5ad16c0")
+    private List<MathEditor> childList = null;
 
-	public String toString() {
-		String cad = "<function name=" + super.getName() + " id=" + super.getID() + ">";
-		int i=0;
-		
-		while(i<this.childList.size()){
-			cad += "\n<child>\n";
-			cad += this.childList.get(i) + "\n";
-			i++;
-			cad += "</child>";
-		}
+    @objid ("844815eb-8609-4a14-afa7-bd1b0d15f4c9")
+    public Function(String name, int id, MathEditor parent) {
+        super("functions", name, id, parent);
+        this.childList = new Vector<MathEditor>();
+        // TODO Auto-generated constructor stub
+    }
 
-		cad += "\n</function>\n";
-		return cad;
-	}
-	
+    @objid ("632342ac-1cdc-4cfc-b71d-4c123d70ffd1")
+    public int numChilds() {
+        return this.childList.size();
+    }
+
+    @objid ("70ba599e-7726-4ece-9e3f-426753d38872")
+    public MathEditor getChild(int n) {
+        try{
+            return this.childList.get(n);
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    @objid ("586b8084-017f-4670-b306-45f4777b5d05")
+    public List<MathEditor> getChildList() {
+        return this.childList;
+    }
+
+    @objid ("fb1ff502-9f52-46b2-9780-9ccc476308a4")
+    public void addChild(MathEditor me) {
+        this.childList.add(me);
+    }
+
+    @objid ("07b89950-3f63-4dcf-817e-f7bdb3f1c2c8")
+    public String toString() {
+        String cad = "<function name=" + super.getName() + " id=" + super.getID() + ">";
+        int i=0;
+        
+        while(i<this.childList.size()){
+            cad += "\n<child>\n";
+            cad += this.childList.get(i) + "\n";
+            i++;
+            cad += "</child>";
+        }
+        
+        cad += "\n</function>\n";
+        return cad;
+    }
+
 }

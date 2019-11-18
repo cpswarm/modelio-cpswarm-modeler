@@ -1,24 +1,3 @@
-/*
- * Copyright 2013 Modeliosoft
- *
- * This file is part of Modelio.
- *
- * Modelio is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Modelio is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
-
-
 package org.modelio.module.cpswarm.ui.window;
 
 import java.io.File;
@@ -42,28 +21,27 @@ import org.modelio.module.cpswarm.ui.composite.ValidationBoutonComposite;
  * This class provides the XMI import dialog
  * @author ebrosse
  */
-@objid ("ea710891-a275-4523-a1f2-402acf87333c")
+@objid ("46498fd4-f763-42c8-b712-b7597fe6394a")
 public class AlgorithmImportWindow extends AbstractSwtWizardWindow {
-
-
+    @objid ("35738af2-67f4-4ca7-b806-fa867d85c75c")
     private void createContents() {
         setLabels();
-
+        
         this.shell = new Shell(getParent(), 67696 | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.TITLE);
         this.shell.setLayout( new FormLayout());
         this.shell.setText(this.frametitle);
-
+        
         // File chooser composite
         this.fileChooserComposite = new FileChooserComposite(this.shell, SWT.NONE, SWT.OPEN);
-
-
+        
+        
         // Validation Composite
         this. validateComposite = new ValidationBoutonComposite(this.shell, SWT.NONE, this.cancelButton, this.validateButton);
-
+        
         this.validateComposite.getValidationButton().addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-
+        
                 if (getFileChooserComposite().getCurrentFile() != null) {
                     validationAction();
                 } else {
@@ -71,7 +49,7 @@ public class AlgorithmImportWindow extends AbstractSwtWizardWindow {
                 }
             }
         });
-
+        
         this.validateComposite.getCancelButton().addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -79,75 +57,74 @@ public class AlgorithmImportWindow extends AbstractSwtWizardWindow {
                 cancelAction();
             }
         });
-
+        
         final FormData fd_fileChooserComposite = new FormData();
         fd_fileChooserComposite.right = new FormAttachment(100, 0);
         fd_fileChooserComposite.bottom = new FormAttachment(0, 30);
         fd_fileChooserComposite.top = new FormAttachment(0, 0);
         fd_fileChooserComposite.left = new FormAttachment(0, 0);
         this.fileChooserComposite.setLayoutData(fd_fileChooserComposite);
-
+        
         this.fileChooserComposite.getSearch().addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 AlgorithmImportWindow.this.fileChooserComposite.searchFile();
             }
         });
-
+        
         final FormData fd_validateComposite = new FormData();
         fd_validateComposite.top = new FormAttachment(this.fileChooserComposite, 5);
         fd_validateComposite.bottom = new FormAttachment(100, -5);
         fd_validateComposite.left = new FormAttachment(this.fileChooserComposite, 0, SWT.LEFT);
         fd_validateComposite.right = new FormAttachment(this.fileChooserComposite, 0, SWT.RIGHT);
         this.validateComposite.setLayoutData(fd_validateComposite);
-
+        
         setDefaultDialog();
         this.shell.pack();
         this.shell.setMinimumSize(new Point(400, this.shell.getBounds().height));
-
+        
         this.validateComposite.getValidationButton().setFocus();
     }
 
-
-    @objid ("54e9a756-61db-4392-8c51-ae214789dce8")
+    @objid ("8ccc01be-95e8-4599-abc8-0e0b11961b70")
     @Override
     public void validationAction() {
         File theFile = getFileChooserComposite().getCurrentFile();
-
-        //		String extension = theFile.getName();
-        //		extension = extension.substring(extension.lastIndexOf("."));
-        //		if (extension.equals(".fmu")) {
-        //			File dirFile = new File(System.getProperty("java.io.tmpdir"));
-        //			FileUtils.unZipIt(theFile, dirFile);
-        //			theFile = new File(dirFile.getAbsoluteFile() + File.separator + "modelDescription.xml");
-        //			extension = ".xml";
-        //		}
-
-
-        //		if (theFile.exists() && theFile.isFile()) {
-
-        //			if (extension.equals(".xml")) {
-
+        
+        //        String extension = theFile.getName();
+        //        extension = extension.substring(extension.lastIndexOf("."));
+        //        if (extension.equals(".fmu")) {
+        //            File dirFile = new File(System.getProperty("java.io.tmpdir"));
+        //            FileUtils.unZipIt(theFile, dirFile);
+        //            theFile = new File(dirFile.getAbsoluteFile() + File.separator + "modelDescription.xml");
+        //            extension = ".xml";
+        //        }
+        
+        
+        //        if (theFile.exists() && theFile.isFile()) {
+        
+        //            if (extension.equals(".xml")) {
+        
         try(ITransaction t = CPSWarmModule.getInstance().getModuleContext().getModelingSession().createTransaction("Import") ) {
-
+        
             AlgorithmImporter importer = new AlgorithmImporter();
             importer.importing((Component) this.selectedElt, theFile);
-
+        
             t.commit();
-
+        
             completeBox();
-
-
+        
+        
         } catch (final Exception e) {
             CPSWarmModule.logService.error(e);
         }
-        //			}
-        //		} else {
-        //			fileDontExist();
-        //		}
+        //            }
+        //        } else {
+        //            fileDontExist();
+        //        }
     }
 
-    @objid ("073f156d-159c-4419-aeca-d5a56261250b")
+    @objid ("a534fd46-09b5-489c-926e-f2b9da13fac3")
     @Override
     public void setLabels() {
         setTitle("Title");
@@ -157,13 +134,13 @@ public class AlgorithmImportWindow extends AbstractSwtWizardWindow {
         setValidateButton("Import");
     }
 
-    @objid ("3759e190-f11c-4b8b-913a-c0f3ddeab109")
+    @objid ("a2c272c0-3873-45cf-b7d5-d27e06955fa6")
     @Override
     public void setPath() {
         try {
             if (this.path.equals(""))
                 this.path = CPSWarmModule.getInstance().getModuleContext().getProjectStructure().getPath().toAbsolutePath().toString();
-
+        
             this.fileChooserComposite.getDialog().setFilterPath(this.path);
             this.fileChooserComposite.getDialog().setFileName("");
             this.fileChooserComposite.setText(this.path);
@@ -172,7 +149,7 @@ public class AlgorithmImportWindow extends AbstractSwtWizardWindow {
         }
     }
 
-    @objid ("b6feb3f7-b70a-409d-be67-7ff97278009d")
+    @objid ("956607c4-66ef-41a3-b89c-52ed17aa82a5")
     @Override
     public void setDefaultDialog() {
         this.fileChooserComposite.getDialog().setFilterNames(new String[] { "Algortihm Files (*.json)" });
@@ -181,14 +158,15 @@ public class AlgorithmImportWindow extends AbstractSwtWizardWindow {
     }
 
     /**
-     * @param parent : the parent shell
      * @param style : the SWT style
+     * @param parent : the parent shell
      */
-    @objid ("62fd7184-3a2d-43de-b370-42ca75091996")
+    @objid ("8a6afe91-93fe-460f-b8fa-45fe9bb8ec3c")
     public AlgorithmImportWindow(final Shell parent) {
         super(parent);
     }
 
+    @objid ("e70c972d-d349-4925-9330-1c0ff1273438")
     @Override
     public Object open() {
         createContents();

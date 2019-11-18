@@ -1,54 +1,27 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: TranslationEditorException.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.Exceptions;
+
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Captura todas las excepciones producidas al convertir una expresión a MathEditor o viceversa.
  * 
  * @author Ignacio Celaya Sesma
  */
+@objid ("30582354-ed9a-4047-964a-5ed9a815c83d")
 public class TranslationEditorException extends EditorException {
-	
-	static final long serialVersionUID = 0;
+    @objid ("2ffa55ff-85f9-4f5a-8017-e4d58a031159")
+     static final long serialVersionUID = 0;
 
-	public TranslationEditorException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
-	}
-	
-	public TranslationEditorException(Throwable arg1) {
-		super(arg1);
-		// TODO Auto-generated constructor stub
-	}
+    @objid ("539a404f-3840-4810-8be8-f28dac45b695")
+    public TranslationEditorException(String arg0, Throwable arg1) {
+        super(arg0, arg1);
+        // TODO Auto-generated constructor stub
+    }
+
+    @objid ("4143b6ff-3b9c-4917-ba5e-75806b102034")
+    public TranslationEditorException(Throwable arg1) {
+        super(arg1);
+        // TODO Auto-generated constructor stub
+    }
 
 }

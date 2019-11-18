@@ -1,54 +1,27 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: ComponentEditorException.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.Exceptions;
+
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Captura todas las excepciones producidas en los componentes (paquete Components).
  * 
  * @author Ignacio Celaya Sesma
  */
+@objid ("20999d70-f913-44f6-b145-ef5214c357bc")
 public class ComponentEditorException extends EditorException {
+    @objid ("af8219a5-81ed-4089-8cae-365cf0407737")
+     static final long serialVersionUID = 0;
 
-	static final long serialVersionUID = 0;
-	
-	public ComponentEditorException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
-	}
+    @objid ("b108f653-f2ed-4fb9-a3f2-c8cea75a6f18")
+    public ComponentEditorException(String arg0, Throwable arg1) {
+        super(arg0, arg1);
+        // TODO Auto-generated constructor stub
+    }
 
-	public ComponentEditorException(Throwable arg1) {
-		super(arg1);
-		// TODO Auto-generated constructor stub
-	}
-	
+    @objid ("4540af89-73c9-4537-8ad1-afe7ed2e0ea3")
+    public ComponentEditorException(Throwable arg1) {
+        super(arg1);
+        // TODO Auto-generated constructor stub
+    }
+
 }

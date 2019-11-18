@@ -1,26 +1,6 @@
-/*
- * Copyright 2013 Modeliosoft
- *
- * This file is part of Modelio.
- *
- * Modelio is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Modelio is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
- * 
- */  
-                                    
-
 package org.modelio.module.cpswarm.ui.composite;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -36,16 +16,19 @@ import org.eclipse.swt.widgets.Composite;
  * 
  * @author ebrosse
  */
+@objid ("bb06a321-81c5-4e0d-8c42-9d10abd59686")
 public class ValidationBoutonComposite extends Composite {
-
+    @objid ("27aea34f-79be-46a4-aa17-ff9d2703e514")
     private Button validationButton;
 
+    @objid ("a6b2537a-6cad-4bf2-bdaf-977d8f0aaa59")
     private Button cancelButton;
 
     /**
      * This methods return the Cancel Button
      * @return SWT button
      */
+    @objid ("ef9fcfa6-28da-46e7-bd60-1792548ca225")
     public Button getCancelButton() {
         return this.cancelButton;
     }
@@ -54,6 +37,7 @@ public class ValidationBoutonComposite extends Composite {
      * This methods return the Validation Button
      * @return SWT button
      */
+    @objid ("a4b2c090-b13c-4799-a276-7d8219a03114")
     public Button getValidationButton() {
         return this.validationButton;
     }
@@ -66,6 +50,7 @@ public class ValidationBoutonComposite extends Composite {
      * @param cancelField : the label of the cancellation button
      * @param validateField : the label of the validation button
      */
+    @objid ("e01450ad-e0fb-40c2-99cd-4a8cd4d6cd3b")
     public ValidationBoutonComposite(final Composite parent, final int style, final String cancelField, final String validateField) {
         super(parent, style);
         setLayout(new FormLayout());

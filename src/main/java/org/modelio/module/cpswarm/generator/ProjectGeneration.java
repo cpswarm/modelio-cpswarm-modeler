@@ -22,25 +22,25 @@ public class ProjectGeneration {
     @objid ("93a25939-6897-4e12-bc48-a62f83a1fb3f")
     private String frevopath = "";
 
-    @objid ("7a1ab34b-fd74-482c-81d6-8db4660e06d0")
+    @objid ("27194117-fac3-4b77-b54d-4d682adf8153")
     private org.modelio.metamodel.uml.statik.Class problem = null;
 
-    @objid ("942af637-4efb-4ec7-9852-44be3ed84d65")
+    @objid ("94614f03-7973-44ee-a5ff-a75c41ac4631")
     private org.modelio.metamodel.uml.statik.Class swarm = null;
 
-    @objid ("53b33f4c-2e9e-4999-b0eb-4afb697f7021")
+    @objid ("8ff8490f-c819-4e36-b4d3-7c804a743e4f")
     private org.modelio.metamodel.uml.statik.Class agent = null;
 
-    @objid ("124883d9-62a2-4b56-ac40-b79ab710edad")
+    @objid ("8e228419-b682-4249-8400-ce99f0e32520")
     private org.modelio.metamodel.uml.statik.Class environment = null;
 
-    @objid ("3818fb3a-1565-4e25-9d11-ec8a24623c0c")
+    @objid ("27e5c121-1c6b-4ef0-8fe7-1ef0fcc4c459")
     private List<org.modelio.metamodel.uml.statik.Class> environmentRelated = new ArrayList<>();
 
-    @objid ("607f5258-2f6c-467b-9715-5b4fc4c5735b")
+    @objid ("f83a682a-be95-4856-8dd7-f40e3dec3933")
     private org.modelio.metamodel.uml.statik.Class costFunction = null;
 
-    @objid ("cb11a526-e3a3-42c5-b0d7-2604cb857483")
+    @objid ("88e14d62-a2fb-4882-b439-ceccbf89cd01")
     private org.modelio.metamodel.uml.statik.Class controller = null;
 
     @objid ("60a6a8f7-a208-4a41-82a2-5f4dfb56e99c")

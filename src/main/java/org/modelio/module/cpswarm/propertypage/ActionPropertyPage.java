@@ -44,21 +44,25 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  * This class handles the properties common to all SysML stereotypes
  * @author ebrosse
  */
+@objid ("9c1f12b4-52ec-4fb3-9686-b14c44178d90")
 public class ActionPropertyPage implements IPropertyContent {
-
+    @objid ("8b444410-827b-4f0c-82cd-d3866353fe28")
     private static Collection<Operation> _operations = null;
-    
+
+    @objid ("5a2d7bed-2cb9-4bfa-84ad-a53c785a3646")
     private static Operation _op = null;
+
     /**
      * Constructor CommonPropertyPage
      * @author ebrosse
      */
+    @objid ("b7371215-9679-4d9c-be75-5751a5c4124d")
     public ActionPropertyPage() {
     }
 
+    @objid ("ef61140f-c2e1-4f02-892b-3ac9e4dfbd3d")
     @Override
     public void update(ModelElement element, IModulePropertyTable table) {
-
         _operations = CPSWarmModule.getInstance().getModuleContext().getModelingSession().findByClass(Operation.class);  
         List<String> opNames = new ArrayList<>();
         for (Operation op : _operations) {
@@ -85,7 +89,7 @@ public class ActionPropertyPage implements IPropertyContent {
         }
     }
 
-    @objid ("d185fc0b-9730-4101-8150-1320d0b3eb72")
+    @objid ("7d929c31-f91d-4bbe-a663-3601601e17d4")
     @Override
     public int changeProperty(ModelElement element, int row, String value) {
         for (Operation op : _operations) {

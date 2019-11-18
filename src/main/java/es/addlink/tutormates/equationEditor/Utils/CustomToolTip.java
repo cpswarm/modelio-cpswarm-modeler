@@ -1,85 +1,57 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: CustomToolTip.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.Utils;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.ToolTip;
 
 /**
  * @author Ignacio Celaya Sesma
- *
  */
+@objid ("71855d85-26f4-4703-a18f-47627986e419")
 public class CustomToolTip extends ToolTip {
+    @objid ("f57709f3-d2d5-4faf-abc1-53cad17fd0b9")
+    private int milliseconds;
 
-	private Shell sh;
-	private int milliseconds;
-	
-	/**
-	 * @param parent
-	 * @param style
-	 */
-	public CustomToolTip(Shell parent, int style, int milliseconds) {
-		super(parent, style);
-		// TODO Auto-generated constructor stub
-		this.milliseconds = milliseconds;
-		this.sh = parent;
-		setAutoHide(false);
-	}
+    @objid ("5567b440-c69f-409b-b317-d760a3b6cbe6")
+    private Shell sh;
 
-	public void activeAutoHide(){
-		
-		
-		TimerTask CmpHide = new TimerTask() 
-		{
-			public void run() {
-				sh.getDisplay().asyncExec(new Runnable(){
-					public void run() {
-						setVisible(false);
-					}
-				});
-			}
-		};
-		Timer timer = new Timer("time");
-		timer.schedule(CmpHide, this.milliseconds);
-	}
-	
-	/**
-	 * Método necesario para poder heredar una clase de Text.
-	 */
-	@Override
-	protected void checkSubclass() {}
+    /**
+     * @param parent
+     * @param style
+     */
+    @objid ("401c8c77-72d2-4349-a29b-9a6727befd87")
+    public CustomToolTip(Shell parent, int style, int milliseconds) {
+        super(parent, style);
+        // TODO Auto-generated constructor stub
+        this.milliseconds = milliseconds;
+        this.sh = parent;
+        setAutoHide(false);
+    }
+
+    @objid ("981a2a4f-9f72-4780-8e6e-e3702b21b7c3")
+    public void activeAutoHide() {
+        TimerTask CmpHide = new TimerTask() 
+        {
+            public void run() {
+                sh.getDisplay().asyncExec(new Runnable(){
+                    public void run() {
+                        setVisible(false);
+                    }
+                });
+            }
+        };
+        Timer timer = new Timer("time");
+        timer.schedule(CmpHide, this.milliseconds);
+    }
+
+    /**
+     * Método necesario para poder heredar una clase de Text.
+     */
+    @objid ("417fa3e3-850a-4476-b8b0-991dbcbd7019")
+    @Override
+    protected void checkSubclass() {
+    }
 
 }

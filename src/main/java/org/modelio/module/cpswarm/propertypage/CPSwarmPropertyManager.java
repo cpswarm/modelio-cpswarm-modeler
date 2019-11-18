@@ -25,9 +25,9 @@ public class CPSwarmPropertyManager {
         IPropertyContent propertypage = null;
         IModuleContext moduleContext = CPSWarmModule.getInstance().getModuleContext();
         IMetamodelExtensions extensions = moduleContext.getModelingSession().getMetamodelExtensions();
-
+        
         int currentRow = row;
-
+        
         if ((element instanceof Association) || (element instanceof AssociationEnd)) {
             propertypage = new AssociationPropertyPage();
             propertypage.changeProperty(element, currentRow, value);
@@ -39,7 +39,7 @@ public class CPSwarmPropertyManager {
             propertypage.changeProperty(element, currentRow, value);
             propertypage = null;
         }
-
+        
         if (element instanceof State) {
             State state = (State) element;
             if (state.getInternal().size() >0) {
@@ -52,29 +52,29 @@ public class CPSwarmPropertyManager {
                 propertypage = null;
             }
         }
-
+        
         List<Stereotype> sterList = element.getExtension();
         MMetamodel metamodel = moduleContext.getModelioServices().getMetamodelService().getMetamodel();
-
+        
         for (Stereotype ster : sterList) {
-
+        
             // Problem property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.PROBLEM,
                     metamodel.getMClass(Class.class)))) {
                 propertypage = new ProblemPropertyPage();
             }
-
+        
             // FitnessFunction property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.FITNESSFUNCTION,
                     metamodel.getMClass(BindableInstance.class)))) {
                 propertypage = new FitnessFunctionPropertyPage();
             }
-
+        
             if (propertypage != null) {          
                 currentRow = currentRow - propertypage.changeProperty(element, currentRow, value);
                 propertypage = null;
             }
-
+        
         }
         return currentRow;
     }
@@ -84,8 +84,8 @@ public class CPSwarmPropertyManager {
         IPropertyContent propertypage = null;
         IModuleContext moduleContext = CPSWarmModule.getInstance().getModuleContext();
         IMetamodelExtensions extensions = moduleContext.getModelingSession().getMetamodelExtensions();
-
-
+        
+        
         if ((element instanceof Association) || (element instanceof AssociationEnd)) {
             propertypage = new AssociationPropertyPage();
             propertypage.update(element, table);
@@ -110,25 +110,25 @@ public class CPSwarmPropertyManager {
                 propertypage = null;
             }
         }
-
+        
         List<Stereotype> sterList = element.getExtension();
         MMetamodel metamodel = moduleContext.getModelioServices().getMetamodelService().getMetamodel();
-
+        
         for (Stereotype ster : sterList) {
-
+        
             // Problem property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.PROBLEM,
                     metamodel.getMClass(Class.class)))) {
                 propertypage = new ProblemPropertyPage();
             }
-
+        
             // FitnessFunction property page
             if (ster.equals(extensions.getStereotype(ICPSWarmPeerModule.MODULE_NAME, CPSWarmStereotypes.FITNESSFUNCTION,
                     metamodel.getMClass(BindableInstance.class)))) {
                 propertypage = new FitnessFunctionPropertyPage();
             }
-
-
+        
+        
             if (propertypage != null) {
                 propertypage.update(element, table);
                 propertypage = null;

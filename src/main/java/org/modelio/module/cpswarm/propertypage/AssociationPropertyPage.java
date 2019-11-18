@@ -38,17 +38,19 @@ import org.modelio.metamodel.uml.statik.AssociationEnd;
  * This class handles the properties common to all SysML stereotypes
  * @author ebrosse
  */
+@objid ("0b840cfb-9b4e-46ed-b684-74dfd62c7ceb")
 public class AssociationPropertyPage implements IPropertyContent {
     /**
      * Constructor CommonPropertyPage
      * @author ebrosse
      */
+    @objid ("c9a0a5cd-7252-4bd1-b0a6-abce80ba61d6")
     public AssociationPropertyPage() {
     }
 
+    @objid ("19ec8c08-a242-4ee1-9f22-13a29630f589")
     @Override
     public void update(ModelElement element, IModulePropertyTable table) {
-        
         AssociationEnd end = (AssociationEnd) element;
         if (end.getAggregation().equals(AggregationKind.KINDISAGGREGATION))
             end = end.getOpposite();
@@ -56,7 +58,7 @@ public class AssociationPropertyPage implements IPropertyContent {
         table.addProperty("Number", end.getMultiplicityMax());
     }
 
-    @objid ("d185fc0b-9730-4101-8150-1320d0b3eb72")
+    @objid ("d5a73b75-a4a1-433b-84b8-5a9e4d753f2c")
     @Override
     public int changeProperty(ModelElement element, int row, String value) {
         AssociationEnd end = (AssociationEnd) element;

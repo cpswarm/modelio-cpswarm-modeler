@@ -1,37 +1,6 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: StateManager.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.Manager;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import es.addlink.tutormates.equationEditor.Operators.SimpleOperator;
 
 /**
@@ -39,83 +8,91 @@ import es.addlink.tutormates.equationEditor.Operators.SimpleOperator;
  * 
  * @author Ignacio Celaya Sesma
  */
+@objid ("e43926ec-bfd4-47f8-8f97-9e09da1df13a")
 public class StateManager {
+    /**
+     * Indica si algún componente se encuentra seleccionado. Por defecto el valor es false.
+     */
+    @objid ("dac91882-471f-4f37-87eb-c48c1f9a2a93")
+    private boolean haySeleccion = false;
 
-	public StateManager(){}
-	
-	/**
-	 * Indica si algún componente se encuentra seleccionado. Por defecto el valor es false.
-	 */
-	private boolean haySeleccion = false;
+    /**
+     * Posición del cursor dentro del Texto activo.
+     */
+    @objid ("0041fd79-5480-4765-9ab3-50d4869d3ae3")
+    private int posicionCursor;
 
-	/**
-	 * Posición del cursor dentro del Texto activo.
-	 */
-	private int posicionCursor;
+    /**
+     * Texto que contiene el foco.
+     */
+    @objid ("435845d2-874c-4d37-91aa-c972ec70b214")
+    private SimpleOperator textoActivo;
 
-	/**
-	 * Texto que contiene el foco.
-	 */
-	private SimpleOperator textoActivo;
-	
-	private SimpleOperator textoActivoAnterior;
+    @objid ("f9c0e1bb-fda3-4252-9a51-c06eb62d9eec")
+    private SimpleOperator textoActivoAnterior;
 
-	/**
-	 * Devuelve true, si algún componente se encuentra seleccionado, false en caso contrario.
-	 * 
-	 * @return True, si algún componente se encuentra seleccionado, false en caso contrario.
-	 */
-	public boolean getHaySeleccion() {
-		return haySeleccion;
-	}
+    @objid ("2ef3ee14-96d4-4604-9485-51be64f44334")
+    public StateManager() {
+    }
 
-	/**
-	 * Devuelve la posición del cursor dentro del Texto activo.
-	 * 
-	 * @return posición del cursor dentro del Texto activo.
-	 */
-	public int getPosicionCursor() {
-		return posicionCursor;
-	}
+    /**
+     * Devuelve true, si algún componente se encuentra seleccionado, false en caso contrario.
+     * @return True, si algún componente se encuentra seleccionado, false en caso contrario.
+     */
+    @objid ("9807669f-a8de-4bd2-9403-267197d12549")
+    public boolean getHaySeleccion() {
+        return haySeleccion;
+    }
 
-	/**
-	 * Devuelve el Texto que contiene el foco.
-	 * 
-	 * @return Texto que contiene el foco.
-	 */
-	public SimpleOperator getTextoActivo() {
-		return textoActivo;
-	}
-	
-	public SimpleOperator getTextoActivoAnterior() {
-		return textoActivoAnterior;
-	}
+    /**
+     * Devuelve la posición del cursor dentro del Texto activo.
+     * @return posición del cursor dentro del Texto activo.
+     */
+    @objid ("5e5d1634-5cfa-4968-939f-9bfaf490fe19")
+    public int getPosicionCursor() {
+        return posicionCursor;
+    }
 
-	/**
-	 * Establece un valor en función de si se ha seleccionado algún componente o no.
-	 * 
-	 * @param sel valor en función de si se ha seleccionado algún componente o no.
-	 */
-	public void setHaySeleccion(boolean sel) {
-		haySeleccion = sel;
-	}
+    /**
+     * Devuelve el Texto que contiene el foco.
+     * @return Texto que contiene el foco.
+     */
+    @objid ("6f1887b3-08f8-45db-b0fc-139158d65a18")
+    public SimpleOperator getTextoActivo() {
+        return textoActivo;
+    }
 
-	/**
-	 * Establece la posición del cursor dentro del Texto activo.
-	 * 
-	 * @param posicionCursor posición del cursor dentro del Texto activo.
-	 */
-	public void setPosicionCursor(int posicionCursor) {
-		this.posicionCursor = posicionCursor;
-	}
+    @objid ("c20ff374-f91d-47d5-a618-4db75fa87d7c")
+    public SimpleOperator getTextoActivoAnterior() {
+        return textoActivoAnterior;
+    }
 
-	/**
-	 * Establece el Texto que contiene el foco.
-	 * 
-	 * @param t Texto que contiene el foco.
-	 */
-	public void setTextoActivo(SimpleOperator t) {
-		textoActivoAnterior = getTextoActivo();
-		textoActivo = t;
-	}
+    /**
+     * Establece un valor en función de si se ha seleccionado algún componente o no.
+     * @param sel valor en función de si se ha seleccionado algún componente o no.
+     */
+    @objid ("cb1ab5c5-bffe-455f-9373-6256fdf23aa9")
+    public void setHaySeleccion(boolean sel) {
+        haySeleccion = sel;
+    }
+
+    /**
+     * Establece la posición del cursor dentro del Texto activo.
+     * @param posicionCursor posición del cursor dentro del Texto activo.
+     */
+    @objid ("0eae6c49-b8a0-4772-8620-748e550dd85e")
+    public void setPosicionCursor(int posicionCursor) {
+        this.posicionCursor = posicionCursor;
+    }
+
+    /**
+     * Establece el Texto que contiene el foco.
+     * @param t Texto que contiene el foco.
+     */
+    @objid ("2f5a6116-7c60-4c9e-9f6a-ee14b432e96a")
+    public void setTextoActivo(SimpleOperator t) {
+        textoActivoAnterior = getTextoActivo();
+        textoActivo = t;
+    }
+
 }

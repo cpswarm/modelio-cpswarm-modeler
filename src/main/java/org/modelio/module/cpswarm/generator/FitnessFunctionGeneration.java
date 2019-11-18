@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -14,18 +15,23 @@ import org.modelio.metamodel.uml.statik.PortOrientation;
 import org.modelio.module.cpswarm.api.CPSWarmNoteTypes;
 import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
 
+@objid ("6ef2520d-29f4-455e-acb6-b1ea90a86b4a")
 public class FitnessFunctionGeneration extends Generator implements IGenerator {
-
-    private List<BindableInstance> fcts = new ArrayList<>();
-
-    private Set<Classifier> FCT = new HashSet<>();
-
+    @objid ("5612587d-a879-477a-917d-127be05cfc50")
     private Class ff = null;
 
-    public FitnessFunctionGeneration(Class ff) {    
+    @objid ("79fd3062-dc2e-445f-9318-84575eb0a4fc")
+    private List<BindableInstance> fcts = new ArrayList<>();
+
+    @objid ("364291e1-cb5c-4e32-8e25-e77a18d42140")
+    private Set<Classifier> FCT = new HashSet<>();
+
+    @objid ("166feae3-a210-4535-be3c-160b11aa44e2")
+    public FitnessFunctionGeneration(Class ff) {
         this.ff = ff;
     }
 
+    @objid ("98d0c72a-91d1-4f6d-af73-9d9f12326b2d")
     @Override
     public StringBuffer generate() {
         header();
@@ -38,7 +44,7 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         return this.content;
     }
 
-
+    @objid ("02e54304-27ef-4e2f-a988-e4a432012fb3")
     private void main() {
         addLine("public static void main(String[] args) {");
         increaseIndent();
@@ -47,6 +53,7 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addLine("}");
     }
 
+    @objid ("fcf8f913-c720-4fd0-82f2-79ca90827fb4")
     private void logs() {
         addEmptyLine();
         addLine("/**");
@@ -105,15 +112,15 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addEmptyLine();
     }
 
+    @objid ("2491a8b2-d73f-4383-863a-3b263e4d778c")
     private void attribut() {
-
         for (BindableInstance attr : this.ff.getInternalStructure()) {
             if (!(attr instanceof Port)) {
                 if (attr.getBase() instanceof DataType) {
                     String type = attr.getBase().getName().toLowerCase();
                     if (type.equals("integer"))
                         type ="int";
-
+        
                     addLine("private static final " + type + " " + attr.getName() + " = " + attr.getValue() + ";");
                 }else {
                     this.fcts.add(attr);
@@ -126,11 +133,13 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addEmptyLine();
     }
 
+    @objid ("ab37f107-e9d9-41a9-bf94-73009baed85d")
     private void footer() {
         decreaseIndent();
         addLine("}");
     }
 
+    @objid ("e28e8764-047b-4ba8-ab4e-fd5b52c70e41")
     private void fcts() {
         for (Classifier base : this.FCT) {
             addEmptyLine();
@@ -163,6 +172,7 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         }
     }
 
+    @objid ("48f07233-83cb-45d0-8391-ff53810c662c")
     private void function() {
         addLine("/**");
         addLine("* Calculate the fitness score of the last simulation run.");
@@ -207,9 +217,10 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addLine("}");
     }
 
+    @objid ("e972aaac-6817-4208-8069-e2b5461d933c")
     private String getPortList(BindableInstance fct) {
         String result = "(";
-
+        
         for (BindableInstance part : fct.getPart()) {
             if (part instanceof Port) {
                 Port port = (Port) part;
@@ -218,14 +229,15 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
                 }
             }
         }
-
+        
         result = result.substring(0, result.length() -1);
         return result += ")";
     }
 
+    @objid ("11403192-203b-4d4f-9702-24f82166155a")
     private String getPortList(NameSpace fct) {
         String result = "(";
-
+        
         if (fct instanceof Classifier) {
             for (BindableInstance part : ((Classifier)fct).getInternalStructure()) {
                 if (part instanceof Port) {
@@ -235,12 +247,13 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
                     }
                 }
             }
-
+        
             result = result.substring(0, result.length() -1);
         }
         return result += ")";
     }
 
+    @objid ("52c4be50-6899-4a34-a9c9-3be361c54e48")
     private void header() {
         addLine("package manager;");
         addEmptyLine();
@@ -256,7 +269,7 @@ public class FitnessFunctionGeneration extends Generator implements IGenerator {
         addEmptyLine();
         addLine("public final class FitnessFunctionCalculator {");
         increaseIndent();
-        addLine("private static ArrayList<NavigableMap<Integer,Double>> logs;");            
+        addLine("private static ArrayList<NavigableMap<Integer,Double>> logs;");
     }
 
 }

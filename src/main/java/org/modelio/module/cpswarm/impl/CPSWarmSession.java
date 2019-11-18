@@ -45,7 +45,6 @@ public class CPSWarmSession extends DefaultModuleLifeCycleHandler implements IMo
     }
 
     @objid ("ac8a80d6-0829-4046-a977-8ea35c5443c7")
-   
     private void installStyles() {
         Path mdaPath = this.module.getModuleContext().getConfiguration().getModuleResourcesPath();
         CPSWarmModule.getInstance().getModuleContext().getModelioServices().getDiagramService().registerStyle("cpswarm", "default", 

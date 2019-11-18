@@ -1,5 +1,6 @@
 package org.modelio.module.cpswarm.generator;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -11,28 +12,30 @@ import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
 import org.modelio.module.modelermodule.api.IModelerModuleNoteTypes;
 import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
 
-
+@objid ("8b943db7-b6e2-4b6c-bea8-dc2cfc4dee86")
 public class XMLGeneration extends Generator implements IGenerator {
-
+    @objid ("9c62fce2-f3db-4fcd-a12a-7d252c4bd884")
     private String rosWS = "";
 
+    @objid ("fef15994-8bec-483a-a3ae-7e7ab3fd7336")
     private String rosPath = "";
 
-
+    @objid ("ec35ec4c-9d99-4677-a240-0b2155bab953")
     private org.modelio.metamodel.uml.statik.Class problem = null;
 
-
+    @objid ("c61efe03-4b49-4a12-bb72-fa74b93cbfd2")
     private org.modelio.metamodel.uml.statik.Class costFunction = null;
 
+    @objid ("9a228b80-4aff-4ca7-98ee-017d35e234c2")
     private org.modelio.metamodel.uml.statik.Class swarm = null;
 
-
+    @objid ("613c7374-69fe-41cb-b617-eda5a1422999")
     private org.modelio.metamodel.uml.statik.Class environment = null;
 
-
+    @objid ("7508dd79-bd3d-42f7-b040-954d56818eed")
     private org.modelio.metamodel.uml.statik.Class controller = null;
 
-
+    @objid ("c217f848-600b-461c-9b7f-c1d43407a303")
     public XMLGeneration(org.modelio.metamodel.uml.statik.Class problem, org.modelio.metamodel.uml.statik.Class swarm, org.modelio.metamodel.uml.statik.Class environment, org.modelio.metamodel.uml.statik.Class costFunction, org.modelio.metamodel.uml.statik.Class controller, String rosWs, String rosPath) {
         this.problem = problem;
         this.swarm = swarm;
@@ -43,7 +46,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         this.rosPath = rosPath;
     }
 
-
+    @objid ("87c573d8-4d57-4b1e-bf9e-0ed36ec258cf")
     @Override
     public StringBuffer generate() {
         headerXML();
@@ -54,12 +57,13 @@ public class XMLGeneration extends Generator implements IGenerator {
         return this.content;
     }
 
-
+    @objid ("9d8d6987-3502-43d4-8399-ae36066d3b52")
     private void footerXML() {
         decreaseIndent();
         addLine("</icomponent>");
     }
 
+    @objid ("0c0c2a0d-500d-49c7-8eca-ce1c5bedd9de")
     private void headerXML() {
         addLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         addLine("<!DOCTYPE zion SYSTEM \"..//IComponent.dtd\">");
@@ -68,7 +72,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         increaseIndent();
     }
 
-
+    @objid ("f71e61bc-0f92-419e-a743-3f4a9e8628a0")
     private void requirementXML() {
         addLine("<requirements>");
         increaseIndent();
@@ -86,7 +90,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         addLine("</requirements>");
     }
 
-
+    @objid ("1b7c5d16-99ec-420a-b4c6-38be868e89c6")
     private void inputOuputNumber() {
         int inputnumber = 0;
         int outputnumber = 0;
@@ -115,7 +119,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         addLine("<reqentry key=\"outputnumber\" type=\"INT\" value=\"" + String.valueOf(outputnumber) +"\"/>");
     }
 
-
+    @objid ("0b46423e-1489-4411-bb60-84dfdc21b0cb")
     private void propertyXML() {
         addLine("<properties>");
         increaseIndent();
@@ -131,7 +135,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         addLine("</properties>");
     }
 
-
+    @objid ("1406e25c-03b0-4feb-859c-7f70223fc2fa")
     private void agentNumber() {
         String numAgents = "1";
         for (AssociationEnd assocEnd : this.swarm.getOwnedEnd()){
@@ -141,6 +145,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         addLine("<propentry key=\"swarmMembers\" type=\"INT\" value=\"" + numAgents + "\" description=\"Number of agents in the swarm.\"/>");
     }
 
+    @objid ("509cf1a6-6255-42c0-8c99-8c14472f144e")
     private void environmentProperties() {
         for (AssociationEnd assocEnd : this.environment.getOwnedEnd()){
             AssociationEnd opposite = assocEnd.getOpposite();
@@ -150,6 +155,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         }
     }
 
+    @objid ("4fcebc4e-c2f4-4351-811f-60c9dd38afe3")
     private void configXML() {
         addLine("<config>");
         increaseIndent();
@@ -174,6 +180,7 @@ public class XMLGeneration extends Generator implements IGenerator {
         addLine("</config>");
     }
 
+    @objid ("0482bf4a-965a-49ad-88da-e0912d9e4b71")
     private void rosProperties() {
         addLine("<propentry key=\"rosPath\" type=\"STRING\" value=\"" + this.rosPath + "\" description=\"Absolute path to the ROS installation folder.\"/>");
         

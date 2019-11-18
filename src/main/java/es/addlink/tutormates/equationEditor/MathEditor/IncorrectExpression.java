@@ -1,73 +1,46 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: IncorrectExpression.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.MathEditor;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
+@objid ("21c77d25-f9e2-4ded-a42c-b07aa2ce63da")
 public class IncorrectExpression extends MathEditor {
+    @objid ("11533b15-07ca-4665-b3e6-413dbe33073b")
+    private List<MathEditor> list;
 
-	private List<MathEditor> list;
-	
-	public IncorrectExpression(MathEditor parent) {
-		super("incorrectExpression", "incorrectExpression", -1, parent);
-		// TODO Auto-generated constructor stub
-		this.list = new Vector<MathEditor>();
-	}
+    @objid ("f2ce5ba2-6cf8-4098-bb9b-a00208464a40")
+    public IncorrectExpression(MathEditor parent) {
+        super("incorrectExpression", "incorrectExpression", -1, parent);
+        // TODO Auto-generated constructor stub
+        this.list = new Vector<MathEditor>();
+    }
 
-	public void addMathEditor(MathEditor math){
-		this.list.add(math);
-	}
-	
-	public List<MathEditor> getList(){
-		return list;
-	}
-	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		String str="*** incorrect expression ***\n";
-		
-		Iterator<MathEditor> ite = this.list.iterator();
-		while(ite.hasNext()){
-			MathEditor m = ite.next();
-			str += "   > " + m + "\n";
-		}
-		
-		str+="****************************";
-		
-		return str;
-	}
+    @objid ("e5c02b39-f785-47a4-b60a-732e0fb3df9a")
+    public void addMathEditor(MathEditor math) {
+        this.list.add(math);
+    }
+
+    @objid ("f5a8c6b8-f112-46b4-a825-1b1a9f42b0c1")
+    public List<MathEditor> getList() {
+        return list;
+    }
+
+    @objid ("d6091999-105c-4a77-993f-0af376baddea")
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String str="*** incorrect expression ***\n";
+        
+        Iterator<MathEditor> ite = this.list.iterator();
+        while(ite.hasNext()){
+            MathEditor m = ite.next();
+            str += "   > " + m + "\n";
+        }
+        
+        str+="****************************";
+        return str;
+    }
 
 }

@@ -1,38 +1,7 @@
-/* ===========================================================
- * TutorMates: Tool for Mathematics Teaching and Learning.
- * ===========================================================
- *
- * (C) Copyright 2011, by Addlink Research.
- *
- * Project Info: 	http://www.tutormates.com
- * Contact: 		info@tutormates.es
- * 
- * TutorMates Equation Editor is free software: you can redistribute it 
- * and/or modify it under the terms of the GNU General Public License 
- * as published by the Free Software Foundation, either version 3 of the 
- * License, or (at your option) any later version.
- * 
- * TutorMates Equation Editor is distributed in the hope that it will be 
- * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with TutorMates Equation Editor.  
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * ---------------
- * File: RealNumber.java
- * ---------------
- * (C) Copyright 2011, by Addlink Research.
- *
- * Original Author:  Ignacio Celaya - ignacio.celaya@gmail.com (Addlink Research and University of La Rioja)
- * Contributor(s):
- */
-
 package es.addlink.tutormates.equationEditor.MathEditor;
 
 import java.math.BigDecimal;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Clase que representa a un número de tipo real.
@@ -40,52 +9,54 @@ import java.math.BigDecimal;
  * @author Nuria García
  * @author Ignacio Celaya Sesma
  */
+@objid ("fe5bf71a-d89f-4cea-9997-be6f2265d681")
 public class RealNumber extends MathEditor {
+    /**
+     * Número de tipo real.
+     */
+    @objid ("4b18bf97-f8e0-4c50-a54c-bedde06d2ab5")
+    private BigDecimal number;
 
-	/**
-	 * Número de tipo real.
-	 */
-	private BigDecimal number;
+    /**
+     * Constructor
+     * @param number Número de tipo real.
+     * @param parent Padre del objeto MathEditor.
+     */
+    @objid ("35632c51-8cf9-41cd-a206-13f7bfa94e15")
+    public RealNumber(BigDecimal number, MathEditor parent) {
+        super("numero", "real", -1, parent);
+        this.number = number;
+    }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param number Número de tipo real.
-	 * @param parent Padre del objeto MathEditor.
-	 */
-	public RealNumber(BigDecimal number, MathEditor parent) {
-		super("numero", "real", -1, parent);
-		this.number = number;
-	}
+    /**
+     * Devuelve un número de tipo real.
+     * @return Número de tipo real.
+     */
+    @objid ("73b7f050-dc5b-4d60-be75-77962787791f")
+    public BigDecimal getNumber() {
+        return number;
+    }
 
-	/**
-	 * Devuelve un número de tipo real.
-	 * 
-	 * @return Número de tipo real.
-	 */
-	public BigDecimal getNumber() {
-		return number;
-	}
+    /**
+     * Establece el número de tipo real.
+     * @param newNumber Número de tipo real.
+     */
+    @objid ("56684530-15d5-4a78-b631-b17bb67607cb")
+    public void setNumber(BigDecimal newNumber) {
+        number = newNumber;
+    }
 
-	/**
-	 * Establece el número de tipo real.
-	 * 
-	 * @param newNumber Número de tipo real.
-	 */
-	public void setNumber(BigDecimal newNumber) {
-		number = newNumber;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see Tipos.MathEditor#toString()
-	 */
-	@Override
-	public String toString() {
-		String cad = "<realNumber>";
-		cad += this.number;
-		cad += "</realNumber>";
-		return cad;
-	}
+/*
+     * (non-Javadoc)
+     * @see Tipos.MathEditor#toString()
+     */
+    @objid ("40b4f4d0-7f05-4cc3-ac7a-955469adfb21")
+    @Override
+    public String toString() {
+        String cad = "<realNumber>";
+        cad += this.number;
+        cad += "</realNumber>";
+        return cad;
+    }
 
 }

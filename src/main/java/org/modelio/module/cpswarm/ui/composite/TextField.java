@@ -1,22 +1,6 @@
-/* 
- * Copyright 2013-2018 Modeliosoft
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * 
- */
-
 package org.modelio.module.cpswarm.ui.composite;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
@@ -27,19 +11,24 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
+@objid ("84a06beb-38c5-4b19-9a2d-6220246a6f9a")
 public class TextField extends AbstractField {
-
+    @objid ("20e05ac2-737a-4bb3-89ce-ceb65c55bcbe")
     private static final int VISIBLE_LINES_DEFAULT_NB = 4;
 
     /**
      * Indicates if {@link SWT#V_SCROLL} should be activated on {@link #text}.
      */
+    @objid ("7c60a795-6137-4905-a13d-651d3ac82f95")
     private final int nVisibleLines;
 
+    @objid ("b262faf1-92cc-44ad-8b6e-3b32efc66fa9")
     private static final String EMPTY_STRING = "";
 
+    @objid ("910b02d5-0342-4759-9cf5-273881cec13f")
     private Text text;
 
+    @objid ("c2c47e08-9908-4768-8469-1d5be38ca723")
     public TextField(FormToolkit toolkit, Composite parent, String value) {
         this(toolkit, parent, value, VISIBLE_LINES_DEFAULT_NB);
     }
@@ -47,6 +36,7 @@ public class TextField extends AbstractField {
     /**
      * {@inheritDoc}
      */
+    @objid ("4113d1c9-5167-4096-82b3-2d7f4a932d0c")
     @Override
     public Control createControl(FormToolkit toolkit, Composite parent) {
         if (this.nVisibleLines > 1) {
@@ -88,12 +78,14 @@ public class TextField extends AbstractField {
     /**
      * {@inheritDoc}
      */
+    @objid ("9919814c-10e5-4730-b63f-3d3c66fc7a0c")
     @Override
     public void refresh() {
         final String value = getValue();
         this.text.setText(value != null ? value.toString() : EMPTY_STRING);
     }
 
+    @objid ("d472fdb1-c299-47d9-9536-ffef6831a930")
     public TextField(FormToolkit toolkit, Composite parent, String value, int nVisibleLines) {
         super(toolkit, parent, value);
         this.nVisibleLines = nVisibleLines;

@@ -42,19 +42,22 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  * This class handles the properties common to all SysML stereotypes
  * @author ebrosse
  */
+@objid ("e27d0de6-0123-4eba-99e4-9eb5748b219a")
 public class SubMachinePropertyPage implements IPropertyContent {
-
+    @objid ("c8dd60fe-5c2b-48aa-a2e4-86c79fea001a")
     private static Collection<StateMachine> _sms = null;
+
     /**
      * Constructor CommonPropertyPage
      * @author ebrosse
      */
+    @objid ("fe54e7f5-3cc9-4b34-ac42-8662eb2c1022")
     public SubMachinePropertyPage() {
     }
 
+    @objid ("d7a21735-2186-45e9-82cd-4e82f186e2a3")
     @Override
     public void update(ModelElement element, IModulePropertyTable table) {
-
         _sms = CPSWarmModule.getInstance().getModuleContext().getModelingSession().findByClass(StateMachine.class);  
         List<String> opNames = new ArrayList<>();
         for (StateMachine op : _sms) {
@@ -73,7 +76,7 @@ public class SubMachinePropertyPage implements IPropertyContent {
         table.addProperty("SubMachine", value, result);
     }
 
-    @objid ("d185fc0b-9730-4101-8150-1320d0b3eb72")
+    @objid ("2f8dd8ef-bd71-4a26-b28e-5fcfe9338cdc")
     @Override
     public int changeProperty(ModelElement element, int row, String value) {
         for (StateMachine op : _sms) {

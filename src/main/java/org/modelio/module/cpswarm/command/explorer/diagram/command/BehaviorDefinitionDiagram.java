@@ -1,6 +1,7 @@
 package org.modelio.module.cpswarm.command.explorer.diagram.command;
 
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramService;
@@ -16,8 +17,9 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
 import org.modelio.module.cpswarm.utils.CPSwarmFactory;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
+@objid ("4e12a73c-ba31-49e1-b135-43451ab7c2bd")
 public class BehaviorDefinitionDiagram extends DefaultModuleCommandHandler {
-
+    @objid ("b418f102-fcf3-4836-b58f-6f8548339db8")
     @Override
     public void actionPerformed(List<MObject> selectedElements, IModule module) {
         IModuleContext moduleContext = CPSWarmModule.getInstance().getModuleContext();
@@ -50,7 +52,7 @@ public class BehaviorDefinitionDiagram extends DefaultModuleCommandHandler {
      * This methods authorizes a command to be displayed in a defined context.
      * The commands are displayed, by default, depending on the kind of metaclass on which the command has been launched.
      */
-
+    @objid ("0a484cc6-1a95-49eb-96d7-0cfc45de9251")
     @Override
     public boolean accept(List<MObject> selectedElements, IModule module) {
         if ((selectedElements != null) && (selectedElements.size() == 1 )){
@@ -65,6 +67,7 @@ public class BehaviorDefinitionDiagram extends DefaultModuleCommandHandler {
      * This method specifies whether or not a command must be deactivated.
      * If the command has to be displayed (which means that the accept method has returned a positive value, it is sometimes needed to desactivate the command depending on specific constraints that are specific to the module.
      */
+    @objid ("f93b731d-56d5-4647-8187-9bdf82f39b20")
     @Override
     public boolean isActiveFor(List<MObject> selectedElements, IModule module) {
         return true;

@@ -1,24 +1,8 @@
-/* 
- * Copyright 2013-2018 Modeliosoft
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *       http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * 
- */
-
 package org.modelio.module.cpswarm.ui.composite;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -34,12 +18,15 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
+@objid ("2d45f81c-019e-4899-9212-8ab0804e1882")
 public class EnumField extends AbstractField {
+    @objid ("ba98a72c-d01d-45e9-8e1e-2055a2554a88")
     private Combo combo;
-    
 
+    @objid ("d4195cc2-4726-4b92-b136-1c26073795dc")
     private ComboViewer comboViewer;
 
+    @objid ("4e477e49-ba2a-4a7c-b4d4-a19cdc9e1dd4")
     public EnumField(FormToolkit toolkit, Composite parent, String value) {
         super(toolkit, parent, value);
     }
@@ -47,6 +34,7 @@ public class EnumField extends AbstractField {
     /**
      * {@inheritDoc}
      */
+    @objid ("44ac541a-0625-465f-98b9-16557786d402")
     @Override
     public Control createControl(FormToolkit toolkit, Composite parent) {
         this.comboViewer = new ComboViewer(parent, SWT.READ_ONLY);
@@ -104,6 +92,7 @@ public class EnumField extends AbstractField {
     /**
      * {@inheritDoc}
      */
+    @objid ("ba27b707-472e-4210-a64e-d746176b6c69")
     @Override
     public void refresh() {
         final Object value = getValue();
@@ -113,15 +102,15 @@ public class EnumField extends AbstractField {
         }
     }
 
+    @objid ("9f735cf6-2bd4-47a2-a838-0e4d0358c2a0")
     public void setLabelProvider(IBaseLabelProvider labelProvider) {
         this.comboViewer.setLabelProvider(labelProvider);
     }
 
+    @objid ("cf8ea8dd-1e75-4ce9-afa5-41c052d05e1c")
     @Override
     public void layout(Label label, Control control) {
         // TODO Auto-generated method stub
-        
     }
-
 
 }

@@ -44,21 +44,26 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  * This class handles the properties common to all SysML stereotypes
  * @author ebrosse
  */
+@objid ("315fcc63-2310-4b95-95b4-6e5903239a35")
 public class TransitionPropertyPage implements IPropertyContent {
-
+    @objid ("e51eea35-f3a5-4237-bf46-b2944ddb1853")
     private static Collection<Event> _events = null;
 
+    @objid ("c591fcc4-3b2a-4a9a-841d-bc2537618771")
     private static Collection<Signal> _signals = null;
-    
+
+    @objid ("f397db64-8f95-4f57-826b-49df2182b695")
     private static Signal _sigModel = null;
 
     /**
      * Constructor TransitionPropertyPage
      * @author ebrosse
      */
+    @objid ("69038a46-91cd-41f9-892b-a05ea9d62b02")
     public TransitionPropertyPage() {
     }
 
+    @objid ("db7a137d-5f7f-4df9-8626-6dfe78dba76e")
     @Override
     public void update(ModelElement element, IModulePropertyTable table) {
         //Events
@@ -67,7 +72,7 @@ public class TransitionPropertyPage implements IPropertyContent {
         for (Event op : _events) {
             opNames.add(op.getCompositionOwner().getName() + "::" + op.getName());
         }
-
+        
         String value = "";
         if (element instanceof Transition) {
             Transition tran = (Transition) element;
@@ -78,14 +83,14 @@ public class TransitionPropertyPage implements IPropertyContent {
         }
         String[] result = (String[])opNames.toArray(new String[opNames.size()]);
         table.addProperty("Event", value, result);
-
+        
         //Signals
         _signals = CPSWarmModule.getInstance().getModuleContext().getModelingSession().findByClass(Signal.class);  
         List<String> sigNames = new ArrayList<>();
         for (Signal sig : _signals) {
             sigNames.add(sig.getCompositionOwner().getName() + "::" + sig.getName());
         }
-
+        
         String sigvalue = "";
         if (element instanceof Transition) {
             Transition tran = (Transition) element;
@@ -108,7 +113,7 @@ public class TransitionPropertyPage implements IPropertyContent {
         }
     }
 
-    @objid ("d185fc0b-9730-4101-8150-1320d0b3eb72")
+    @objid ("a92a371c-b88f-4d37-9394-f0015f459edd")
     @Override
     public int changeProperty(ModelElement element, int row, String value) {
         if (row == 1) {
@@ -130,8 +135,6 @@ public class TransitionPropertyPage implements IPropertyContent {
             Attribute att = _sigModel.getOwnedAttribute().get(row);
             att.setValue(value);
         }
-        
-        
         return 2;
     }
 

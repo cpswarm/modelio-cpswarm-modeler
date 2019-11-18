@@ -63,27 +63,27 @@ public class ProblemStatementDiagramWizard extends AbstractWizardContributor imp
         IModelingSession session = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
         AbstractDiagram diagram = null;
         try( ITransaction transaction = session.createTransaction (I18nMessageService.getString ("Info.Session.Create", "Problem Statement"))){
-
-
+        
+        
             diagram = CPSwarmFactory.createProblemStatementDiagram(element, diagramName, description);
             if (diagram != null) {
                 IDiagramService ds = CPSWarmModule.getInstance().getModuleContext().getModelioServices().getDiagramService();
                 IDiagramHandle handler = ds.getDiagramHandle(diagram);
                 IDiagramDG dg = handler.getDiagramNode();
-
+        
                 for (IStyleHandle style : ds.listStyles()){
                     if (style.getName().equals("cpswarm")){
                         dg.setStyle(style);
                         break;
                     }
                 }
-
+        
                 handler.save();
                 handler.close();
-
+        
                 CPSWarmModule.getInstance().getModuleContext().getModelioServices().getEditionService().openEditor(diagram);
             }
-
+        
             transaction.commit ();
         }
         return diagram;

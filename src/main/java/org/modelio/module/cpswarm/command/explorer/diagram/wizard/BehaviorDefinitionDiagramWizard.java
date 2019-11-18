@@ -59,70 +59,70 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("07dfbb63-f43e-4ec1-8bbc-7c108616a28a")
 public class BehaviorDefinitionDiagramWizard extends AbstractWizardContributor implements IDiagramWizardContributor {
-
+    @objid ("89e14ffe-ab1e-45f0-82b5-a95b64d86347")
     @Override
     public AbstractDiagram actionPerformed(ModelElement element, String diagramName, String description) {
         IModelingSession session = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
         AbstractDiagram diagram = null;
         try( ITransaction transaction = session.createTransaction (I18nMessageService.getString ("Info.Session.Create", "behavior Definition"))){
-
-
+        
+        
             diagram = CPSwarmFactory.createEnvironmentDefinitionDiagram(element, diagramName, description);
-
+        
             if (diagram != null) {
                 IDiagramService ds = CPSWarmModule.getInstance().getModuleContext().getModelioServices().getDiagramService();
                 IDiagramHandle handler = ds.getDiagramHandle(diagram);
                 IDiagramDG dg = handler.getDiagramNode();
-
+        
                 for (IStyleHandle style : ds.listStyles()){
                     if (style.getName().equals("cpswarm")){
                         dg.setStyle(style);
                         break;
                     }
                 }
-
+        
                 handler.save();
                 handler.close();
-
+        
                 CPSWarmModule.getInstance().getModuleContext().getModelioServices().getEditionService().openEditor(diagram);
             }
-
+        
             transaction.commit ();
         }
         return diagram;
     }
 
-
+    @objid ("71edb37a-a8e1-4c77-9517-3baea6490c58")
     @Override
     public String getLabel() {
         return I18nMessageService.getString ("Ui.Command.BlockDiagramExplorerCommand.Label");
     }
 
-
+    @objid ("c1ec19f0-51b1-49eb-9b61-82c208f9bf15")
     @Override
     public String getDetails() {
         return I18nMessageService.getString ("Ui.Command.BlockDiagramExplorerCommand.Details");
     }
 
-
+    @objid ("65eeb23b-6f2b-4fa6-ae55-bd7b2c72a529")
     @Override
     public String getHelpUrl() {
         return null;
     }
 
-
+    @objid ("9af0bb0c-9d25-48eb-94ce-ea8b232fe353")
     @Override
     public Image getIcon() {
         return new Image(Display.getDefault(),SysMLResourcesManager.getInstance().getImage("blockdiagram.png"));
     }
 
-
+    @objid ("5272df8f-18ed-46bf-a713-4abb80bfe5a9")
     @Override
     public String getInformation() {
         return I18nMessageService.getString ("Ui.Command.BlockDiagramExplorerCommand.Information");
     }
 
-
+    @objid ("f688943a-d186-4775-8820-8f5677b33b7a")
     @Override
     public boolean accept(MObject selectedElt) {
         return ((selectedElt != null) &&
@@ -131,7 +131,7 @@ public class BehaviorDefinitionDiagramWizard extends AbstractWizardContributor i
                         && selectedElt.getStatus().isModifiable()));
     }
 
-   
+    @objid ("421d51a0-236b-4042-91c4-f0ea4af41ecf")
     @Override
     public ElementDescriptor getCreatedElementType() {
         // TODO Auto-generated method stub

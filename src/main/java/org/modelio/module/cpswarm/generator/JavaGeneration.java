@@ -3,7 +3,6 @@ package org.modelio.module.cpswarm.generator;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
-import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.module.modelermodule.api.IModelerModuleNoteTypes;
 import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
 
@@ -21,8 +20,8 @@ public class JavaGeneration extends Generator implements IGenerator {
         this.environment = environment;
     }
 
-    @Override
     @objid ("72b43099-2c71-4a51-85fe-7d99db6062bd")
+    @Override
     public StringBuffer generate() {
         headerJava();
         classJava();
@@ -105,7 +104,7 @@ public class JavaGeneration extends Generator implements IGenerator {
     private void environmentEntities() {
         for (AssociationEnd assocEnd : this.environment.getOwnedEnd()){
             AssociationEnd opposite = assocEnd.getOpposite();
-            Classifier oppositeOwner = opposite.getOwner(); 
+            org.modelio.metamodel.uml.statik.Classifier oppositeOwner = opposite.getOwner(); 
             String key = "num" + oppositeOwner.getName() + "s";
             addLine(oppositeOwner.getName().toLowerCase() + "s = new " + oppositeOwner.getName().toLowerCase() + "[" + key +"];");    
         }

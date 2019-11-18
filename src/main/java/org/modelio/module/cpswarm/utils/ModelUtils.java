@@ -44,94 +44,7 @@ public class ModelUtils {
         }
         return null;
     }
-    
-    /**
-     * Method setTaggedValue
-     * @author ebrosse
-     * @param tvFound
-     * @param elt
-     * @param value
-     * @param related
-     * @param stereotypeLink @return
-     */
-    @objid ("7464086c-3b04-4192-b676-defd0632a1b3")
-    public static void setTaggedValue(TaggedValue tvFound, ModelElement elt, String value, ModelElement related, String modulelink, String stereotypeLink) {
-        IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
-        
-        for (Dependency existingLinks : new ArrayList<>(elt.getDependsOnDependency())) {
-            if (existingLinks.isStereotyped(modulelink,stereotypeLink)) {
-                existingLinks.delete();
-            }
-        }
-        
-        TagParameter firstElt = null;
-        List<TagParameter> actuals = tvFound.getActual();
-        if ((actuals != null) && (actuals.size() > 0)) {
-            firstElt = actuals.get(0);
-        } else {
-            firstElt = model.createTagParameter();
-            tvFound.getActual().add(firstElt);
-        }
-        
-        if (value.equals("false")) {
-            tvFound.delete();
-        } else {
-            firstElt.setValue(value);
-            try {
-                model.createDependency(elt, related,modulelink, stereotypeLink);
-            } catch (Exception e) {
-                CPSWarmModule.logService.error(e);
-            }
-        }
-    }
 
-
-    /**
-     * Method addValue
-     * @author ebrosse
-     * @param name
-     * @param value
-     * @param element
-     * @param related
-     * @param stereotypeLink @return
-     */
-    @objid ("6e44f1b3-b1cb-4ffa-8b1a-53601a8099be")
-    public static void addValue(String modulename, String name, String value, ModelElement element, ModelElement related, String modulelink, String stereotypeLink) {
-        // DON'T place Transition HERE
-        
-        boolean exist = false;
-        
-        TaggedValue tag = null;
-        List<TaggedValue> tagElements = element.getTag();
-        IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
-        
-        if (!tagElements.isEmpty()) {
-            for (TaggedValue currentTag : tagElements) {
-                TagType type = currentTag.getDefinition();
-                String tagname = type.getName();
-        
-                if (tagname.equals(name)) {
-                    exist = true;
-                    tag = currentTag;
-                    break;
-        
-                }
-            }
-        }
-        
-        if (!exist) {
-            try {
-                tag = model.createTaggedValue(modulename, name, element);
-        
-            } catch (Exception e) {
-                CPSWarmModule.logService.error(e);
-            }
-        
-        }
-        
-        setTaggedValue(tag, element, value, related,modulelink, stereotypeLink);
-    }
-    
     /**
      * This method returns the list of Classifier associated (sharing an Association) to the given Association
      * @param center : the central association
@@ -424,6 +337,93 @@ public class ModelUtils {
         return true;
     }
 
+    /**
+     * Method setTaggedValue
+     * @author ebrosse
+     * @param tvFound
+     * @param elt
+     * @param value
+     * @param related
+     * @param stereotypeLink @return
+     */
+    @objid ("0b34c93c-76cc-42f7-97dd-3ffd903d959d")
+    public static void setTaggedValue(TaggedValue tvFound, ModelElement elt, String value, ModelElement related, String modulelink, String stereotypeLink) {
+        IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
+        
+        for (Dependency existingLinks : new ArrayList<>(elt.getDependsOnDependency())) {
+            if (existingLinks.isStereotyped(modulelink,stereotypeLink)) {
+                existingLinks.delete();
+            }
+        }
+        
+        TagParameter firstElt = null;
+        List<TagParameter> actuals = tvFound.getActual();
+        if ((actuals != null) && (actuals.size() > 0)) {
+            firstElt = actuals.get(0);
+        } else {
+            firstElt = model.createTagParameter();
+            tvFound.getActual().add(firstElt);
+        }
+        
+        if (value.equals("false")) {
+            tvFound.delete();
+        } else {
+            firstElt.setValue(value);
+            try {
+                model.createDependency(elt, related,modulelink, stereotypeLink);
+            } catch (Exception e) {
+                CPSWarmModule.logService.error(e);
+            }
+        }
+    }
+
+    /**
+     * Method addValue
+     * @author ebrosse
+     * @param name
+     * @param value
+     * @param element
+     * @param related
+     * @param stereotypeLink @return
+     */
+    @objid ("2e550c8b-36ec-40ac-9c7a-c22f8e19f516")
+    public static void addValue(String modulename, String name, String value, ModelElement element, ModelElement related, String modulelink, String stereotypeLink) {
+        // DON'T place Transition HERE
+        
+        boolean exist = false;
+        
+        TaggedValue tag = null;
+        List<TaggedValue> tagElements = element.getTag();
+        IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
+        
+        if (!tagElements.isEmpty()) {
+            for (TaggedValue currentTag : tagElements) {
+                TagType type = currentTag.getDefinition();
+                String tagname = type.getName();
+        
+                if (tagname.equals(name)) {
+                    exist = true;
+                    tag = currentTag;
+                    break;
+        
+                }
+            }
+        }
+        
+        if (!exist) {
+            try {
+                tag = model.createTaggedValue(modulename, name, element);
+        
+            } catch (Exception e) {
+                CPSWarmModule.logService.error(e);
+            }
+        
+        }
+        
+        setTaggedValue(tag, element, value, related,modulelink, stereotypeLink);
+    }
+
+    @objid ("7f16c153-7a5c-4f68-af78-a5c5e3a7bd2b")
     public static void addValue(String modulename, String name, String values, ModelElement element) {
         // DON'T place Transition HERE
         boolean exist = false;
@@ -469,6 +469,7 @@ public class ModelUtils {
         }
     }
 
+    @objid ("f6a4fdfd-ae3a-4f78-8506-965489d7889f")
     public static void setTaggedValue(String name, ModelElement elt, String value) {
         List<TaggedValue> tagElements = elt.getTag();
         IUmlModel model = CPSWarmModule.getInstance().getModuleContext().getModelingSession().getModel();
@@ -499,5 +500,4 @@ public class ModelUtils {
         }
     }
 
-    
 }
