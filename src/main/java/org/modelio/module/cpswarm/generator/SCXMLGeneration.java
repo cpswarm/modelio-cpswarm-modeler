@@ -14,7 +14,7 @@ import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
 
 @objid ("fdb1f4b4-5988-41a6-bd42-b8398c300696")
 public class SCXMLGeneration extends Generator implements IGenerator {
-    @objid ("83eee40a-903d-49dd-9606-78e176d4675d")
+    @objid ("860872d3-82f4-4618-b7a0-1636b3f3ad40")
     private StateMachine sm = null;
 
     @objid ("9ba83793-0016-4f2d-b0ca-187e9703774a")

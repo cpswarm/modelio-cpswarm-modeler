@@ -24,17 +24,17 @@ import org.modelio.module.cpswarm.utils.ResourcesManager;
  */
 @objid ("4fb251aa-8aa2-4ef2-a4f0-104d6536d90d")
 public class FileChooserComposite extends Composite {
-    @objid ("ebba1f1e-695f-4916-badb-e96ac1d8f35b")
-    private File currentFile = null;
-
-    @objid ("0545213a-e9c8-4e9c-84dd-f7d39cbe03f5")
+    @objid ("d75031f4-9891-4fe4-a5b5-1eae97c84311")
     private Text text = null;
 
-    @objid ("908bf88e-ef9b-44d5-b5a0-e06295d216f5")
+    @objid ("630ddd3d-94da-4361-8b57-91a5ab33ada1")
     private Button searchButton = null;
 
-    @objid ("af55bf4d-494f-41a2-9761-5715b434d5ac")
+    @objid ("6d502675-1a79-4e1e-a413-816e6154ca4f")
     protected FileDialog dialog = null;
+
+    @objid ("ebba1f1e-695f-4916-badb-e96ac1d8f35b")
+    private File currentFile = null;
 
     /**
      * This method returns the chosen file

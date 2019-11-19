@@ -13,13 +13,13 @@ public class Binary extends MathEditor {
     /**
      * Parte izquierda del objeto binario.
      */
-    @objid ("758bc1a9-892e-453d-ac5f-7b57df2d8913")
+    @objid ("24062e84-7a9c-4372-b866-f1e0e6218ed1")
     private MathEditor leftChild = null;
 
     /**
      * Parte derecha del objeto binario.
      */
-    @objid ("76f371e3-bb8c-481b-8d1d-cf34a3c330a2")
+    @objid ("b3d8466d-3d2e-4bc8-bc86-8606fad8dd9c")
     private MathEditor rightChild = null;
 
     /**

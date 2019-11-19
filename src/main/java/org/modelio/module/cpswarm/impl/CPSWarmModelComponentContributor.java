@@ -18,10 +18,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("0329d19c-033e-4cbf-9529-3c43c1f67a4d")
 public class CPSWarmModelComponentContributor extends AbstractModelComponentContributor {
-    @objid ("b6e1a8d9-bac2-4874-b6bd-a8f455bebfed")
+    @objid ("0548b08c-1204-4a61-8d5b-77cbabf86df4")
     private IModelingSession session = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
 
-    @objid ("19d33bcb-5722-40ff-8b63-3a2655efcc9b")
+    @objid ("48a35784-b6fb-4d95-b3f1-9793b91ba3e3")
     private MMetamodel metamodel = CPSWarmModule.getInstance().getModuleContext().getModelioServices().getMetamodelService().getMetamodel();
 
     @objid ("a8550462-a4c1-4f8e-8415-56a5e5375d11")

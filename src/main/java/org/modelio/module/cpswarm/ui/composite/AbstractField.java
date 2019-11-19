@@ -35,16 +35,16 @@ public abstract class AbstractField implements IField {
     @objid ("39d9bb49-e13a-4cfe-add1-536bd34d9d05")
     private String value;
 
-    @objid ("d293a675-d39a-44b7-af87-0284fd1539d9")
+    @objid ("52ccdc40-1adc-4803-b35f-2d991b295c08")
     private Label label;
 
-    @objid ("e47102f7-8d71-44a4-8b96-5c9ef8d33bb4")
+    @objid ("9be7337a-01f8-44a7-8714-65dc022f7202")
     private Control control;
 
-    @objid ("2709895c-a29d-4669-9357-5287167a21f5")
+    @objid ("076e2384-95b1-4dc2-ab37-9bfab4e037b4")
     private Composite fieldComposite;
 
-    @objid ("edfa56e5-feec-46cc-805e-7bf48ce107a4")
+    @objid ("cecb100d-36e6-4b12-9ec0-b71310b96f29")
     private final Composite parent;
 
     @objid ("dbc264bc-34af-448e-bce2-1088991aeb46")

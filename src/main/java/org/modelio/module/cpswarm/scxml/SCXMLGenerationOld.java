@@ -14,7 +14,7 @@ public class SCXMLGenerationOld extends Generator implements IGenerator {
     @objid ("3a2bc062-f79b-46c8-a14b-a0344ac8ee45")
     private String filePath = "";
 
-    @objid ("7dfb2a32-3be9-4cba-a38d-00c54beb6c45")
+    @objid ("7c3c7bc0-332f-41f8-a691-1ca8016c1a88")
     private StateMachine statemachine = null;
 
     @objid ("7d9317bf-37f9-447d-b97e-30e910915483")

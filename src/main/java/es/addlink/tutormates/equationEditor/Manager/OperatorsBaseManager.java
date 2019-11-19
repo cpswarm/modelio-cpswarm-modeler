@@ -20,17 +20,17 @@ import org.modelio.module.cpswarm.utils.ResourcesManager;
  */
 @objid ("f9baedeb-2d26-4d44-9d4a-b44965d56866")
 public class OperatorsBaseManager {
-    @objid ("4ea9f369-018d-41d4-90ee-9b6a765cdc29")
+    @objid ("6db38b0b-d36e-41dd-b05f-972858e14186")
+    private Document doc;
+
+    @objid ("55126518-4c65-4be6-ac91-5682ac679040")
     private List<BaseOperator> numbersVariablesList;
 
-    @objid ("f28dd37e-3a66-4b06-9b3c-640b1e056d19")
+    @objid ("c77f100d-5103-4ec9-9d14-f957608173b8")
     private List<BaseOperator> operatorsList;
 
-    @objid ("3be3e507-e459-49b7-b843-24cf3f970f13")
+    @objid ("0733b470-19d3-4c00-a8e8-144246454b47")
     private List<BaseFunction> functionsList;
-
-    @objid ("bd9cda68-9a40-4ae4-85a7-7389262369a5")
-    private Document doc;
 
     @objid ("93fc23f6-7ff2-4a16-9490-a731f84f4d62")
     public OperatorsBaseManager() {

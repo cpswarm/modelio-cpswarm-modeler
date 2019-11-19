@@ -46,13 +46,13 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  */
 @objid ("315fcc63-2310-4b95-95b4-6e5903239a35")
 public class TransitionPropertyPage implements IPropertyContent {
-    @objid ("e51eea35-f3a5-4237-bf46-b2944ddb1853")
+    @objid ("93a5aa5a-3ec3-4152-a5ae-3c814a2a9355")
     private static Collection<Event> _events = null;
 
-    @objid ("c591fcc4-3b2a-4a9a-841d-bc2537618771")
+    @objid ("81bc7fbc-4134-4a74-9bde-df196d1a0c31")
     private static Collection<Signal> _signals = null;
 
-    @objid ("f397db64-8f95-4f57-826b-49df2182b695")
+    @objid ("494957b6-70ba-48db-8d0f-1ff6f7a1f678")
     private static Signal _sigModel = null;
 
     /**

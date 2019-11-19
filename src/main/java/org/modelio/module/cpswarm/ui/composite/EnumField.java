@@ -20,10 +20,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("2d45f81c-019e-4899-9212-8ab0804e1882")
 public class EnumField extends AbstractField {
-    @objid ("ba98a72c-d01d-45e9-8e1e-2055a2554a88")
+    @objid ("7295210e-51f0-4d1a-a09f-f2e78ac95945")
     private Combo combo;
 
-    @objid ("d4195cc2-4726-4b92-b136-1c26073795dc")
+    @objid ("7eabdf45-f6d3-4f13-b053-cdc68f4a2b01")
     private ComboViewer comboViewer;
 
     @objid ("4e477e49-ba2a-4a7c-b4d4-a19cdc9e1dd4")

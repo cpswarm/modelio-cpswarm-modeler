@@ -19,10 +19,10 @@ import org.eclipse.swt.widgets.Label;
  */
 @objid ("2be85c58-8819-455f-82de-387a8cf97e1f")
 public class EnumerationComposite extends Composite {
-    @objid ("85bb74a1-d648-4512-b7e6-d974a8f79777")
+    @objid ("57be13f0-7df2-4063-962d-efa39c89f954")
     private Label label = null;
 
-    @objid ("5ee6937c-793c-44a1-90cb-4c680ea25a3a")
+    @objid ("4f7e2b6e-eeb3-4123-b96b-5ad49d43db2b")
     private Combo combo = null;
 
     /**

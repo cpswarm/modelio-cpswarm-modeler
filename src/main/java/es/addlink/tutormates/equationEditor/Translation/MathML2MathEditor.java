@@ -42,8 +42,14 @@ public class MathML2MathEditor {
     /**
      * Document del mathML.
      */
-    @objid ("8c047a1b-8b50-42ef-9222-2ec3aa110c31")
+    @objid ("c72c7d5c-5234-4fab-b92c-e0ea13430804")
     private Document doc;
+
+    /**
+     * List de componentes Element que pasará de estado normal a invertido (para su procesamiento).
+     */
+    @objid ("a98ce2b5-40f0-43a4-a64d-cd4e49f2b249")
+    private List<Element> mathmlList;
 
     /**
      * Manager global del editor de expresiones.
@@ -56,12 +62,6 @@ public class MathML2MathEditor {
      */
     @objid ("7776dc23-4ed5-4dc6-ac15-a7733278d51d")
     private MathEditor mathEditor;
-
-    /**
-     * List de componentes Element que pasará de estado normal a invertido (para su procesamiento).
-     */
-    @objid ("51e2e553-dac0-411e-bb13-034bc63ec9d7")
-    private List<Element> mathmlList;
 
     /**
      * Invierte un List de componentes Element. También invierte sus hojas.

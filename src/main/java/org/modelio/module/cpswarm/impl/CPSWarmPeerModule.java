@@ -18,11 +18,11 @@ import org.modelio.vbasic.version.Version;
  */
 @objid ("342db563-838b-41bd-9e1e-5d1b758cae24")
 public class CPSWarmPeerModule implements ICPSWarmPeerModule {
+    @objid ("63ad6efd-88c9-4504-9f63-7e6bc26039eb")
+    private IModuleAPIConfiguration peerConfiguration;
+
     @objid ("6422c550-69bc-4013-ae5c-2abd05e4d064")
     private CPSWarmModule module;
-
-    @objid ("c0907353-01b5-451a-86b8-e6c441283310")
-    private IModuleAPIConfiguration peerConfiguration;
 
     @objid ("749c8004-b304-43a4-ada8-7ba8f4c1fdc4")
     public CPSWarmPeerModule(CPSWarmModule statModuleModule, IModuleAPIConfiguration peerConfiguration) {

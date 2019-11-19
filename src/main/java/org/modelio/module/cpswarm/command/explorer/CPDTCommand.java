@@ -44,22 +44,22 @@ public class CPDTCommand extends DefaultModuleCommandHandler {
     @objid ("ee4b3302-5562-4cb3-8587-efe1a83b0aed")
     protected String _descriptionGeneration = "Generation Complete";
 
-    @objid ("81a31850-5ebd-4be4-a3d8-c84438427560")
+    @objid ("85487930-89d6-4f30-ba4c-14e889087a40")
     protected Shell _shell;
 
-    @objid ("6731374e-a5ce-41d6-89b7-0354f9646f41")
+    @objid ("11aee0a3-79de-4739-b229-202333c65c58")
     protected ModelTree _selectedElt;
 
-    @objid ("aeff4842-2af5-4b86-a7e8-53224642b594")
+    @objid ("4784b710-e010-4734-8824-ce634f16aea6")
     protected IModule _module;
 
-    @objid ("512c02d9-47fa-451c-a03e-5d0bb9171949")
+    @objid ("50e2b3a0-e2e1-45cd-b854-b7a8c9e78db4")
     protected Text _nameText;
 
-    @objid ("a76d010f-88c2-4964-b727-181782265865")
+    @objid ("064e05b3-ee7c-4bf6-9e71-29a57e6bf45a")
     protected Text _descriptionText;
 
-    @objid ("18f943de-534c-435f-826b-15d5777cc7fd")
+    @objid ("c5b00a4c-966c-42aa-9b89-27bd08c5b8e9")
     protected List<org.modelio.metamodel.uml.statik.Class> _behaviours;
 
     @objid ("9173180e-60b7-45e2-b669-b44431e955c4")

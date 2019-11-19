@@ -17,14 +17,14 @@ import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
 
 @objid ("6ef2520d-29f4-455e-acb6-b1ea90a86b4a")
 public class FitnessFunctionGeneration extends Generator implements IGenerator {
-    @objid ("5612587d-a879-477a-917d-127be05cfc50")
-    private Class ff = null;
-
-    @objid ("79fd3062-dc2e-445f-9318-84575eb0a4fc")
+    @objid ("0df9e479-de37-4bb5-a398-c30c84911d2c")
     private List<BindableInstance> fcts = new ArrayList<>();
 
-    @objid ("364291e1-cb5c-4e32-8e25-e77a18d42140")
+    @objid ("f105b40b-0c10-4c01-8fbe-3a68bfa8169c")
     private Set<Classifier> FCT = new HashSet<>();
+
+    @objid ("5612587d-a879-477a-917d-127be05cfc50")
+    private Class ff = null;
 
     @objid ("166feae3-a210-4535-be3c-160b11aa44e2")
     public FitnessFunctionGeneration(Class ff) {

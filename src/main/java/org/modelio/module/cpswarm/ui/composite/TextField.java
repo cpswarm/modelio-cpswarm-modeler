@@ -25,7 +25,7 @@ public class TextField extends AbstractField {
     @objid ("b262faf1-92cc-44ad-8b6e-3b32efc66fa9")
     private static final String EMPTY_STRING = "";
 
-    @objid ("910b02d5-0342-4759-9cf5-273881cec13f")
+    @objid ("bb7c9272-1484-4ff0-bc07-339ad85b609d")
     private Text text;
 
     @objid ("c2c47e08-9908-4768-8469-1d5be38ca723")

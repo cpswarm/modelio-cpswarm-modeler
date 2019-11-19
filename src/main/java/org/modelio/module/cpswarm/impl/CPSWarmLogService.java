@@ -9,7 +9,7 @@ import org.modelio.module.sysml.impl.SysMLModule;
  */
 @objid ("ff732306-4a07-4d4c-98f9-63f5a5bb8a32")
 public class CPSWarmLogService {
-    @objid ("48ef9af7-22cc-4817-b4ce-143e7df26b40")
+    @objid ("e8b7169d-3b1c-414a-bf63-c63247e567ab")
     private ILogService logService;
 
     /**

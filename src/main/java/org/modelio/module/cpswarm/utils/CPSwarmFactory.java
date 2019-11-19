@@ -33,10 +33,10 @@ public class CPSwarmFactory {
     @objid ("495c7577-f018-42f5-9542-bff71469c8d3")
     private static final String DESCRIPTION = "description";
 
-    @objid ("e4cbe5e4-b3c5-412e-8335-f73add346862")
+    @objid ("126f05c2-e6b4-49a9-9ef7-3ebee990bf5e")
     private static final IModelingSession _session = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
 
-    @objid ("3633ba55-4c3d-4582-9ae5-56742115e32e")
+    @objid ("262fa5a2-74fe-49bf-9335-6843761781fe")
     private static final IUmlModel _model = _session.getModel();
 
     @objid ("eab17815-d3a0-4e0b-bde1-8aade4fe20d1")

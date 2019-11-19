@@ -52,20 +52,20 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  */
 @objid ("bbfb20d2-9c95-4824-81b3-9e507b786a29")
 public class AbstractionImporter {
-    @objid ("d2e6467b-fb09-4bfd-99fb-72315b06ea4c")
+    @objid ("d2998aee-34ca-4cf4-ab16-fb981c0e3459")
     private IModelingSession modelingSession = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
 
-    @objid ("8424f979-1984-415c-9e2b-2b83dcc21507")
+    @objid ("f3b5ab6b-79c3-4790-80c8-c6cba4b921c0")
     private IUmlModel factory = this.modelingSession.getModel();
+
+    @objid ("5e193094-dbb8-4b27-b0e7-82ca4232bf66")
+    private Interface inputInt = null;
+
+    @objid ("ce06252a-a4b8-4eca-bf43-6e9d18ca0dc0")
+    private Interface outputInt = null;
 
     @objid ("6bc799e9-820f-4cc6-bd9b-ea55c35ce6c2")
     private Class fmi = null;
-
-    @objid ("75dc291e-bf14-41ea-9bf3-d306af3694c4")
-    private Interface inputInt = null;
-
-    @objid ("8a97ade9-aa9b-44df-8a97-224e9fd91111")
-    private Interface outputInt = null;
 
     /**
      * Method ModelDescription

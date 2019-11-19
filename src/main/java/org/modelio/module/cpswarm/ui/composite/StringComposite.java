@@ -18,10 +18,10 @@ import org.eclipse.swt.widgets.Text;
  */
 @objid ("5aae06a2-166f-45e8-bed0-1edfd4e0a26c")
 public class StringComposite extends Composite {
-    @objid ("e1a12683-74fd-4102-90ef-98a1b45bb570")
+    @objid ("14a1a458-342f-422b-adbb-521a3b47824d")
     private Label label = null;
 
-    @objid ("a1873220-c7cb-4148-ac37-315fb15e3769")
+    @objid ("dc8d663a-8c2a-4bcb-8523-e1c45758db8c")
     private Text text = null;
 
     /**

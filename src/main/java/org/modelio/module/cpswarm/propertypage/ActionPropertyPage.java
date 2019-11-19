@@ -46,10 +46,10 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  */
 @objid ("9c1f12b4-52ec-4fb3-9686-b14c44178d90")
 public class ActionPropertyPage implements IPropertyContent {
-    @objid ("8b444410-827b-4f0c-82cd-d3866353fe28")
+    @objid ("fdb1b733-0109-4dc1-892a-cdf5203d8e91")
     private static Collection<Operation> _operations = null;
 
-    @objid ("5a2d7bed-2cb9-4bfa-84ad-a53c785a3646")
+    @objid ("0a9c5955-6a31-453b-a7b9-6b570922e98b")
     private static Operation _op = null;
 
     /**

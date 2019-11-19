@@ -53,20 +53,20 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  */
 @objid ("65a70ff7-ea09-4a5e-ba59-6301de5a46c6")
 public class AlgorithmImporter {
-    @objid ("543e519e-3731-4b69-8189-e07eeef09ad1")
+    @objid ("56596552-0f9f-4cb3-b697-24ecab41c867")
     private IModelingSession modelingSession = CPSWarmModule.getInstance().getModuleContext().getModelingSession();
 
-    @objid ("101d152a-3a70-4503-8b13-3c25cd328e20")
+    @objid ("15cc6535-c125-46d6-a0d8-4afc6e794397")
     private IUmlModel factory = this.modelingSession.getModel();
+
+    @objid ("8cd76e4a-05d2-4226-9797-92c1890cfc53")
+    private Interface inputInt = null;
+
+    @objid ("705a0d30-5e24-48c4-a6e9-2b90737fdb53")
+    private Interface outputInt = null;
 
     @objid ("850ea514-ee7a-4a6c-991d-8ddec052a4f7")
     private Class fmi = null;
-
-    @objid ("c421309d-0b6e-41f9-ae3d-6be803fa3420")
-    private Interface inputInt = null;
-
-    @objid ("4c5f7f6b-9fa7-4c0a-920e-646897cd8baf")
-    private Interface outputInt = null;
 
     /**
      * Method ModelDescription

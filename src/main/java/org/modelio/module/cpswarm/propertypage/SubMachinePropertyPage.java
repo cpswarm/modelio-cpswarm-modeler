@@ -44,7 +44,7 @@ import org.modelio.module.cpswarm.impl.CPSWarmModule;
  */
 @objid ("e27d0de6-0123-4eba-99e4-9eb5748b219a")
 public class SubMachinePropertyPage implements IPropertyContent {
-    @objid ("c8dd60fe-5c2b-48aa-a2e4-86c79fea001a")
+    @objid ("3d89f08c-8f31-47b7-aa48-a65e0c74258e")
     private static Collection<StateMachine> _sms = null;
 
     /**

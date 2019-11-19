@@ -5,18 +5,16 @@ import java.util.List;
 import java.util.Vector;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import es.addlink.tutormates.equationEditor.Formats.MathML.MathML;
-import es.addlink.tutormates.equationEditor.Role.BaseFunction;
-import es.addlink.tutormates.equationEditor.Role.BaseOperator;
 
 @objid ("6dfae0ab-7daa-42df-98a6-9a0ca24742cb")
 public class AllowedOperatorsAndFunctions {
-    @objid ("e48eff30-7a66-45aa-acf7-6453249e8773")
+    @objid ("564852ee-ff0c-4548-9575-b631f339ebcc")
     private List<BaseFunction> functionsList;
 
-    @objid ("da71ae4b-c5a5-49a4-bc5a-759f7352c4d4")
+    @objid ("63097e52-7627-41dd-bf08-c0afe06090fa")
     private List<BaseOperator> numbersVariablesList;
 
-    @objid ("5256a101-9050-44e7-a0e8-b06bcfff4207")
+    @objid ("297dbd55-76c1-4ed0-ae9c-635268fca0d2")
     private List<BaseOperator> operatorsList;
 
     @objid ("8f17a6c9-8f21-4785-84e2-75217f27a4ae")

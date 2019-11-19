@@ -21,14 +21,14 @@ import org.modelio.module.cpswarm.utils.ResourcesManager;
  */
 @objid ("d706dd26-667c-491e-a6bc-0efb623b4660")
 public class MainToolBarBaseManager {
-    @objid ("25658737-9ee0-4783-b1af-d8ac98bc482a")
+    @objid ("c80394de-ef00-43e0-9c4b-1f0493b7dbca")
+    private Document docToolBarBase;
+
+    @objid ("d7e28c78-07ca-4f48-bbdf-65da1fc28ff4")
     private List<TabToolBar> tabToolBarList;
 
-    @objid ("51a3d21c-8518-41d5-b8b4-fb6a1426dba9")
+    @objid ("af9b5633-3c9d-4327-bcd5-739ad6b4189c")
     private List<ItemToolBar> itemToolBarList;
-
-    @objid ("ff605871-9026-42df-ad2f-58d16e7dc894")
-    private Document docToolBarBase;
 
     @objid ("3ccb39a7-4918-4599-8a69-169df973384a")
     public MainToolBarBaseManager() {

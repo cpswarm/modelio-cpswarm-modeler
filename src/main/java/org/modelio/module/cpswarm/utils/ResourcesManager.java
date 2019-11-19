@@ -51,11 +51,11 @@ public class ResourcesManager {
     @objid ("d6315d19-ec09-4c49-a55f-a47bd45a4d5c")
     private static final String xmlFolderName = "xml";
 
+    @objid ("923426e4-f122-4250-a96c-e8ca8fa34268")
+    private IModule _mdac;
+
     @objid ("cd0655c9-4520-430e-92c0-7d8f8a70f15e")
     private static ResourcesManager instance = null;
-
-    @objid ("29f471c6-86a0-4286-93b4-30d9cc04bb02")
-    private IModule _mdac;
 
     /**
      * Method ResourcesManager

@@ -8,10 +8,10 @@ import org.modelio.module.modelermodule.api.IModelerModulePeerModule;
 
 @objid ("30794e5c-04b1-4605-8c3d-23242490be81")
 public class JavaGeneration extends Generator implements IGenerator {
-    @objid ("96c0853c-1a21-4233-b519-827c90ccc44a")
+    @objid ("41b6769e-193a-473b-b055-f0c554db6b10")
     private org.modelio.metamodel.uml.statik.Class agent = null;
 
-    @objid ("7be8fcc8-4569-480e-a0c5-e71c33210ac7")
+    @objid ("b0491428-667f-4552-b1bc-9e78930731de")
     private org.modelio.metamodel.uml.statik.Class environment = null;
 
     @objid ("34e36b24-2bea-4b4b-8a2a-c0204c410845")

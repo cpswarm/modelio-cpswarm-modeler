@@ -45,10 +45,10 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
     @objid ("029c8ef6-78eb-45fb-a77d-5dab52740da7")
     protected String path = "";
 
-    @objid ("17cee687-152f-432e-9d7f-88a4326f0d44")
+    @objid ("0fe57526-f212-4745-84a2-faa96f2c0ae4")
     protected ModelElement selectedElt = null;
 
-    @objid ("cf24cd6e-6ad8-487e-9664-d49726d70758")
+    @objid ("13ffe98d-d3cf-41a2-b7b2-ce7785c5a1f1")
     protected Shell shell = null;
 
     @objid ("fad6fe2f-4c3f-4181-bd91-545c12108f09")

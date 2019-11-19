@@ -20,19 +20,19 @@ public class XMLGeneration extends Generator implements IGenerator {
     @objid ("fef15994-8bec-483a-a3ae-7e7ab3fd7336")
     private String rosPath = "";
 
-    @objid ("ec35ec4c-9d99-4677-a240-0b2155bab953")
+    @objid ("8fc6b762-3efd-4770-89dd-c9799037553c")
     private org.modelio.metamodel.uml.statik.Class problem = null;
 
-    @objid ("c61efe03-4b49-4a12-bb72-fa74b93cbfd2")
+    @objid ("1bacfbbc-88f1-4e53-a140-1487816e4706")
     private org.modelio.metamodel.uml.statik.Class costFunction = null;
 
-    @objid ("9a228b80-4aff-4ca7-98ee-017d35e234c2")
+    @objid ("9e29c19f-a735-47d0-ba5e-c2daf2167979")
     private org.modelio.metamodel.uml.statik.Class swarm = null;
 
-    @objid ("613c7374-69fe-41cb-b617-eda5a1422999")
+    @objid ("d39cd338-552b-443e-b8e5-4021df4c45fd")
     private org.modelio.metamodel.uml.statik.Class environment = null;
 
-    @objid ("7508dd79-bd3d-42f7-b040-954d56818eed")
+    @objid ("a38f95c0-434f-4198-bbf2-dc3f628dc440")
     private org.modelio.metamodel.uml.statik.Class controller = null;
 
     @objid ("c217f848-600b-461c-9b7f-c1d43407a303")
