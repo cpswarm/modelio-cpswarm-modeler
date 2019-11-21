@@ -3,11 +3,13 @@ package org.modelio.module.cpswarm.ui.composite;
 import java.io.File;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -24,17 +26,17 @@ import org.modelio.module.cpswarm.utils.ResourcesManager;
  */
 @objid ("4fb251aa-8aa2-4ef2-a4f0-104d6536d90d")
 public class FileChooserComposite extends Composite {
-    @objid ("d75031f4-9891-4fe4-a5b5-1eae97c84311")
-    private Text text = null;
-
-    @objid ("630ddd3d-94da-4361-8b57-91a5ab33ada1")
-    private Button searchButton = null;
-
-    @objid ("6d502675-1a79-4e1e-a413-816e6154ca4f")
-    protected FileDialog dialog = null;
-
     @objid ("ebba1f1e-695f-4916-badb-e96ac1d8f35b")
     private File currentFile = null;
+
+    @objid ("32959919-0cd0-40d4-8f3a-a4de429d23c7")
+    private Text text = null;
+
+    @objid ("80afaa15-1ad5-4f62-b356-96eb4578ec70")
+    private Button searchButton = null;
+
+    @objid ("6e3b10cf-2216-4b6b-9b2a-bd8ebeb8506c")
+    protected FileDialog dialog = null;
 
     /**
      * This method returns the chosen file
@@ -93,8 +95,9 @@ public class FileChooserComposite extends Composite {
         this.text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         this.text.setEnabled(true);
         this.searchButton = new Button(this, SWT.NONE);
-        File file = new File(ResourcesManager.getInstance().getImage("directory.png"));      
-        //        this.searchButton.setImage(new Image(Display.getDefault(), file.getAbsolutePath()));
+        File file = new File(ResourcesManager.getInstance().getImage("directory.png"));  
+        Image directory = new Image(Display.getDefault(), file.getAbsolutePath());
+        this.searchButton.setImage(directory);
     }
 
     /**
