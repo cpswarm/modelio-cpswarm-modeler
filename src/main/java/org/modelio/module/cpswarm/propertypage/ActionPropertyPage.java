@@ -1,5 +1,5 @@
 /**
- * Java Class : CommonPropertyPage.java
+ * Java Class : ActionPropertyPage.java
  *
  * Description :
  *
@@ -21,10 +21,9 @@
  *    under the License.
  *
  * @category   PropertyDefinition page
- * @package    com.modeliosoft.modelio.sysml.gui.propertypage
+ * @package    org.modelio.module.cpswarm.propertypage
  * @author     Modelio
  * @license    http://www.apache.org/licenses/LICENSE-2.0
- * @version    2.0.08
  **/
 package org.modelio.module.cpswarm.propertypage;
 
@@ -41,7 +40,7 @@ import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.module.cpswarm.impl.CPSWarmModule;
 
 /**
- * This class handles the properties common to all SysML stereotypes
+ * This class handles the properties related to Action
  * @author ebrosse
  */
 @objid ("9c1f12b4-52ec-4fb3-9686-b14c44178d90")

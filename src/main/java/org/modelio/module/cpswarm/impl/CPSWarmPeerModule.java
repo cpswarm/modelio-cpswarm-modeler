@@ -4,6 +4,7 @@ import java.io.File;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.context.configuration.IModuleAPIConfiguration;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
+import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.module.cpswarm.api.ICPSWarmPeerModule;
 import org.modelio.module.cpswarm.generator.SCXMLGeneration;
 import org.modelio.module.cpswarm.utils.FileUtils;
@@ -80,6 +81,18 @@ public class CPSWarmPeerModule implements ICPSWarmPeerModule {
         SCXMLGeneration scxmlGen = new SCXMLGeneration(stateMachine);
         StringBuffer content = scxmlGen.generate();        
         FileUtils.write(file, content);
+    }
+
+    @objid ("4d4ca74c-6282-4dbb-9a75-c951d8a5b689")
+    @Override
+    public void generateCommunicationConfigurartion(Classifier CPS) {
+        // TODO Auto-generated method stub
+    }
+
+    @objid ("2eb833fb-8385-4319-919b-da8afd56091e")
+    @Override
+    public void generateSwarmComposition(Classifier swarm) {
+        // TODO Auto-generated method stub
     }
 
 
