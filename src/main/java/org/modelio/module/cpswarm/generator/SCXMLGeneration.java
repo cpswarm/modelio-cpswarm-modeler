@@ -144,7 +144,7 @@ public class SCXMLGeneration extends Generator implements IGenerator {
             generateAction(note);
         
         
-        note = processed.getNoteContent(ICPSWarmPeerModule.MODULE_NAME, CPSWarmNoteTypes.SERVICE);  
+        note = processed.getNoteContent(ICPSWarmPeerModule.MODULE_NAME, CPSWarmNoteTypes.SERVICE);   
         if ((note != null) && (!(note.equals(""))))
             generateService(note);
     }
