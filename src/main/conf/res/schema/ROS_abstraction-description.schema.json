@@ -1,0 +1,251 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": ["runtime-env"],
+	"properties": {
+		"runtime-env": {
+			"const": "ROS"
+		},
+		"sensors/actuators": { 
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/ros_component"
+			}
+		},
+		"functions": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/function"
+			}
+		}
+	},
+	"additionalProperties": false,
+	"definitions": {
+		"msg_field": {
+			"type": "object",
+			"required": ["class", "name"],
+			"properties": {
+				"class": {"type": "string"},
+				"name": {"type": "string"},
+				"description": {"type": "string"}
+			},
+			"additionalProperties": false
+		},
+		"constant_field": {
+			"type": "object",
+			"required": ["class", "name", "value"],
+			"properties": {
+				"class": {"type": "string"},
+				"name": {"type": "string"},
+				"value": {"type": ["number", "string", "boolean", "array"]},
+				"description": {"type": "string"}
+			},
+			"additionalProperties": false
+		},
+		"service_component": {
+			"type": "object",
+			"required": ["fields"],
+			"properties": {
+				"constants": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/constant_field"
+					}
+				},
+				"fields": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/msg_field"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"message": {
+			"type": "object",
+			"required": ["topic", "msg_def"],
+			"properties": {
+				"topic": {"type": "string"},
+				"msg_def": {
+					"type": "object",
+					"required": ["class"],
+					"properties": {
+						"class": {"type": "string"},
+						"constants": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/constant_field"
+							}
+						},
+						"fields": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/msg_field"
+							}
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"service": {
+			"type": "object",
+			"required": ["name","class"],
+			"properties": {
+				"name": {"type": "string"},
+				"class": {"type": "string"},
+				"request": {
+					"$ref": "#/definitions/service_component"
+				},
+				"response": {
+					"$ref": "#/definitions/service_component"
+				}
+			},
+			"additionalProperties": false
+		},
+		"action": {
+			"required": ["name","class"],
+			"properties": {
+				"name": {"type": "string"},
+				"class": {"type": "string"},
+				"goal": {
+					"type": "object",
+					"required": ["fields"],
+					"properties": {
+						"fields": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/msg_field"
+							}
+						}
+					}
+				},
+				"result": {
+					"type": "object",
+					"required": ["fields"],
+					"properties": {
+						"fields": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/msg_field"
+							}
+						}
+					}
+				},
+				"feedback": {
+					"type": "object",
+					"required": ["fields"],
+					"properties": {
+						"fields": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/msg_field"
+							}
+						}
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"ros_component": {
+			"type": "object",
+			"required": ["name", "description", "category", "api"],
+			"properties": {
+				"name": {"type": "string"},
+				"description": {"type": "string"},
+				"category": {
+					"type": "string",
+					"enum": ["Sensor", "Actuator", "Virtual"]
+				},
+				"api": {
+					"type": "object",
+					"properties": {
+						"inputs": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/message"
+							}
+						},
+						"outputs": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/message"
+							}
+						},
+						"services": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/service"
+							}
+						}
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"function": {
+			"type": "object",
+			"required": ["name", "description", "api"],
+			"properties": {
+				"name": {"type": "string"},
+				"description": {"type": "string"},
+				"dependencies": {
+					"type": "array",
+						"items": {
+							"$ref": "#/definitions/message"
+						}
+				},
+				"api": {
+					"type": "object",
+					"required": ["comm_paradigm", "comm_model"],
+					"properties": {
+						"inputs": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/message"
+							}
+						},
+						"outputs": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/message"
+							}
+						},
+						"comm_paradigm": {
+							"type": "string",
+							"enum": ["rosaction", "rosservice"]
+						}
+					},
+					"allOf":[
+						{
+							"if": {
+								"properties": {"comm_paradigm": {"const": "rosaction"}}
+							},
+							"then": {
+								"properties": {
+									"comm_model":{
+										"$ref": "#/definitions/action" 
+									}
+								}
+							}
+						},
+						{
+							"if": {
+								"properties": {"comm_paradigm": {"const": "rosservice"}}
+							},
+							"then": {
+								"properties": {
+									"comm_model":{
+										"$ref": "#/definitions/service" 
+									}
+								}
+							}
+						}
+					]
+				},
+				"additionalProperties": false
+			}
+		}
+	}
+}
