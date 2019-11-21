@@ -64,6 +64,15 @@
                 <Icon path="res/icon/gui/actuator.png"/>
                 <Image path=""/>
             </Stereotype>
+            <Stereotype name="OptimisedParam" metaclass="Standard.Parameter" owner-stereotype="" is-hidden="false" label="%stereotype.OptimisedParam.label" uid="00cbcbbd-41e2-4fa0-861f-68a5eb4856a3" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+                <TagTypes>
+                    <TagType name="step" uid="6511b16e-55ae-4123-9080-828820998652" label="%tagtype.step.label" parameter-card="1" is-hidden="false" is-signed="false"/>
+                    <TagType name="rangeMin" uid="74f07465-11e4-423b-a915-7f924aede3a3" label="%tagtype.rangeMin.label" parameter-card="1" is-hidden="false" is-signed="false"/>
+                    <TagType name="rangeMax" uid="68b50d60-b7f4-49c4-baa9-246c94a7eb96" label="%tagtype.rangeMax.label" parameter-card="1" is-hidden="false" is-signed="false"/>
+                </TagTypes>
+            </Stereotype>
         </Profile>
         <Profile uid="8e8834de-b0af-4b68-8350-7eca4cf46118" id="CPSWarm.diagram">
             <Stereotype name="Environment_Defintion" metaclass="Standard.ClassDiagram" owner-stereotype="" is-hidden="true" label="%stereotype.Environment_Defintion.label" uid="ce8245e0-8e1c-4933-bfea-65fd07125278" is-abstract="false">

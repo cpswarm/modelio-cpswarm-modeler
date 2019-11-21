@@ -162,7 +162,7 @@ public class SCXMLGeneration extends Generator implements IGenerator {
                 + "xmlns:cpswarm=\"http://my.custom-actions.domain/cpswarm/CUSTOM\" "
                 + "version=\"1.0\" "
                 + "initial=\"" + initName + "\" "
-                + "name=\"" + this.sm.getName() + "\"");
+                + "name=\"" + this.sm.getName() + "\">");
         addEmptyLine();
         increaseIndent();
     }
